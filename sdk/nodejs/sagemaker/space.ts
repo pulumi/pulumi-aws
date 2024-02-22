@@ -72,6 +72,10 @@ export class Space extends pulumi.CustomResource {
      */
     public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
     /**
+     * A collection of ownership settings. See Ownership Settings below.
+     */
+    public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
+    /**
      * The name of the space that appears in the SageMaker Studio UI.
      */
     public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
@@ -83,6 +87,10 @@ export class Space extends pulumi.CustomResource {
      * A collection of space settings. See Space Settings below.
      */
     public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSettings | undefined>;
+    /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     */
+    public readonly spaceSharingSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSharingSettings | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -114,9 +122,11 @@ export class Space extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
+            resourceInputs["ownershipSettings"] = state ? state.ownershipSettings : undefined;
             resourceInputs["spaceDisplayName"] = state ? state.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
             resourceInputs["spaceSettings"] = state ? state.spaceSettings : undefined;
+            resourceInputs["spaceSharingSettings"] = state ? state.spaceSharingSettings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
@@ -129,9 +139,11 @@ export class Space extends pulumi.CustomResource {
                 throw new Error("Missing required property 'spaceName'");
             }
             resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["ownershipSettings"] = args ? args.ownershipSettings : undefined;
             resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
+            resourceInputs["spaceSharingSettings"] = args ? args.spaceSharingSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemUid"] = undefined /*out*/;
@@ -162,6 +174,10 @@ export interface SpaceState {
      */
     homeEfsFileSystemUid?: pulumi.Input<string>;
     /**
+     * A collection of ownership settings. See Ownership Settings below.
+     */
+    ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
+    /**
      * The name of the space that appears in the SageMaker Studio UI.
      */
     spaceDisplayName?: pulumi.Input<string>;
@@ -173,6 +189,10 @@ export interface SpaceState {
      * A collection of space settings. See Space Settings below.
      */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
+    /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     */
+    spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -198,6 +218,10 @@ export interface SpaceArgs {
      */
     domainId: pulumi.Input<string>;
     /**
+     * A collection of ownership settings. See Ownership Settings below.
+     */
+    ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
+    /**
      * The name of the space that appears in the SageMaker Studio UI.
      */
     spaceDisplayName?: pulumi.Input<string>;
@@ -209,6 +233,10 @@ export interface SpaceArgs {
      * A collection of space settings. See Space Settings below.
      */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
+    /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     */
+    spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

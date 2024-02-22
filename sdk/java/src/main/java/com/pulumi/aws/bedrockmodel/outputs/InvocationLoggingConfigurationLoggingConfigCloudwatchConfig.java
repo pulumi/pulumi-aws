@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
     /**
-     * @return S3 configuration for delivering a large amount of data. See `s3_config`.
+     * @return S3 configuration for delivering a large amount of data.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config largeDataDeliveryS3Config;
@@ -23,16 +23,14 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
      */
     private @Nullable String logGroupName;
     /**
-     * @return IAM Role ARN.
-     * 
-     * The following arguments are optional:
+     * @return The role ARN.
      * 
      */
     private @Nullable String roleArn;
 
     private InvocationLoggingConfigurationLoggingConfigCloudwatchConfig() {}
     /**
-     * @return S3 configuration for delivering a large amount of data. See `s3_config`.
+     * @return S3 configuration for delivering a large amount of data.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config> largeDataDeliveryS3Config() {
@@ -46,9 +44,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
         return Optional.ofNullable(this.logGroupName);
     }
     /**
-     * @return IAM Role ARN.
-     * 
-     * The following arguments are optional:
+     * @return The role ARN.
      * 
      */
     public Optional<String> roleArn() {

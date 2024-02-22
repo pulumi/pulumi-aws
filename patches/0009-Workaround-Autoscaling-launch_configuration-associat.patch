@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:34:56 +0000
-Subject: [PATCH 09/41] Workaround Autoscaling launch_configuration
+Subject: [PATCH 09/45] Workaround Autoscaling launch_configuration
  associate_public_ip_address
 
 - Disable computation of property until fixed.

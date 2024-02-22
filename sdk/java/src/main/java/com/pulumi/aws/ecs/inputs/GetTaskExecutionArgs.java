@@ -41,6 +41,21 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
+     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * 
+     */
+    @Import(name="clientToken")
+    private @Nullable Output<String> clientToken;
+
+    /**
+     * @return An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * 
+     */
+    public Optional<Output<String>> clientToken() {
+        return Optional.ofNullable(this.clientToken);
+    }
+
+    /**
      * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
      * 
      */
@@ -288,6 +303,7 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
 
     private GetTaskExecutionArgs(GetTaskExecutionArgs $) {
         this.capacityProviderStrategies = $.capacityProviderStrategies;
+        this.clientToken = $.clientToken;
         this.cluster = $.cluster;
         this.desiredCount = $.desiredCount;
         this.enableEcsManagedTags = $.enableEcsManagedTags;
@@ -353,6 +369,27 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder capacityProviderStrategies(GetTaskExecutionCapacityProviderStrategyArgs... capacityProviderStrategies) {
             return capacityProviderStrategies(List.of(capacityProviderStrategies));
+        }
+
+        /**
+         * @param clientToken An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientToken(@Nullable Output<String> clientToken) {
+            $.clientToken = clientToken;
+            return this;
+        }
+
+        /**
+         * @param clientToken An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientToken(String clientToken) {
+            return clientToken(Output.of(clientToken));
         }
 
         /**

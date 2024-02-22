@@ -405,6 +405,10 @@ type Cluster struct {
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
+	// The ID of the Directory Service Active Directory domain to create the cluster in.
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	// The name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIamRoleName pulumi.StringPtrOutput `pulumi:"domainIamRoleName"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrOutput `pulumi:"enableGlobalWriteForwarding"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
@@ -572,6 +576,10 @@ type clusterState struct {
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The ID of the Directory Service Active Directory domain to create the cluster in.
+	Domain *string `pulumi:"domain"`
+	// The name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding *bool `pulumi:"enableGlobalWriteForwarding"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
@@ -699,6 +707,10 @@ type ClusterState struct {
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
+	// The ID of the Directory Service Active Directory domain to create the cluster in.
+	Domain pulumi.StringPtrInput
+	// The name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIamRoleName pulumi.StringPtrInput
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
@@ -826,6 +838,10 @@ type clusterArgs struct {
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The ID of the Directory Service Active Directory domain to create the cluster in.
+	Domain *string `pulumi:"domain"`
+	// The name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding *bool `pulumi:"enableGlobalWriteForwarding"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
@@ -935,6 +951,10 @@ type ClusterArgs struct {
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
+	// The ID of the Directory Service Active Directory domain to create the cluster in.
+	Domain pulumi.StringPtrInput
+	// The name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIamRoleName pulumi.StringPtrInput
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
@@ -1191,6 +1211,16 @@ func (o ClusterOutput) DeleteAutomatedBackups() pulumi.BoolPtrOutput {
 // The default is `false`.
 func (o ClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Directory Service Active Directory domain to create the cluster in.
+func (o ClusterOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The name of the IAM role to be used when making API calls to the Directory Service.
+func (o ClusterOutput) DomainIamRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DomainIamRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.

@@ -1801,6 +1801,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/provisionedModelThroughput",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput": "ProvisionedModelThroughput"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrockmodel/invocationLoggingConfiguration",
   "fqn": "pulumi_aws.bedrockmodel",
   "classes": {
@@ -2141,6 +2149,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/keyGroup:KeyGroup": "KeyGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/keyValueStore",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/keyValueStore:KeyValueStore": "KeyValueStore"
   }
  },
  {
@@ -8485,6 +8501,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/dataShareAuthorization:DataShareAuthorization": "DataShareAuthorization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/dataShareConsumerAssociation",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation": "DataShareConsumerAssociation"
   }
  },
  {

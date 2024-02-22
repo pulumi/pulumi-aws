@@ -22,6 +22,8 @@ import com.pulumi.aws.rds.inputs.GetInstancesArgs;
 import com.pulumi.aws.rds.inputs.GetInstancesPlainArgs;
 import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
 import com.pulumi.aws.rds.inputs.GetOrderableDbInstancePlainArgs;
+import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+import com.pulumi.aws.rds.inputs.GetParameterGroupPlainArgs;
 import com.pulumi.aws.rds.inputs.GetProxyArgs;
 import com.pulumi.aws.rds.inputs.GetProxyPlainArgs;
 import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
@@ -39,6 +41,7 @@ import com.pulumi.aws.rds.outputs.GetEventCategoriesResult;
 import com.pulumi.aws.rds.outputs.GetInstanceResult;
 import com.pulumi.aws.rds.outputs.GetInstancesResult;
 import com.pulumi.aws.rds.outputs.GetOrderableDbInstanceResult;
+import com.pulumi.aws.rds.outputs.GetParameterGroupResult;
 import com.pulumi.aws.rds.outputs.GetProxyResult;
 import com.pulumi.aws.rds.outputs.GetReservedInstanceOfferingResult;
 import com.pulumi.aws.rds.outputs.GetSnapshotResult;
@@ -2687,6 +2690,154 @@ public final class RdsFunctions {
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getOrderableDbInstance:getOrderableDbInstance", TypeShape.of(GetOrderableDbInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetParameterGroupResult> getParameterGroup(GetParameterGroupArgs args) {
+        return getParameterGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupResult> getParameterGroupPlain(GetParameterGroupPlainArgs args) {
+        return getParameterGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetParameterGroupResult> getParameterGroup(GetParameterGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getParameterGroup:getParameterGroup", TypeShape.of(GetParameterGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a database parameter group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getParameterGroup(GetParameterGroupArgs.builder()
+     *             .name(&#34;default.postgres15&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupResult> getParameterGroupPlain(GetParameterGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getParameterGroup:getParameterGroup", TypeShape.of(GetParameterGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a DB Proxy.

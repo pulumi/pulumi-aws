@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.SpaceOwnershipSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSharingSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -63,6 +65,21 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    @Import(name="ownershipSettings")
+    private @Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings;
+
+    /**
+     * @return A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    public Optional<Output<SpaceOwnershipSettingsArgs>> ownershipSettings() {
+        return Optional.ofNullable(this.ownershipSettings);
+    }
+
+    /**
      * The name of the space that appears in the SageMaker Studio UI.
      * 
      */
@@ -105,6 +122,21 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<SpaceSpaceSettingsArgs>> spaceSettings() {
         return Optional.ofNullable(this.spaceSettings);
+    }
+
+    /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    @Import(name="spaceSharingSettings")
+    private @Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings;
+
+    /**
+     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    public Optional<Output<SpaceSpaceSharingSettingsArgs>> spaceSharingSettings() {
+        return Optional.ofNullable(this.spaceSharingSettings);
     }
 
     /**
@@ -166,9 +198,11 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.domainId = $.domainId;
         this.homeEfsFileSystemUid = $.homeEfsFileSystemUid;
+        this.ownershipSettings = $.ownershipSettings;
         this.spaceDisplayName = $.spaceDisplayName;
         this.spaceName = $.spaceName;
         this.spaceSettings = $.spaceSettings;
+        this.spaceSharingSettings = $.spaceSharingSettings;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.url = $.url;
@@ -256,6 +290,27 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(@Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings) {
+            $.ownershipSettings = ownershipSettings;
+            return this;
+        }
+
+        /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(SpaceOwnershipSettingsArgs ownershipSettings) {
+            return ownershipSettings(Output.of(ownershipSettings));
+        }
+
+        /**
          * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
          * 
          * @return builder
@@ -316,6 +371,27 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder spaceSettings(SpaceSpaceSettingsArgs spaceSettings) {
             return spaceSettings(Output.of(spaceSettings));
+        }
+
+        /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(@Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings) {
+            $.spaceSharingSettings = spaceSharingSettings;
+            return this;
+        }
+
+        /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(SpaceSpaceSharingSettingsArgs spaceSharingSettings) {
+            return spaceSharingSettings(Output.of(spaceSharingSettings));
         }
 
         /**

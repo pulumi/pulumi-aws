@@ -36,6 +36,8 @@ class ClusterArgs:
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -94,6 +96,8 @@ class ClusterArgs:
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -162,6 +166,10 @@ class ClusterArgs:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_iam_role_name is not None:
+            pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_global_write_forwarding is not None:
             pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
@@ -458,6 +466,30 @@ class ClusterArgs:
     @deletion_protection.setter
     def deletion_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deletion_protection", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Directory Service Active Directory domain to create the cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="domainIamRoleName")
+    def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
+
+    @domain_iam_role_name.setter
+    def domain_iam_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_iam_role_name", value)
 
     @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
@@ -852,6 +884,8 @@ class _ClusterState:
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -918,6 +952,8 @@ class _ClusterState:
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -997,6 +1033,10 @@ class _ClusterState:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_iam_role_name is not None:
+            pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_global_write_forwarding is not None:
             pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
@@ -1322,6 +1362,30 @@ class _ClusterState:
     @deletion_protection.setter
     def deletion_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deletion_protection", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Directory Service Active Directory domain to create the cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="domainIamRoleName")
+    def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
+
+    @domain_iam_role_name.setter
+    def domain_iam_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_iam_role_name", value)
 
     @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
@@ -1804,6 +1868,8 @@ class Cluster(pulumi.CustomResource):
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2060,6 +2126,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -2328,6 +2396,8 @@ class Cluster(pulumi.CustomResource):
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2387,6 +2457,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["db_system_id"] = db_system_id
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
+            __props__.__dict__["domain"] = domain
+            __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
             __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
             __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
@@ -2461,6 +2533,8 @@ class Cluster(pulumi.CustomResource):
             db_system_id: Optional[pulumi.Input[str]] = None,
             delete_automated_backups: Optional[pulumi.Input[bool]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
+            domain: Optional[pulumi.Input[str]] = None,
+            domain_iam_role_name: Optional[pulumi.Input[str]] = None,
             enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
             enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2532,6 +2606,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -2595,6 +2671,8 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["db_system_id"] = db_system_id
         __props__.__dict__["delete_automated_backups"] = delete_automated_backups
         __props__.__dict__["deletion_protection"] = deletion_protection
+        __props__.__dict__["domain"] = domain
+        __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
         __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
         __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
         __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
@@ -2800,6 +2878,22 @@ class Cluster(pulumi.CustomResource):
         The default is `false`.
         """
         return pulumi.get(self, "deletion_protection")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Directory Service Active Directory domain to create the cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainIamRoleName")
+    def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
 
     @property
     @pulumi.getter(name="enableGlobalWriteForwarding")

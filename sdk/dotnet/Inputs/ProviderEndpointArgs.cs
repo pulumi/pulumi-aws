@@ -267,6 +267,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("cloudfrontkeyvaluestore")]
+        public Input<string>? Cloudfrontkeyvaluestore { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudhsm")]
         public Input<string>? Cloudhsm { get; set; }
 
@@ -461,6 +467,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("costexplorer")]
         public Input<string>? Costexplorer { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("costoptimizationhub")]
+        public Input<string>? Costoptimizationhub { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

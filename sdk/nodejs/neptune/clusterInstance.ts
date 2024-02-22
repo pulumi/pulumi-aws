@@ -161,6 +161,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     */
+    public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether the neptune cluster is encrypted.
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
@@ -217,6 +221,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["promotionTier"] = state ? state.promotionTier : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
             resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -246,6 +251,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -355,6 +361,10 @@ export interface ClusterInstanceState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     */
+    skipFinalSnapshot?: pulumi.Input<boolean>;
+    /**
      * Specifies whether the neptune cluster is encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean>;
@@ -448,6 +458,10 @@ export interface ClusterInstanceArgs {
      * Bool to control if instance is publicly accessible. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     */
+    skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

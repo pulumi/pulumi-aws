@@ -15,12 +15,10 @@ namespace Pulumi.Aws.BedrockModel.Outputs
     {
         /// <summary>
         /// S3 bucket name.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public readonly string? BucketName;
         /// <summary>
-        /// S3 object key prefix.
+        /// S3 prefix.
         /// </summary>
         public readonly string? KeyPrefix;
 

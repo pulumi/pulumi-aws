@@ -4,6 +4,8 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs;
+import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs;
+import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceTlsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -79,6 +81,36 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         return this.portName;
     }
 
+    /**
+     * Configuration timeouts for Service Connect
+     * 
+     */
+    @Import(name="timeout")
+    private @Nullable Output<ServiceServiceConnectConfigurationServiceTimeoutArgs> timeout;
+
+    /**
+     * @return Configuration timeouts for Service Connect
+     * 
+     */
+    public Optional<Output<ServiceServiceConnectConfigurationServiceTimeoutArgs>> timeout() {
+        return Optional.ofNullable(this.timeout);
+    }
+
+    /**
+     * The configuration for enabling Transport Layer Security (TLS)
+     * 
+     */
+    @Import(name="tls")
+    private @Nullable Output<ServiceServiceConnectConfigurationServiceTlsArgs> tls;
+
+    /**
+     * @return The configuration for enabling Transport Layer Security (TLS)
+     * 
+     */
+    public Optional<Output<ServiceServiceConnectConfigurationServiceTlsArgs>> tls() {
+        return Optional.ofNullable(this.tls);
+    }
+
     private ServiceServiceConnectConfigurationServiceArgs() {}
 
     private ServiceServiceConnectConfigurationServiceArgs(ServiceServiceConnectConfigurationServiceArgs $) {
@@ -86,6 +118,8 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         this.discoveryName = $.discoveryName;
         this.ingressPortOverride = $.ingressPortOverride;
         this.portName = $.portName;
+        this.timeout = $.timeout;
+        this.tls = $.tls;
     }
 
     public static Builder builder() {
@@ -198,6 +232,48 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
          */
         public Builder portName(String portName) {
             return portName(Output.of(portName));
+        }
+
+        /**
+         * @param timeout Configuration timeouts for Service Connect
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeout(@Nullable Output<ServiceServiceConnectConfigurationServiceTimeoutArgs> timeout) {
+            $.timeout = timeout;
+            return this;
+        }
+
+        /**
+         * @param timeout Configuration timeouts for Service Connect
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeout(ServiceServiceConnectConfigurationServiceTimeoutArgs timeout) {
+            return timeout(Output.of(timeout));
+        }
+
+        /**
+         * @param tls The configuration for enabling Transport Layer Security (TLS)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tls(@Nullable Output<ServiceServiceConnectConfigurationServiceTlsArgs> tls) {
+            $.tls = tls;
+            return this;
+        }
+
+        /**
+         * @param tls The configuration for enabling Transport Layer Security (TLS)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tls(ServiceServiceConnectConfigurationServiceTlsArgs tls) {
+            return tls(Output.of(tls));
         }
 
         public ServiceServiceConnectConfigurationServiceArgs build() {

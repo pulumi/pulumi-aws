@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS region. For example:
+ * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
  * 
  * ```sh
  *  $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
@@ -117,14 +117,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration")
 public class InvocationLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The logging configuration values to set. See `logging_config`.
+     * The logging configuration values to set.
      * 
      */
     @Export(name="loggingConfig", refs={InvocationLoggingConfigurationLoggingConfig.class}, tree="[0]")
     private Output</* @Nullable */ InvocationLoggingConfigurationLoggingConfig> loggingConfig;
 
     /**
-     * @return The logging configuration values to set. See `logging_config`.
+     * @return The logging configuration values to set.
      * 
      */
     public Output<Optional<InvocationLoggingConfigurationLoggingConfig>> loggingConfig() {

@@ -57,12 +57,12 @@ export class AccountSettingDefault extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly principalArn!: pulumi.Output<string>;
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -101,12 +101,12 @@ export class AccountSettingDefault extends pulumi.CustomResource {
  */
 export interface AccountSettingDefaultState {
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      */
     name?: pulumi.Input<string>;
     principalArn?: pulumi.Input<string>;
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      */
     value?: pulumi.Input<string>;
 }
@@ -116,11 +116,11 @@ export interface AccountSettingDefaultState {
  */
 export interface AccountSettingDefaultArgs {
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      */
     name?: pulumi.Input<string>;
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      */
     value: pulumi.Input<string>;
 }

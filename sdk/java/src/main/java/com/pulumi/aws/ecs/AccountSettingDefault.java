@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecs/accountSettingDefault:AccountSettingDefault")
 public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * @return Name of the account setting to set.
      * 
      */
     public Output<String> name() {
@@ -82,14 +82,14 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
         return this.principalArn;
     }
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return State of the setting. Valid values are `enabled` and `disabled`.
+     * @return State of the setting.
      * 
      */
     public Output<String> value() {

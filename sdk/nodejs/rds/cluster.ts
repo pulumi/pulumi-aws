@@ -331,6 +331,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     */
+    public readonly domain!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
+    /**
      * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      */
     public readonly enableGlobalWriteForwarding!: pulumi.Output<boolean | undefined>;
@@ -516,6 +524,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbSystemId"] = state ? state.dbSystemId : undefined;
             resourceInputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainIamRoleName"] = state ? state.domainIamRoleName : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = state ? state.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = state ? state.enableHttpEndpoint : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
@@ -577,6 +587,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbSystemId"] = args ? args.dbSystemId : undefined;
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = args ? args.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
@@ -715,6 +727,14 @@ export interface ClusterState {
      * The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    domainIamRoleName?: pulumi.Input<string>;
     /**
      * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      */
@@ -951,6 +971,14 @@ export interface ClusterArgs {
      * The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    domainIamRoleName?: pulumi.Input<string>;
     /**
      * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      */

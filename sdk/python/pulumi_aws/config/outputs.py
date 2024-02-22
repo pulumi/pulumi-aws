@@ -279,6 +279,7 @@ class Endpoints(dict):
                  cloudcontrolapi: Optional[str] = None,
                  cloudformation: Optional[str] = None,
                  cloudfront: Optional[str] = None,
+                 cloudfrontkeyvaluestore: Optional[str] = None,
                  cloudhsm: Optional[str] = None,
                  cloudhsmv2: Optional[str] = None,
                  cloudsearch: Optional[str] = None,
@@ -312,6 +313,7 @@ class Endpoints(dict):
                  controltower: Optional[str] = None,
                  costandusagereportservice: Optional[str] = None,
                  costexplorer: Optional[str] = None,
+                 costoptimizationhub: Optional[str] = None,
                  cur: Optional[str] = None,
                  customerprofiles: Optional[str] = None,
                  databasemigration: Optional[str] = None,
@@ -551,6 +553,7 @@ class Endpoints(dict):
         :param str cloudcontrolapi: Use this to override the default service endpoint URL
         :param str cloudformation: Use this to override the default service endpoint URL
         :param str cloudfront: Use this to override the default service endpoint URL
+        :param str cloudfrontkeyvaluestore: Use this to override the default service endpoint URL
         :param str cloudhsm: Use this to override the default service endpoint URL
         :param str cloudhsmv2: Use this to override the default service endpoint URL
         :param str cloudsearch: Use this to override the default service endpoint URL
@@ -584,6 +587,7 @@ class Endpoints(dict):
         :param str controltower: Use this to override the default service endpoint URL
         :param str costandusagereportservice: Use this to override the default service endpoint URL
         :param str costexplorer: Use this to override the default service endpoint URL
+        :param str costoptimizationhub: Use this to override the default service endpoint URL
         :param str cur: Use this to override the default service endpoint URL
         :param str customerprofiles: Use this to override the default service endpoint URL
         :param str databasemigration: Use this to override the default service endpoint URL
@@ -865,6 +869,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "cloudformation", cloudformation)
         if cloudfront is not None:
             pulumi.set(__self__, "cloudfront", cloudfront)
+        if cloudfrontkeyvaluestore is not None:
+            pulumi.set(__self__, "cloudfrontkeyvaluestore", cloudfrontkeyvaluestore)
         if cloudhsm is not None:
             pulumi.set(__self__, "cloudhsm", cloudhsm)
         if cloudhsmv2 is not None:
@@ -931,6 +937,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "costandusagereportservice", costandusagereportservice)
         if costexplorer is not None:
             pulumi.set(__self__, "costexplorer", costexplorer)
+        if costoptimizationhub is not None:
+            pulumi.set(__self__, "costoptimizationhub", costoptimizationhub)
         if cur is not None:
             pulumi.set(__self__, "cur", cur)
         if customerprofiles is not None:
@@ -1662,6 +1670,14 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def cloudfrontkeyvaluestore(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "cloudfrontkeyvaluestore")
+
+    @property
+    @pulumi.getter
     def cloudhsm(self) -> Optional[str]:
         """
         Use this to override the default service endpoint URL
@@ -1923,6 +1939,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "costexplorer")
+
+    @property
+    @pulumi.getter
+    def costoptimizationhub(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "costoptimizationhub")
 
     @property
     @pulumi.getter

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ecs
     public partial class AccountSettingDefault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        /// Name of the account setting to set.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> PrincipalArn { get; private set; } = null!;
 
         /// <summary>
-        /// State of the setting. Valid values are `enabled` and `disabled`.
+        /// State of the setting.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -107,13 +107,13 @@ namespace Pulumi.Aws.Ecs
     public sealed class AccountSettingDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        /// Name of the account setting to set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// State of the setting. Valid values are `enabled` and `disabled`.
+        /// State of the setting.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class AccountSettingDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        /// Name of the account setting to set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PrincipalArn { get; set; }
 
         /// <summary>
-        /// State of the setting. Valid values are `enabled` and `disabled`.
+        /// State of the setting.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

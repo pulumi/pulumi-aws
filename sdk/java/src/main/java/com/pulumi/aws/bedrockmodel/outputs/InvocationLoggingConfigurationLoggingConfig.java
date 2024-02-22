@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InvocationLoggingConfigurationLoggingConfig {
     /**
-     * @return CloudWatch logging configuration. See `cloudwatch_config`.
+     * @return CloudWatch logging configuration.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig;
@@ -30,7 +30,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
      */
     private Boolean imageDataDeliveryEnabled;
     /**
-     * @return S3 configuration for storing log data. See `s3_config`.
+     * @return S3 configuration for storing log data.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config;
@@ -42,7 +42,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
 
     private InvocationLoggingConfigurationLoggingConfig() {}
     /**
-     * @return CloudWatch logging configuration. See `cloudwatch_config`.
+     * @return CloudWatch logging configuration.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigCloudwatchConfig> cloudwatchConfig() {
@@ -63,7 +63,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
         return this.imageDataDeliveryEnabled;
     }
     /**
-     * @return S3 configuration for storing log data. See `s3_config`.
+     * @return S3 configuration for storing log data.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigS3Config> s3Config() {

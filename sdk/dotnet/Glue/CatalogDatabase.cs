@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         Name = "MyCatalogDatabase",
     ///     });
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
+    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
     ///         CreateTableDefaultPermissions = new[]
     ///         {
@@ -95,6 +95,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// </summary>
+        [Output("federatedDatabase")]
+        public Output<Outputs.CatalogDatabaseFederatedDatabase?> FederatedDatabase { get; private set; } = null!;
 
         /// <summary>
         /// Location of the database (for example, an HDFS path).
@@ -207,6 +213,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// </summary>
+        [Input("federatedDatabase")]
+        public Input<Inputs.CatalogDatabaseFederatedDatabaseArgs>? FederatedDatabase { get; set; }
+
+        /// <summary>
         /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Input("locationUri")]
@@ -285,6 +297,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// </summary>
+        [Input("federatedDatabase")]
+        public Input<Inputs.CatalogDatabaseFederatedDatabaseGetArgs>? FederatedDatabase { get; set; }
 
         /// <summary>
         /// Location of the database (for example, an HDFS path).

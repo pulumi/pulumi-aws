@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'CatalogDatabaseCreateTableDefaultPermissionArgs',
     'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs',
+    'CatalogDatabaseFederatedDatabaseArgs',
     'CatalogDatabaseTargetDatabaseArgs',
     'CatalogTableOpenTableFormatInputArgs',
     'CatalogTableOpenTableFormatInputIcebergInputArgs',
@@ -134,6 +135,45 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
     @data_lake_principal_identifier.setter
     def data_lake_principal_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_principal_identifier", value)
+
+
+@pulumi.input_type
+class CatalogDatabaseFederatedDatabaseArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] connection_name: Name of the connection to the external metastore.
+        :param pulumi.Input[str] identifier: Unique identifier for the federated database.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the connection to the external metastore.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier for the federated database.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
 
 
 @pulumi.input_type

@@ -60,12 +60,16 @@ type Space struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings SpaceOwnershipSettingsPtrOutput `pulumi:"ownershipSettings"`
 	// The name of the space that appears in the SageMaker Studio UI.
 	SpaceDisplayName pulumi.StringPtrOutput `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings SpaceSpaceSettingsPtrOutput `pulumi:"spaceSettings"`
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings SpaceSpaceSharingSettingsPtrOutput `pulumi:"spaceSharingSettings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -122,12 +126,16 @@ type spaceState struct {
 	DomainId *string `pulumi:"domainId"`
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
 	// The name of the space that appears in the SageMaker Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName *string `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings *SpaceSpaceSettings `pulumi:"spaceSettings"`
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings *SpaceSpaceSharingSettings `pulumi:"spaceSharingSettings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -145,12 +153,16 @@ type SpaceState struct {
 	DomainId pulumi.StringPtrInput
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid pulumi.StringPtrInput
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings SpaceOwnershipSettingsPtrInput
 	// The name of the space that appears in the SageMaker Studio UI.
 	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringPtrInput
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings SpaceSpaceSettingsPtrInput
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings SpaceSpaceSharingSettingsPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -168,12 +180,16 @@ func (SpaceState) ElementType() reflect.Type {
 type spaceArgs struct {
 	// The ID of the associated Domain.
 	DomainId string `pulumi:"domainId"`
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
 	// The name of the space that appears in the SageMaker Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName string `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings *SpaceSpaceSettings `pulumi:"spaceSettings"`
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings *SpaceSpaceSharingSettings `pulumi:"spaceSharingSettings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -182,12 +198,16 @@ type spaceArgs struct {
 type SpaceArgs struct {
 	// The ID of the associated Domain.
 	DomainId pulumi.StringInput
+	// A collection of ownership settings. See Ownership Settings below.
+	OwnershipSettings SpaceOwnershipSettingsPtrInput
 	// The name of the space that appears in the SageMaker Studio UI.
 	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringInput
 	// A collection of space settings. See Space Settings below.
 	SpaceSettings SpaceSpaceSettingsPtrInput
+	// A collection of space sharing settings. See Space Sharing Settings below.
+	SpaceSharingSettings SpaceSpaceSharingSettingsPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -294,6 +314,11 @@ func (o SpaceOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
 }
 
+// A collection of ownership settings. See Ownership Settings below.
+func (o SpaceOutput) OwnershipSettings() SpaceOwnershipSettingsPtrOutput {
+	return o.ApplyT(func(v *Space) SpaceOwnershipSettingsPtrOutput { return v.OwnershipSettings }).(SpaceOwnershipSettingsPtrOutput)
+}
+
 // The name of the space that appears in the SageMaker Studio UI.
 func (o SpaceOutput) SpaceDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
@@ -307,6 +332,11 @@ func (o SpaceOutput) SpaceName() pulumi.StringOutput {
 // A collection of space settings. See Space Settings below.
 func (o SpaceOutput) SpaceSettings() SpaceSpaceSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceSpaceSettingsPtrOutput { return v.SpaceSettings }).(SpaceSpaceSettingsPtrOutput)
+}
+
+// A collection of space sharing settings. See Space Sharing Settings below.
+func (o SpaceOutput) SpaceSharingSettings() SpaceSpaceSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *Space) SpaceSpaceSharingSettingsPtrOutput { return v.SpaceSharingSettings }).(SpaceSpaceSharingSettingsPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

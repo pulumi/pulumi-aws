@@ -16,6 +16,8 @@ __all__ = [
     'RecordCidrRoutingPolicy',
     'RecordFailoverRoutingPolicy',
     'RecordGeolocationRoutingPolicy',
+    'RecordGeoproximityRoutingPolicy',
+    'RecordGeoproximityRoutingPolicyCoordinate',
     'RecordLatencyRoutingPolicy',
     'RecordWeightedRoutingPolicy',
     'ResolverEndpointIpAddress',
@@ -203,6 +205,99 @@ class RecordGeolocationRoutingPolicy(dict):
 
 
 @pulumi.output_type
+class RecordGeoproximityRoutingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "localZoneGroup":
+            suggest = "local_zone_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordGeoproximityRoutingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordGeoproximityRoutingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordGeoproximityRoutingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: Optional[str] = None,
+                 bias: Optional[int] = None,
+                 coordinates: Optional[Sequence['outputs.RecordGeoproximityRoutingPolicyCoordinate']] = None,
+                 local_zone_group: Optional[str] = None):
+        """
+        :param str aws_region: A AWS region where the resource is present.
+        :param int bias: Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        :param Sequence['RecordGeoproximityRoutingPolicyCoordinateArgs'] coordinates: Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        :param str local_zone_group: A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        """
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if coordinates is not None:
+            pulumi.set(__self__, "coordinates", coordinates)
+        if local_zone_group is not None:
+            pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        """
+        A AWS region where the resource is present.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[int]:
+        """
+        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        """
+        return pulumi.get(self, "bias")
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> Optional[Sequence['outputs.RecordGeoproximityRoutingPolicyCoordinate']]:
+        """
+        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        """
+        return pulumi.get(self, "coordinates")
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> Optional[str]:
+        """
+        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        """
+        return pulumi.get(self, "local_zone_group")
+
+
+@pulumi.output_type
+class RecordGeoproximityRoutingPolicyCoordinate(dict):
+    def __init__(__self__, *,
+                 latitude: str,
+                 longitude: str):
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> str:
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> str:
+        return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
 class RecordLatencyRoutingPolicy(dict):
     def __init__(__self__, *,
                  region: str):
@@ -299,7 +394,8 @@ class ResolverEndpointIpAddress(dict):
 class ResolverRuleTargetIp(dict):
     def __init__(__self__, *,
                  ip: str,
-                 port: Optional[int] = None):
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None):
         """
         :param str ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
         :param int port: The port at `ip` that you want to forward DNS queries to. Default value is `53`
@@ -307,6 +403,8 @@ class ResolverRuleTargetIp(dict):
         pulumi.set(__self__, "ip", ip)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -323,6 +421,11 @@ class ResolverRuleTargetIp(dict):
         The port at `ip` that you want to forward DNS queries to. Default value is `53`
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type

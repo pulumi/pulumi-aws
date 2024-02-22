@@ -59,6 +59,7 @@ __all__ = [
     'FieldLevelEncryptionProfileEncryptionEntities',
     'FieldLevelEncryptionProfileEncryptionEntitiesItem',
     'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns',
+    'KeyValueStoreTimeouts',
     'MonitoringSubscriptionMonitoringSubscription',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginRequestPolicyCookiesConfig',
@@ -2933,6 +2934,25 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(dict):
     @pulumi.getter
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class KeyValueStoreTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
 
 @pulumi.output_type

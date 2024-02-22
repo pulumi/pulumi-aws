@@ -19,6 +19,7 @@ export function getTaskExecution(args: GetTaskExecutionArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getTaskExecution:getTaskExecution", {
         "capacityProviderStrategies": args.capacityProviderStrategies,
+        "clientToken": args.clientToken,
         "cluster": args.cluster,
         "desiredCount": args.desiredCount,
         "enableEcsManagedTags": args.enableEcsManagedTags,
@@ -46,6 +47,10 @@ export interface GetTaskExecutionArgs {
      * Set of capacity provider strategies to use for the cluster. See below.
      */
     capacityProviderStrategies?: inputs.ecs.GetTaskExecutionCapacityProviderStrategy[];
+    /**
+     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     */
+    clientToken?: string;
     /**
      * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
      */
@@ -119,6 +124,7 @@ export interface GetTaskExecutionArgs {
  */
 export interface GetTaskExecutionResult {
     readonly capacityProviderStrategies?: outputs.ecs.GetTaskExecutionCapacityProviderStrategy[];
+    readonly clientToken?: string;
     readonly cluster: string;
     readonly desiredCount?: number;
     readonly enableEcsManagedTags?: boolean;
@@ -163,6 +169,10 @@ export interface GetTaskExecutionOutputArgs {
      * Set of capacity provider strategies to use for the cluster. See below.
      */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionCapacityProviderStrategyArgs>[]>;
+    /**
+     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     */
+    clientToken?: pulumi.Input<string>;
     /**
      * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
      */

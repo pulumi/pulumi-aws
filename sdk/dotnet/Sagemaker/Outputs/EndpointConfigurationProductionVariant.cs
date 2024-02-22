@@ -50,6 +50,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string ModelName;
         /// <summary>
+        /// Sets how the endpoint routes incoming traffic. See routing_config below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EndpointConfigurationProductionVariantRoutingConfig> RoutingConfigs;
+        /// <summary>
         /// Specifies configuration for how an endpoint performs asynchronous inference.
         /// </summary>
         public readonly Outputs.EndpointConfigurationProductionVariantServerlessConfig? ServerlessConfig;
@@ -82,6 +86,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string modelName,
 
+            ImmutableArray<Outputs.EndpointConfigurationProductionVariantRoutingConfig> routingConfigs,
+
             Outputs.EndpointConfigurationProductionVariantServerlessConfig? serverlessConfig,
 
             string? variantName,
@@ -97,6 +103,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             InstanceType = instanceType;
             ModelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
             ModelName = modelName;
+            RoutingConfigs = routingConfigs;
             ServerlessConfig = serverlessConfig;
             VariantName = variantName;
             VolumeSizeInGb = volumeSizeInGb;

@@ -122,6 +122,8 @@ type ClusterInstance struct {
 	PromotionTier pulumi.IntPtrOutput `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// Determines whether a final DB snapshot is created before the DB instance is deleted.
+	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// Storage type associated with the cluster `standard/iopt1`.
@@ -220,6 +222,8 @@ type clusterInstanceState struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Determines whether a final DB snapshot is created before the DB instance is deleted.
+	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// Storage type associated with the cluster `standard/iopt1`.
@@ -279,6 +283,8 @@ type ClusterInstanceState struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// Determines whether a final DB snapshot is created before the DB instance is deleted.
+	SkipFinalSnapshot pulumi.BoolPtrInput
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
 	// Storage type associated with the cluster `standard/iopt1`.
@@ -332,6 +338,8 @@ type clusterInstanceArgs struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Determines whether a final DB snapshot is created before the DB instance is deleted.
+	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -372,6 +380,8 @@ type ClusterInstanceArgs struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// Determines whether a final DB snapshot is created before the DB instance is deleted.
+	SkipFinalSnapshot pulumi.BoolPtrInput
 	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -568,6 +578,11 @@ func (o ClusterInstanceOutput) PromotionTier() pulumi.IntPtrOutput {
 // Bool to control if instance is publicly accessible. Default is `false`.
 func (o ClusterInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether a final DB snapshot is created before the DB instance is deleted.
+func (o ClusterInstanceOutput) SkipFinalSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.SkipFinalSnapshot }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether the neptune cluster is encrypted.

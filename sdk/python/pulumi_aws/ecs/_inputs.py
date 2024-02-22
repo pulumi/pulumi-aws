@@ -31,6 +31,9 @@ __all__ = [
     'ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs',
     'ServiceServiceConnectConfigurationServiceArgs',
     'ServiceServiceConnectConfigurationServiceClientAliasArgs',
+    'ServiceServiceConnectConfigurationServiceTimeoutArgs',
+    'ServiceServiceConnectConfigurationServiceTlsArgs',
+    'ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs',
     'ServiceServiceRegistriesArgs',
     'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionInferenceAcceleratorArgs',
@@ -1044,12 +1047,16 @@ class ServiceServiceConnectConfigurationServiceArgs:
                  port_name: pulumi.Input[str],
                  client_alias: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]] = None,
                  discovery_name: Optional[pulumi.Input[str]] = None,
-                 ingress_port_override: Optional[pulumi.Input[int]] = None):
+                 ingress_port_override: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs']] = None,
+                 tls: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs']] = None):
         """
         :param pulumi.Input[str] port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         :param pulumi.Input[str] discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param pulumi.Input[int] ingress_port_override: The port number for the Service Connect proxy to listen on.
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs'] timeout: Configuration timeouts for Service Connect
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs'] tls: The configuration for enabling Transport Layer Security (TLS)
         """
         pulumi.set(__self__, "port_name", port_name)
         if client_alias is not None:
@@ -1058,6 +1065,10 @@ class ServiceServiceConnectConfigurationServiceArgs:
             pulumi.set(__self__, "discovery_name", discovery_name)
         if ingress_port_override is not None:
             pulumi.set(__self__, "ingress_port_override", ingress_port_override)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="portName")
@@ -1107,6 +1118,30 @@ class ServiceServiceConnectConfigurationServiceArgs:
     def ingress_port_override(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ingress_port_override", value)
 
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs']]:
+        """
+        Configuration timeouts for Service Connect
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs']]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs']]:
+        """
+        The configuration for enabling Transport Layer Security (TLS)
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs']]):
+        pulumi.set(self, "tls", value)
+
 
 @pulumi.input_type
 class ServiceServiceConnectConfigurationServiceClientAliasArgs:
@@ -1144,6 +1179,122 @@ class ServiceServiceConnectConfigurationServiceClientAliasArgs:
     @dns_name.setter
     def dns_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_name", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceTimeoutArgs:
+    def __init__(__self__, *,
+                 idle_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 per_request_timeout_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] idle_timeout_seconds: The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+        :param pulumi.Input[int] per_request_timeout_seconds: The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+        """
+        if idle_timeout_seconds is not None:
+            pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
+        if per_request_timeout_seconds is not None:
+            pulumi.set(__self__, "per_request_timeout_seconds", per_request_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+        """
+        return pulumi.get(self, "idle_timeout_seconds")
+
+    @idle_timeout_seconds.setter
+    def idle_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="perRequestTimeoutSeconds")
+    def per_request_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+        """
+        return pulumi.get(self, "per_request_timeout_seconds")
+
+    @per_request_timeout_seconds.setter
+    def per_request_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "per_request_timeout_seconds", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceTlsArgs:
+    def __init__(__self__, *,
+                 issuer_cert_authority: pulumi.Input['ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs'],
+                 kms_key: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs'] issuer_cert_authority: The details of the certificate authority which will issue the certificate.
+        :param pulumi.Input[str] kms_key: The KMS key used to encrypt the private key in Secrets Manager.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM Role that's associated with the Service Connect TLS.
+        """
+        pulumi.set(__self__, "issuer_cert_authority", issuer_cert_authority)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="issuerCertAuthority")
+    def issuer_cert_authority(self) -> pulumi.Input['ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs']:
+        """
+        The details of the certificate authority which will issue the certificate.
+        """
+        return pulumi.get(self, "issuer_cert_authority")
+
+    @issuer_cert_authority.setter
+    def issuer_cert_authority(self, value: pulumi.Input['ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs']):
+        pulumi.set(self, "issuer_cert_authority", value)
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key used to encrypt the private key in Secrets Manager.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM Role that's associated with the Service Connect TLS.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs:
+    def __init__(__self__, *,
+                 aws_pca_authority_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aws_pca_authority_arn: The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+        """
+        if aws_pca_authority_arn is not None:
+            pulumi.set(__self__, "aws_pca_authority_arn", aws_pca_authority_arn)
+
+    @property
+    @pulumi.getter(name="awsPcaAuthorityArn")
+    def aws_pca_authority_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+        """
+        return pulumi.get(self, "aws_pca_authority_arn")
+
+    @aws_pca_authority_arn.setter
+    def aws_pca_authority_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_pca_authority_arn", value)
 
 
 @pulumi.input_type

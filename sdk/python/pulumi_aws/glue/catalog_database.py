@@ -19,6 +19,7 @@ class CatalogDatabaseArgs:
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 federated_database: Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,6 +30,7 @@ class CatalogDatabaseArgs:
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
+        :param pulumi.Input['CatalogDatabaseFederatedDatabaseArgs'] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
@@ -41,6 +43,8 @@ class CatalogDatabaseArgs:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if federated_database is not None:
+            pulumi.set(__self__, "federated_database", federated_database)
         if location_uri is not None:
             pulumi.set(__self__, "location_uri", location_uri)
         if name is not None:
@@ -87,6 +91,18 @@ class CatalogDatabaseArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="federatedDatabase")
+    def federated_database(self) -> Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']]:
+        """
+        Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        """
+        return pulumi.get(self, "federated_database")
+
+    @federated_database.setter
+    def federated_database(self, value: Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']]):
+        pulumi.set(self, "federated_database", value)
 
     @property
     @pulumi.getter(name="locationUri")
@@ -156,6 +172,7 @@ class _CatalogDatabaseState:
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 federated_database: Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -168,6 +185,7 @@ class _CatalogDatabaseState:
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
+        :param pulumi.Input['CatalogDatabaseFederatedDatabaseArgs'] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
@@ -183,6 +201,8 @@ class _CatalogDatabaseState:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if federated_database is not None:
+            pulumi.set(__self__, "federated_database", federated_database)
         if location_uri is not None:
             pulumi.set(__self__, "location_uri", location_uri)
         if name is not None:
@@ -246,6 +266,18 @@ class _CatalogDatabaseState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="federatedDatabase")
+    def federated_database(self) -> Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']]:
+        """
+        Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        """
+        return pulumi.get(self, "federated_database")
+
+    @federated_database.setter
+    def federated_database(self, value: Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']]):
+        pulumi.set(self, "federated_database", value)
 
     @property
     @pulumi.getter(name="locationUri")
@@ -331,6 +363,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 federated_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -346,7 +379,7 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
+        example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
         ```
         ### Create Table Default Permissions
 
@@ -354,7 +387,7 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase",
+        example = aws.glue.CatalogDatabase("example",
             create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
                 permissions=["SELECT"],
                 principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
@@ -377,6 +410,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
+        :param pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
@@ -398,7 +432,7 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
+        example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
         ```
         ### Create Table Default Permissions
 
@@ -406,7 +440,7 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase",
+        example = aws.glue.CatalogDatabase("example",
             create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
                 permissions=["SELECT"],
                 principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
@@ -442,6 +476,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 federated_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -459,6 +494,7 @@ class CatalogDatabase(pulumi.CustomResource):
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
             __props__.__dict__["description"] = description
+            __props__.__dict__["federated_database"] = federated_database
             __props__.__dict__["location_uri"] = location_uri
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -482,6 +518,7 @@ class CatalogDatabase(pulumi.CustomResource):
             catalog_id: Optional[pulumi.Input[str]] = None,
             create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            federated_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']]] = None,
             location_uri: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -499,6 +536,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
+        :param pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
@@ -514,6 +552,7 @@ class CatalogDatabase(pulumi.CustomResource):
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
         __props__.__dict__["description"] = description
+        __props__.__dict__["federated_database"] = federated_database
         __props__.__dict__["location_uri"] = location_uri
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
@@ -553,6 +592,14 @@ class CatalogDatabase(pulumi.CustomResource):
         Description of the database.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="federatedDatabase")
+    def federated_database(self) -> pulumi.Output[Optional['outputs.CatalogDatabaseFederatedDatabase']]:
+        """
+        Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        """
+        return pulumi.get(self, "federated_database")
 
     @property
     @pulumi.getter(name="locationUri")

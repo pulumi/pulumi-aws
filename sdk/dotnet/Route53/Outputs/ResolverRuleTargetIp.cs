@@ -21,15 +21,19 @@ namespace Pulumi.Aws.Route53.Outputs
         /// The port at `ip` that you want to forward DNS queries to. Default value is `53`
         /// </summary>
         public readonly int? Port;
+        public readonly string? Protocol;
 
         [OutputConstructor]
         private ResolverRuleTargetIp(
             string ip,
 
-            int? port)
+            int? port,
+
+            string? protocol)
         {
             Ip = ip;
             Port = port;
+            Protocol = protocol;
         }
     }
 }

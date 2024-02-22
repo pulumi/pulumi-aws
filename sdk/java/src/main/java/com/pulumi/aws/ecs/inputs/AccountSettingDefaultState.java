@@ -16,14 +16,14 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
     public static final AccountSettingDefaultState Empty = new AccountSettingDefaultState();
 
     /**
-     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * Name of the account setting to set.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * @return Name of the account setting to set.
      * 
      */
     public Optional<Output<String>> name() {
@@ -38,14 +38,14 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * State of the setting. Valid values are `enabled` and `disabled`.
+     * State of the setting.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return State of the setting. Valid values are `enabled` and `disabled`.
+     * @return State of the setting.
      * 
      */
     public Optional<Output<String>> value() {
@@ -79,7 +79,7 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+         * @param name Name of the account setting to set.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+         * @param name Name of the account setting to set.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param value State of the setting. Valid values are `enabled` and `disabled`.
+         * @param value State of the setting.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param value State of the setting. Valid values are `enabled` and `disabled`.
+         * @param value State of the setting.
          * 
          * @return builder
          * 

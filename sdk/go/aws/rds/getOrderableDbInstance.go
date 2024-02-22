@@ -99,18 +99,28 @@ type GetOrderableDbInstanceArgs struct {
 	AvailabilityZoneGroup *string `pulumi:"availabilityZoneGroup"`
 	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
 	Engine string `pulumi:"engine"`
-	// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+	// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engineLatestVersion` with `preferredInstanceClasses` and/or `preferredEngineVersions`. Using `engineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `engineLatestVersion` with `preferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engineLatestVersion` may _not_ return the latest version in every situation.
+	EngineLatestVersion *bool `pulumi:"engineLatestVersion"`
+	// Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
 	InstanceClass *string `pulumi:"instanceClass"`
 	// License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
 	LicenseModel *string `pulumi:"licenseModel"`
-	// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	// Ordered list of preferred RDS DB instance engine versions. When `engineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `preferredEngineVersions` without `preferredInstanceClasses` since the data source returns an arbitrary `instanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
 	PreferredEngineVersions []string `pulumi:"preferredEngineVersions"`
-	// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
+	// Whether a DB instance can have a read replica.
+	ReadReplicaCapable *bool `pulumi:"readReplicaCapable"`
 	// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
 	StorageType *string `pulumi:"storageType"`
+	// Use to limit results to engine modes such as `provisioned`.
+	SupportedEngineModes []string `pulumi:"supportedEngineModes"`
+	// Use to limit results to network types `IPV4` or `DUAL`.
+	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
+	// Whether to limit results to instances that support clusters.
+	SupportsClusters *bool `pulumi:"supportsClusters"`
 	// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
 	SupportsEnhancedMonitoring *bool `pulumi:"supportsEnhancedMonitoring"`
 	// Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
@@ -121,6 +131,8 @@ type GetOrderableDbInstanceArgs struct {
 	SupportsIops *bool `pulumi:"supportsIops"`
 	// Enable this to ensure a DB instance supports Kerberos Authentication.
 	SupportsKerberosAuthentication *bool `pulumi:"supportsKerberosAuthentication"`
+	// Whether to limit results to instances that are multi-AZ capable.
+	SupportsMultiAz *bool `pulumi:"supportsMultiAz"`
 	// Enable this to ensure a DB instance supports Performance Insights.
 	SupportsPerformanceInsights *bool `pulumi:"supportsPerformanceInsights"`
 	// Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
@@ -135,9 +147,10 @@ type GetOrderableDbInstanceArgs struct {
 type GetOrderableDbInstanceResult struct {
 	AvailabilityZoneGroup string `pulumi:"availabilityZoneGroup"`
 	// Availability zones where the instance is available.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	Engine            string   `pulumi:"engine"`
-	EngineVersion     string   `pulumi:"engineVersion"`
+	AvailabilityZones   []string `pulumi:"availabilityZones"`
+	Engine              string   `pulumi:"engine"`
+	EngineLatestVersion *bool    `pulumi:"engineLatestVersion"`
+	EngineVersion       string   `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	InstanceClass string `pulumi:"instanceClass"`
@@ -157,21 +170,20 @@ type GetOrderableDbInstanceResult struct {
 	// Whether a DB instance is Multi-AZ capable.
 	MultiAzCapable bool `pulumi:"multiAzCapable"`
 	// Whether a DB instance supports RDS on Outposts.
-	OutpostCapable           bool     `pulumi:"outpostCapable"`
-	PreferredEngineVersions  []string `pulumi:"preferredEngineVersions"`
-	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
-	// Whether a DB instance can have a read replica.
-	ReadReplicaCapable bool   `pulumi:"readReplicaCapable"`
-	StorageType        string `pulumi:"storageType"`
-	// A list of the supported DB engine modes.
-	SupportedEngineModes []string `pulumi:"supportedEngineModes"`
-	// The network types supported by the DB instance (`IPV4` or `DUAL`).
+	OutpostCapable                    bool     `pulumi:"outpostCapable"`
+	PreferredEngineVersions           []string `pulumi:"preferredEngineVersions"`
+	PreferredInstanceClasses          []string `pulumi:"preferredInstanceClasses"`
+	ReadReplicaCapable                bool     `pulumi:"readReplicaCapable"`
+	StorageType                       string   `pulumi:"storageType"`
+	SupportedEngineModes              []string `pulumi:"supportedEngineModes"`
 	SupportedNetworkTypes             []string `pulumi:"supportedNetworkTypes"`
+	SupportsClusters                  bool     `pulumi:"supportsClusters"`
 	SupportsEnhancedMonitoring        bool     `pulumi:"supportsEnhancedMonitoring"`
 	SupportsGlobalDatabases           bool     `pulumi:"supportsGlobalDatabases"`
 	SupportsIamDatabaseAuthentication bool     `pulumi:"supportsIamDatabaseAuthentication"`
 	SupportsIops                      bool     `pulumi:"supportsIops"`
 	SupportsKerberosAuthentication    bool     `pulumi:"supportsKerberosAuthentication"`
+	SupportsMultiAz                   bool     `pulumi:"supportsMultiAz"`
 	SupportsPerformanceInsights       bool     `pulumi:"supportsPerformanceInsights"`
 	SupportsStorageAutoscaling        bool     `pulumi:"supportsStorageAutoscaling"`
 	SupportsStorageEncryption         bool     `pulumi:"supportsStorageEncryption"`
@@ -197,18 +209,28 @@ type GetOrderableDbInstanceOutputArgs struct {
 	AvailabilityZoneGroup pulumi.StringPtrInput `pulumi:"availabilityZoneGroup"`
 	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
 	Engine pulumi.StringInput `pulumi:"engine"`
-	// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+	// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engineLatestVersion` with `preferredInstanceClasses` and/or `preferredEngineVersions`. Using `engineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `engineLatestVersion` with `preferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engineLatestVersion` may _not_ return the latest version in every situation.
+	EngineLatestVersion pulumi.BoolPtrInput `pulumi:"engineLatestVersion"`
+	// Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
 	EngineVersion pulumi.StringPtrInput `pulumi:"engineVersion"`
 	// DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
 	InstanceClass pulumi.StringPtrInput `pulumi:"instanceClass"`
 	// License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
 	LicenseModel pulumi.StringPtrInput `pulumi:"licenseModel"`
-	// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	// Ordered list of preferred RDS DB instance engine versions. When `engineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `preferredEngineVersions` without `preferredInstanceClasses` since the data source returns an arbitrary `instanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
 	PreferredEngineVersions pulumi.StringArrayInput `pulumi:"preferredEngineVersions"`
-	// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
 	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
+	// Whether a DB instance can have a read replica.
+	ReadReplicaCapable pulumi.BoolPtrInput `pulumi:"readReplicaCapable"`
 	// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+	// Use to limit results to engine modes such as `provisioned`.
+	SupportedEngineModes pulumi.StringArrayInput `pulumi:"supportedEngineModes"`
+	// Use to limit results to network types `IPV4` or `DUAL`.
+	SupportedNetworkTypes pulumi.StringArrayInput `pulumi:"supportedNetworkTypes"`
+	// Whether to limit results to instances that support clusters.
+	SupportsClusters pulumi.BoolPtrInput `pulumi:"supportsClusters"`
 	// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
 	SupportsEnhancedMonitoring pulumi.BoolPtrInput `pulumi:"supportsEnhancedMonitoring"`
 	// Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
@@ -219,6 +241,8 @@ type GetOrderableDbInstanceOutputArgs struct {
 	SupportsIops pulumi.BoolPtrInput `pulumi:"supportsIops"`
 	// Enable this to ensure a DB instance supports Kerberos Authentication.
 	SupportsKerberosAuthentication pulumi.BoolPtrInput `pulumi:"supportsKerberosAuthentication"`
+	// Whether to limit results to instances that are multi-AZ capable.
+	SupportsMultiAz pulumi.BoolPtrInput `pulumi:"supportsMultiAz"`
 	// Enable this to ensure a DB instance supports Performance Insights.
 	SupportsPerformanceInsights pulumi.BoolPtrInput `pulumi:"supportsPerformanceInsights"`
 	// Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
@@ -259,6 +283,10 @@ func (o GetOrderableDbInstanceResultOutput) AvailabilityZones() pulumi.StringArr
 
 func (o GetOrderableDbInstanceResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) EngineLatestVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) *bool { return v.EngineLatestVersion }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) EngineVersion() pulumi.StringOutput {
@@ -326,7 +354,6 @@ func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.St
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.PreferredInstanceClasses }).(pulumi.StringArrayOutput)
 }
 
-// Whether a DB instance can have a read replica.
 func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.ReadReplicaCapable }).(pulumi.BoolOutput)
 }
@@ -335,14 +362,16 @@ func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
-// A list of the supported DB engine modes.
 func (o GetOrderableDbInstanceResultOutput) SupportedEngineModes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.SupportedEngineModes }).(pulumi.StringArrayOutput)
 }
 
-// The network types supported by the DB instance (`IPV4` or `DUAL`).
 func (o GetOrderableDbInstanceResultOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsClusters() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsClusters }).(pulumi.BoolOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) SupportsEnhancedMonitoring() pulumi.BoolOutput {
@@ -363,6 +392,10 @@ func (o GetOrderableDbInstanceResultOutput) SupportsIops() pulumi.BoolOutput {
 
 func (o GetOrderableDbInstanceResultOutput) SupportsKerberosAuthentication() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsKerberosAuthentication }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsMultiAz() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsMultiAz }).(pulumi.BoolOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) SupportsPerformanceInsights() pulumi.BoolOutput {

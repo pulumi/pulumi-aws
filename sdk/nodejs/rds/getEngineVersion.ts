@@ -50,7 +50,10 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
         "engine": args.engine,
         "filters": args.filters,
         "includeAll": args.includeAll,
+        "latest": args.latest,
         "parameterGroupFamily": args.parameterGroupFamily,
+        "preferredMajorTargets": args.preferredMajorTargets,
+        "preferredUpgradeTargets": args.preferredUpgradeTargets,
         "preferredVersions": args.preferredVersions,
         "version": args.version,
     }, opts);
@@ -65,7 +68,9 @@ export interface GetEngineVersionArgs {
      */
     defaultOnly?: boolean;
     /**
-     * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     *
+     * The following arguments are optional:
      */
     engine: string;
     /**
@@ -77,16 +82,25 @@ export interface GetEngineVersionArgs {
      */
     includeAll?: boolean;
     /**
-     * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+     * When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. This differs from `defaultOnly`. For example, the latest version is not always the default. In addition, AWS may return multiple defaults depending on the criteria. Using `latest` will avoid `multiple RDS engine versions` errors. **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may _not_ return the latest version in every situation.
+     */
+    latest?: boolean;
+    /**
+     * Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
     parameterGroupFamily?: string;
     /**
-     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
+     * Ordered list of preferred major version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     */
+    preferredMajorTargets?: string[];
+    /**
+     * Ordered list of preferred version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     */
+    preferredUpgradeTargets?: string[];
+    /**
+     * Ordered list of preferred versions. The first match in this list that matches any other criteria will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
      */
     preferredVersions?: string[];
-    /**
-     * Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-     */
     version?: string;
 }
 
@@ -114,10 +128,13 @@ export interface GetEngineVersionResult {
      */
     readonly id: string;
     readonly includeAll?: boolean;
+    readonly latest?: boolean;
     readonly parameterGroupFamily: string;
+    readonly preferredMajorTargets?: string[];
+    readonly preferredUpgradeTargets?: string[];
     readonly preferredVersions?: string[];
     /**
-     * Status of the DB engine version, either available or deprecated.
+     * Status of the database engine version, either available or deprecated.
      */
     readonly status: string;
     /**
@@ -125,11 +142,11 @@ export interface GetEngineVersionResult {
      */
     readonly supportedCharacterSets: string[];
     /**
-     * Set of features supported by the DB engine.
+     * Set of features supported by the database engine.
      */
     readonly supportedFeatureNames: string[];
     /**
-     * Set of the supported DB engine modes.
+     * Set of the supported database engine modes.
      */
     readonly supportedModes: string[];
     /**
@@ -137,7 +154,7 @@ export interface GetEngineVersionResult {
      */
     readonly supportedTimezones: string[];
     /**
-     * Indicates whether you can use Aurora global databases with a specific DB engine version.
+     * Indicates whether you can use Aurora global databases with a specific database engine version.
      */
     readonly supportsGlobalDatabases: boolean;
     /**
@@ -145,7 +162,7 @@ export interface GetEngineVersionResult {
      */
     readonly supportsLogExportsToCloudwatch: boolean;
     /**
-     * Indicates whether you can use Aurora parallel query with a specific DB engine version.
+     * Indicates whether you can use Aurora parallel query with a specific database engine version.
      */
     readonly supportsParallelQuery: boolean;
     /**
@@ -157,6 +174,10 @@ export interface GetEngineVersionResult {
      */
     readonly validUpgradeTargets: string[];
     readonly version: string;
+    /**
+     * Version of the database engine.
+     */
+    readonly versionActual: string;
     /**
      * Description of the database engine version.
      */
@@ -210,7 +231,9 @@ export interface GetEngineVersionOutputArgs {
      */
     defaultOnly?: pulumi.Input<boolean>;
     /**
-     * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     *
+     * The following arguments are optional:
      */
     engine: pulumi.Input<string>;
     /**
@@ -222,15 +245,24 @@ export interface GetEngineVersionOutputArgs {
      */
     includeAll?: pulumi.Input<boolean>;
     /**
-     * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+     * When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. This differs from `defaultOnly`. For example, the latest version is not always the default. In addition, AWS may return multiple defaults depending on the criteria. Using `latest` will avoid `multiple RDS engine versions` errors. **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may _not_ return the latest version in every situation.
+     */
+    latest?: pulumi.Input<boolean>;
+    /**
+     * Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
     parameterGroupFamily?: pulumi.Input<string>;
     /**
-     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
+     * Ordered list of preferred major version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     */
+    preferredMajorTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ordered list of preferred version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     */
+    preferredUpgradeTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ordered list of preferred versions. The first match in this list that matches any other criteria will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
      */
     preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-     */
     version?: pulumi.Input<string>;
 }

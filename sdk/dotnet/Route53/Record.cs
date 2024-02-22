@@ -91,6 +91,42 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// ### Geoproximity routing policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var www = new Aws.Route53.Record("www", new()
+    ///     {
+    ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///         Name = "www.example.com",
+    ///         Type = "CNAME",
+    ///         Ttl = 300,
+    ///         GeoproximityRoutingPolicy = new Aws.Route53.Inputs.RecordGeoproximityRoutingPolicyArgs
+    ///         {
+    ///             Coordinates = new[]
+    ///             {
+    ///                 new Aws.Route53.Inputs.RecordGeoproximityRoutingPolicyCoordinateArgs
+    ///                 {
+    ///                     Latitude = "49.22",
+    ///                     Longitude = "-74.01",
+    ///                 },
+    ///             },
+    ///         },
+    ///         SetIdentifier = "dev",
+    ///         Records = new[]
+    ///         {
+    ///             "dev.example.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Alias record
     /// 
     /// See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
@@ -238,6 +274,12 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<Outputs.RecordGeolocationRoutingPolicy>> GeolocationRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+        /// </summary>
+        [Output("geoproximityRoutingPolicy")]
+        public Output<Outputs.RecordGeoproximityRoutingPolicy?> GeoproximityRoutingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The health check the record should be associated with.
         /// </summary>
         [Output("healthCheckId")]
@@ -268,7 +310,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
         [Output("setIdentifier")]
         public Output<string?> SetIdentifier { get; private set; } = null!;
@@ -395,6 +437,12 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
+        /// A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+        /// </summary>
+        [Input("geoproximityRoutingPolicy")]
+        public Input<Inputs.RecordGeoproximityRoutingPolicyArgs>? GeoproximityRoutingPolicy { get; set; }
+
+        /// <summary>
         /// The health check the record should be associated with.
         /// </summary>
         [Input("healthCheckId")]
@@ -437,7 +485,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
@@ -538,6 +586,12 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
+        /// A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+        /// </summary>
+        [Input("geoproximityRoutingPolicy")]
+        public Input<Inputs.RecordGeoproximityRoutingPolicyGetArgs>? GeoproximityRoutingPolicy { get; set; }
+
+        /// <summary>
         /// The health check the record should be associated with.
         /// </summary>
         [Input("healthCheckId")]
@@ -580,7 +634,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }

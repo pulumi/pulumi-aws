@@ -385,6 +385,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publiclyAccessible);
     }
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipFinalSnapshot;
+
+    /**
+     * @return Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    public Output<Optional<Boolean>> skipFinalSnapshot() {
+        return Codegen.optional(this.skipFinalSnapshot);
+    }
+    /**
      * Specifies whether the neptune cluster is encrypted.
      * 
      */

@@ -92,18 +92,25 @@ func GetEngineVersion(ctx *pulumi.Context, args *GetEngineVersionArgs, opts ...p
 type GetEngineVersionArgs struct {
 	// When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
 	DefaultOnly *bool `pulumi:"defaultOnly"`
-	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+	// Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+	//
+	// The following arguments are optional:
 	Engine string `pulumi:"engine"`
 	// One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
 	Filters []GetEngineVersionFilter `pulumi:"filters"`
 	// When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
 	IncludeAll *bool `pulumi:"includeAll"`
-	// Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+	// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. This differs from `defaultOnly`. For example, the latest version is not always the default. In addition, AWS may return multiple defaults depending on the criteria. Using `latest` will avoid `multiple RDS engine versions` errors. **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may _not_ return the latest version in every situation.
+	Latest *bool `pulumi:"latest"`
+	// Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
 	ParameterGroupFamily *string `pulumi:"parameterGroupFamily"`
-	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
+	// Ordered list of preferred major version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+	PreferredMajorTargets []string `pulumi:"preferredMajorTargets"`
+	// Ordered list of preferred version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
+	// Ordered list of preferred versions. The first match in this list that matches any other criteria will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
 	PreferredVersions []string `pulumi:"preferredVersions"`
-	// Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-	Version *string `pulumi:"version"`
+	Version           *string  `pulumi:"version"`
 }
 
 // A collection of values returned by getEngineVersion.
@@ -118,31 +125,36 @@ type GetEngineVersionResult struct {
 	ExportableLogTypes []string                 `pulumi:"exportableLogTypes"`
 	Filters            []GetEngineVersionFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                   string   `pulumi:"id"`
-	IncludeAll           *bool    `pulumi:"includeAll"`
-	ParameterGroupFamily string   `pulumi:"parameterGroupFamily"`
-	PreferredVersions    []string `pulumi:"preferredVersions"`
-	// Status of the DB engine version, either available or deprecated.
+	Id                      string   `pulumi:"id"`
+	IncludeAll              *bool    `pulumi:"includeAll"`
+	Latest                  *bool    `pulumi:"latest"`
+	ParameterGroupFamily    string   `pulumi:"parameterGroupFamily"`
+	PreferredMajorTargets   []string `pulumi:"preferredMajorTargets"`
+	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
+	PreferredVersions       []string `pulumi:"preferredVersions"`
+	// Status of the database engine version, either available or deprecated.
 	Status string `pulumi:"status"`
 	// Set of the character sets supported by this engine.
 	SupportedCharacterSets []string `pulumi:"supportedCharacterSets"`
-	// Set of features supported by the DB engine.
+	// Set of features supported by the database engine.
 	SupportedFeatureNames []string `pulumi:"supportedFeatureNames"`
-	// Set of the supported DB engine modes.
+	// Set of the supported database engine modes.
 	SupportedModes []string `pulumi:"supportedModes"`
 	// Set of the time zones supported by this engine.
 	SupportedTimezones []string `pulumi:"supportedTimezones"`
-	// Indicates whether you can use Aurora global databases with a specific DB engine version.
+	// Indicates whether you can use Aurora global databases with a specific database engine version.
 	SupportsGlobalDatabases bool `pulumi:"supportsGlobalDatabases"`
 	// Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
 	SupportsLogExportsToCloudwatch bool `pulumi:"supportsLogExportsToCloudwatch"`
-	// Indicates whether you can use Aurora parallel query with a specific DB engine version.
+	// Indicates whether you can use Aurora parallel query with a specific database engine version.
 	SupportsParallelQuery bool `pulumi:"supportsParallelQuery"`
 	// Indicates whether the database engine version supports read replicas.
 	SupportsReadReplica bool `pulumi:"supportsReadReplica"`
 	// Set of engine versions that this database engine version can be upgraded to.
 	ValidUpgradeTargets []string `pulumi:"validUpgradeTargets"`
 	Version             string   `pulumi:"version"`
+	// Version of the database engine.
+	VersionActual string `pulumi:"versionActual"`
 	// Description of the database engine version.
 	VersionDescription string `pulumi:"versionDescription"`
 }
@@ -164,18 +176,25 @@ func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs
 type GetEngineVersionOutputArgs struct {
 	// When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
 	DefaultOnly pulumi.BoolPtrInput `pulumi:"defaultOnly"`
-	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+	// Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+	//
+	// The following arguments are optional:
 	Engine pulumi.StringInput `pulumi:"engine"`
 	// One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
 	Filters GetEngineVersionFilterArrayInput `pulumi:"filters"`
 	// When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
 	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
-	// Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+	// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. This differs from `defaultOnly`. For example, the latest version is not always the default. In addition, AWS may return multiple defaults depending on the criteria. Using `latest` will avoid `multiple RDS engine versions` errors. **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may _not_ return the latest version in every situation.
+	Latest pulumi.BoolPtrInput `pulumi:"latest"`
+	// Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
 	ParameterGroupFamily pulumi.StringPtrInput `pulumi:"parameterGroupFamily"`
-	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
+	// Ordered list of preferred major version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+	PreferredMajorTargets pulumi.StringArrayInput `pulumi:"preferredMajorTargets"`
+	// Ordered list of preferred version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+	PreferredUpgradeTargets pulumi.StringArrayInput `pulumi:"preferredUpgradeTargets"`
+	// Ordered list of preferred versions. The first match in this list that matches any other criteria will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
-	// Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version           pulumi.StringPtrInput   `pulumi:"version"`
 }
 
 func (GetEngineVersionOutputArgs) ElementType() reflect.Type {
@@ -233,15 +252,27 @@ func (o GetEngineVersionResultOutput) IncludeAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
 }
 
+func (o GetEngineVersionResultOutput) Latest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.Latest }).(pulumi.BoolPtrOutput)
+}
+
 func (o GetEngineVersionResultOutput) ParameterGroupFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.ParameterGroupFamily }).(pulumi.StringOutput)
+}
+
+func (o GetEngineVersionResultOutput) PreferredMajorTargets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredMajorTargets }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEngineVersionResultOutput) PreferredUpgradeTargets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredUpgradeTargets }).(pulumi.StringArrayOutput)
 }
 
 func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
 }
 
-// Status of the DB engine version, either available or deprecated.
+// Status of the database engine version, either available or deprecated.
 func (o GetEngineVersionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -251,12 +282,12 @@ func (o GetEngineVersionResultOutput) SupportedCharacterSets() pulumi.StringArra
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.SupportedCharacterSets }).(pulumi.StringArrayOutput)
 }
 
-// Set of features supported by the DB engine.
+// Set of features supported by the database engine.
 func (o GetEngineVersionResultOutput) SupportedFeatureNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.SupportedFeatureNames }).(pulumi.StringArrayOutput)
 }
 
-// Set of the supported DB engine modes.
+// Set of the supported database engine modes.
 func (o GetEngineVersionResultOutput) SupportedModes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.SupportedModes }).(pulumi.StringArrayOutput)
 }
@@ -266,7 +297,7 @@ func (o GetEngineVersionResultOutput) SupportedTimezones() pulumi.StringArrayOut
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.SupportedTimezones }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether you can use Aurora global databases with a specific DB engine version.
+// Indicates whether you can use Aurora global databases with a specific database engine version.
 func (o GetEngineVersionResultOutput) SupportsGlobalDatabases() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsGlobalDatabases }).(pulumi.BoolOutput)
 }
@@ -276,7 +307,7 @@ func (o GetEngineVersionResultOutput) SupportsLogExportsToCloudwatch() pulumi.Bo
 	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsLogExportsToCloudwatch }).(pulumi.BoolOutput)
 }
 
-// Indicates whether you can use Aurora parallel query with a specific DB engine version.
+// Indicates whether you can use Aurora parallel query with a specific database engine version.
 func (o GetEngineVersionResultOutput) SupportsParallelQuery() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsParallelQuery }).(pulumi.BoolOutput)
 }
@@ -293,6 +324,11 @@ func (o GetEngineVersionResultOutput) ValidUpgradeTargets() pulumi.StringArrayOu
 
 func (o GetEngineVersionResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// Version of the database engine.
+func (o GetEngineVersionResultOutput) VersionActual() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.VersionActual }).(pulumi.StringOutput)
 }
 
 // Description of the database engine version.

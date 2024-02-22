@@ -18,8 +18,6 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
     /**
      * S3 bucket name.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
@@ -27,22 +25,20 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
     /**
      * @return S3 bucket name.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
     /**
-     * S3 object key prefix.
+     * S3 prefix.
      * 
      */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
     /**
-     * @return S3 object key prefix.
+     * @return S3 prefix.
      * 
      */
     public Optional<Output<String>> keyPrefix() {
@@ -77,8 +73,6 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
         /**
          * @param bucketName S3 bucket name.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -90,8 +84,6 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
         /**
          * @param bucketName S3 bucket name.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -100,7 +92,7 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
         }
 
         /**
-         * @param keyPrefix S3 object key prefix.
+         * @param keyPrefix S3 prefix.
          * 
          * @return builder
          * 
@@ -111,7 +103,7 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
         }
 
         /**
-         * @param keyPrefix S3 object key prefix.
+         * @param keyPrefix S3 prefix.
          * 
          * @return builder
          * 

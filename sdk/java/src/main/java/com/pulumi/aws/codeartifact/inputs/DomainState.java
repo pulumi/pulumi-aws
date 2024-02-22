@@ -123,6 +123,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     * 
+     */
+    @Import(name="s3BucketArn")
+    private @Nullable Output<String> s3BucketArn;
+
+    /**
+     * @return The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     * 
+     */
+    public Optional<Output<String>> s3BucketArn() {
+        return Optional.ofNullable(this.s3BucketArn);
+    }
+
+    /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -170,6 +185,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.encryptionKey = $.encryptionKey;
         this.owner = $.owner;
         this.repositoryCount = $.repositoryCount;
+        this.s3BucketArn = $.s3BucketArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -337,6 +353,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder repositoryCount(Integer repositoryCount) {
             return repositoryCount(Output.of(repositoryCount));
+        }
+
+        /**
+         * @param s3BucketArn The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3BucketArn(@Nullable Output<String> s3BucketArn) {
+            $.s3BucketArn = s3BucketArn;
+            return this;
+        }
+
+        /**
+         * @param s3BucketArn The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3BucketArn(String s3BucketArn) {
+            return s3BucketArn(Output.of(s3BucketArn));
         }
 
         /**

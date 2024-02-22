@@ -18,8 +18,8 @@ class AccountSettingDefaultArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountSettingDefault resource.
-        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
-        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        :param pulumi.Input[str] value: State of the setting.
+        :param pulumi.Input[str] name: Name of the account setting to set.
         """
         pulumi.set(__self__, "value", value)
         if name is not None:
@@ -29,7 +29,7 @@ class AccountSettingDefaultArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        State of the setting. Valid values are `enabled` and `disabled`.
+        State of the setting.
         """
         return pulumi.get(self, "value")
 
@@ -41,7 +41,7 @@ class AccountSettingDefaultArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        Name of the account setting to set.
         """
         return pulumi.get(self, "name")
 
@@ -58,8 +58,8 @@ class _AccountSettingDefaultState:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccountSettingDefault resources.
-        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
-        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
+        :param pulumi.Input[str] name: Name of the account setting to set.
+        :param pulumi.Input[str] value: State of the setting.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -72,7 +72,7 @@ class _AccountSettingDefaultState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        Name of the account setting to set.
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +93,7 @@ class _AccountSettingDefaultState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        State of the setting. Valid values are `enabled` and `disabled`.
+        State of the setting.
         """
         return pulumi.get(self, "value")
 
@@ -136,8 +136,8 @@ class AccountSettingDefault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
-        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
+        :param pulumi.Input[str] name: Name of the account setting to set.
+        :param pulumi.Input[str] value: State of the setting.
         """
         ...
     @overload
@@ -220,8 +220,8 @@ class AccountSettingDefault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
-        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
+        :param pulumi.Input[str] name: Name of the account setting to set.
+        :param pulumi.Input[str] value: State of the setting.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -236,7 +236,7 @@ class AccountSettingDefault(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        Name of the account setting to set.
         """
         return pulumi.get(self, "name")
 
@@ -249,7 +249,7 @@ class AccountSettingDefault(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
-        State of the setting. Valid values are `enabled` and `disabled`.
+        State of the setting.
         """
         return pulumi.get(self, "value")
 

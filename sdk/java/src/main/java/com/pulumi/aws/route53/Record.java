@@ -10,6 +10,7 @@ import com.pulumi.aws.route53.outputs.RecordAlias;
 import com.pulumi.aws.route53.outputs.RecordCidrRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordFailoverRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordGeolocationRoutingPolicy;
+import com.pulumi.aws.route53.outputs.RecordGeoproximityRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordLatencyRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordWeightedRoutingPolicy;
 import com.pulumi.core.Output;
@@ -107,6 +108,47 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .setIdentifier(&#34;live&#34;)
  *             .records(&#34;live.example.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Geoproximity routing policy
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import com.pulumi.aws.route53.inputs.RecordGeoproximityRoutingPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+ *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .name(&#34;www.example.com&#34;)
+ *             .type(&#34;CNAME&#34;)
+ *             .ttl(300)
+ *             .geoproximityRoutingPolicy(RecordGeoproximityRoutingPolicyArgs.builder()
+ *                 .coordinates(RecordGeoproximityRoutingPolicyCoordinateArgs.builder()
+ *                     .latitude(&#34;49.22&#34;)
+ *                     .longitude(&#34;-74.01&#34;)
+ *                     .build())
+ *                 .build())
+ *             .setIdentifier(&#34;dev&#34;)
+ *             .records(&#34;dev.example.com&#34;)
  *             .build());
  * 
  *     }
@@ -325,6 +367,20 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.geolocationRoutingPolicies);
     }
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    @Export(name="geoproximityRoutingPolicy", refs={RecordGeoproximityRoutingPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ RecordGeoproximityRoutingPolicy> geoproximityRoutingPolicy;
+
+    /**
+     * @return A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    public Output<Optional<RecordGeoproximityRoutingPolicy>> geoproximityRoutingPolicy() {
+        return Codegen.optional(this.geoproximityRoutingPolicy);
+    }
+    /**
      * The health check the record should be associated with.
      * 
      */
@@ -395,14 +451,14 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.records);
     }
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     @Export(name="setIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> setIdentifier;
 
     /**
-     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     public Output<Optional<String>> setIdentifier() {

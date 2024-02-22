@@ -6,7 +6,9 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.SpaceArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceState;
+import com.pulumi.aws.sagemaker.outputs.SpaceOwnershipSettings;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettings;
+import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSharingSettings;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -106,6 +108,20 @@ public class Space extends com.pulumi.resources.CustomResource {
         return this.homeEfsFileSystemUid;
     }
     /**
+     * A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    @Export(name="ownershipSettings", refs={SpaceOwnershipSettings.class}, tree="[0]")
+    private Output</* @Nullable */ SpaceOwnershipSettings> ownershipSettings;
+
+    /**
+     * @return A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    public Output<Optional<SpaceOwnershipSettings>> ownershipSettings() {
+        return Codegen.optional(this.ownershipSettings);
+    }
+    /**
      * The name of the space that appears in the SageMaker Studio UI.
      * 
      */
@@ -146,6 +162,20 @@ public class Space extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SpaceSpaceSettings>> spaceSettings() {
         return Codegen.optional(this.spaceSettings);
+    }
+    /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    @Export(name="spaceSharingSettings", refs={SpaceSpaceSharingSettings.class}, tree="[0]")
+    private Output</* @Nullable */ SpaceSpaceSharingSettings> spaceSharingSettings;
+
+    /**
+     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    public Output<Optional<SpaceSpaceSharingSettings>> spaceSharingSettings() {
+        return Codegen.optional(this.spaceSharingSettings);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

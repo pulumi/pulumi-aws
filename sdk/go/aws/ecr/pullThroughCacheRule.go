@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewPullThroughCacheRule(ctx, "example", &ecr.PullThroughCacheRuleArgs{
+//				CredentialArn:       pulumi.String("arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic"),
 //				EcrRepositoryPrefix: pulumi.String("ecr-public"),
 //				UpstreamRegistryUrl: pulumi.String("public.ecr.aws"),
 //			})
@@ -56,6 +57,8 @@ import (
 type PullThroughCacheRule struct {
 	pulumi.CustomResourceState
 
+	// ARN of the Secret which will be used to authenticate against the registry.
+	CredentialArn pulumi.StringPtrOutput `pulumi:"credentialArn"`
 	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix pulumi.StringOutput `pulumi:"ecrRepositoryPrefix"`
 	// The registry ID where the repository was created.
@@ -100,6 +103,8 @@ func GetPullThroughCacheRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PullThroughCacheRule resources.
 type pullThroughCacheRuleState struct {
+	// ARN of the Secret which will be used to authenticate against the registry.
+	CredentialArn *string `pulumi:"credentialArn"`
 	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix *string `pulumi:"ecrRepositoryPrefix"`
 	// The registry ID where the repository was created.
@@ -109,6 +114,8 @@ type pullThroughCacheRuleState struct {
 }
 
 type PullThroughCacheRuleState struct {
+	// ARN of the Secret which will be used to authenticate against the registry.
+	CredentialArn pulumi.StringPtrInput
 	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix pulumi.StringPtrInput
 	// The registry ID where the repository was created.
@@ -122,6 +129,8 @@ func (PullThroughCacheRuleState) ElementType() reflect.Type {
 }
 
 type pullThroughCacheRuleArgs struct {
+	// ARN of the Secret which will be used to authenticate against the registry.
+	CredentialArn *string `pulumi:"credentialArn"`
 	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
 	// The registry URL of the upstream public registry to use as the source.
@@ -130,6 +139,8 @@ type pullThroughCacheRuleArgs struct {
 
 // The set of arguments for constructing a PullThroughCacheRule resource.
 type PullThroughCacheRuleArgs struct {
+	// ARN of the Secret which will be used to authenticate against the registry.
+	CredentialArn pulumi.StringPtrInput
 	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix pulumi.StringInput
 	// The registry URL of the upstream public registry to use as the source.
@@ -221,6 +232,11 @@ func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutput() PullThroughCa
 
 func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutputWithContext(ctx context.Context) PullThroughCacheRuleOutput {
 	return o
+}
+
+// ARN of the Secret which will be used to authenticate against the registry.
+func (o PullThroughCacheRuleOutput) CredentialArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.CredentialArn }).(pulumi.StringPtrOutput)
 }
 
 // The repository name prefix to use when caching images from the source registry.

@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
 
         /// <summary>
+        /// A collection of ownership settings. See Ownership Settings below.
+        /// </summary>
+        [Output("ownershipSettings")]
+        public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the space that appears in the SageMaker Studio UI.
         /// </summary>
         [Output("spaceDisplayName")]
@@ -78,6 +84,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("spaceSettings")]
         public Output<Outputs.SpaceSpaceSettings?> SpaceSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// </summary>
+        [Output("spaceSharingSettings")]
+        public Output<Outputs.SpaceSpaceSharingSettings?> SpaceSharingSettings { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -154,6 +166,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
+        /// A collection of ownership settings. See Ownership Settings below.
+        /// </summary>
+        [Input("ownershipSettings")]
+        public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
+
+        /// <summary>
         /// The name of the space that appears in the SageMaker Studio UI.
         /// </summary>
         [Input("spaceDisplayName")]
@@ -170,6 +188,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsArgs>? SpaceSettings { get; set; }
+
+        /// <summary>
+        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// </summary>
+        [Input("spaceSharingSettings")]
+        public Input<Inputs.SpaceSpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -210,6 +234,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? HomeEfsFileSystemUid { get; set; }
 
         /// <summary>
+        /// A collection of ownership settings. See Ownership Settings below.
+        /// </summary>
+        [Input("ownershipSettings")]
+        public Input<Inputs.SpaceOwnershipSettingsGetArgs>? OwnershipSettings { get; set; }
+
+        /// <summary>
         /// The name of the space that appears in the SageMaker Studio UI.
         /// </summary>
         [Input("spaceDisplayName")]
@@ -226,6 +256,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsGetArgs>? SpaceSettings { get; set; }
+
+        /// <summary>
+        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// </summary>
+        [Input("spaceSharingSettings")]
+        public Input<Inputs.SpaceSpaceSharingSettingsGetArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

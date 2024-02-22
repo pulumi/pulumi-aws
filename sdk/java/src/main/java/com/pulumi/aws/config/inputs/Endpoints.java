@@ -225,6 +225,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String cloudfrontkeyvaluestore;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudhsm;
     /**
      * @return Use this to override the default service endpoint URL
@@ -386,6 +391,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String costexplorer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String costoptimizationhub;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1666,6 +1676,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> cloudfrontkeyvaluestore() {
+        return Optional.ofNullable(this.cloudfrontkeyvaluestore);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudhsm() {
         return Optional.ofNullable(this.cloudhsm);
     }
@@ -1892,6 +1909,13 @@ public final class Endpoints {
      */
     public Optional<String> costexplorer() {
         return Optional.ofNullable(this.costexplorer);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> costoptimizationhub() {
+        return Optional.ofNullable(this.costoptimizationhub);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3317,6 +3341,7 @@ public final class Endpoints {
         private @Nullable String cloudcontrolapi;
         private @Nullable String cloudformation;
         private @Nullable String cloudfront;
+        private @Nullable String cloudfrontkeyvaluestore;
         private @Nullable String cloudhsm;
         private @Nullable String cloudhsmv2;
         private @Nullable String cloudsearch;
@@ -3350,6 +3375,7 @@ public final class Endpoints {
         private @Nullable String controltower;
         private @Nullable String costandusagereportservice;
         private @Nullable String costexplorer;
+        private @Nullable String costoptimizationhub;
         private @Nullable String cur;
         private @Nullable String customerprofiles;
         private @Nullable String databasemigration;
@@ -3591,6 +3617,7 @@ public final class Endpoints {
     	      this.cloudcontrolapi = defaults.cloudcontrolapi;
     	      this.cloudformation = defaults.cloudformation;
     	      this.cloudfront = defaults.cloudfront;
+    	      this.cloudfrontkeyvaluestore = defaults.cloudfrontkeyvaluestore;
     	      this.cloudhsm = defaults.cloudhsm;
     	      this.cloudhsmv2 = defaults.cloudhsmv2;
     	      this.cloudsearch = defaults.cloudsearch;
@@ -3624,6 +3651,7 @@ public final class Endpoints {
     	      this.controltower = defaults.controltower;
     	      this.costandusagereportservice = defaults.costandusagereportservice;
     	      this.costexplorer = defaults.costexplorer;
+    	      this.costoptimizationhub = defaults.costoptimizationhub;
     	      this.cur = defaults.cur;
     	      this.customerprofiles = defaults.customerprofiles;
     	      this.databasemigration = defaults.databasemigration;
@@ -4075,6 +4103,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder cloudfrontkeyvaluestore(@Nullable String cloudfrontkeyvaluestore) {
+
+            this.cloudfrontkeyvaluestore = cloudfrontkeyvaluestore;
+            return this;
+        }
+        @CustomType.Setter
         public Builder cloudhsm(@Nullable String cloudhsm) {
 
             this.cloudhsm = cloudhsm;
@@ -4270,6 +4304,12 @@ public final class Endpoints {
         public Builder costexplorer(@Nullable String costexplorer) {
 
             this.costexplorer = costexplorer;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder costoptimizationhub(@Nullable String costoptimizationhub) {
+
+            this.costoptimizationhub = costoptimizationhub;
             return this;
         }
         @CustomType.Setter
@@ -5492,6 +5532,7 @@ public final class Endpoints {
             _resultValue.cloudcontrolapi = cloudcontrolapi;
             _resultValue.cloudformation = cloudformation;
             _resultValue.cloudfront = cloudfront;
+            _resultValue.cloudfrontkeyvaluestore = cloudfrontkeyvaluestore;
             _resultValue.cloudhsm = cloudhsm;
             _resultValue.cloudhsmv2 = cloudhsmv2;
             _resultValue.cloudsearch = cloudsearch;
@@ -5525,6 +5566,7 @@ public final class Endpoints {
             _resultValue.controltower = controltower;
             _resultValue.costandusagereportservice = costandusagereportservice;
             _resultValue.costexplorer = costexplorer;
+            _resultValue.costoptimizationhub = costoptimizationhub;
             _resultValue.cur = cur;
             _resultValue.customerprofiles = customerprofiles;
             _resultValue.databasemigration = databasemigration;

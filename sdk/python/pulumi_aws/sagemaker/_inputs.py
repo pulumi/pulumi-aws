@@ -89,9 +89,11 @@ __all__ = [
     'EndpointConfigurationDataCaptureConfigCaptureOptionArgs',
     'EndpointConfigurationProductionVariantArgs',
     'EndpointConfigurationProductionVariantCoreDumpConfigArgs',
+    'EndpointConfigurationProductionVariantRoutingConfigArgs',
     'EndpointConfigurationProductionVariantServerlessConfigArgs',
     'EndpointConfigurationShadowProductionVariantArgs',
     'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs',
+    'EndpointConfigurationShadowProductionVariantRoutingConfigArgs',
     'EndpointConfigurationShadowProductionVariantServerlessConfigArgs',
     'EndpointDeploymentConfigArgs',
     'EndpointDeploymentConfigAutoRollbackConfigurationArgs',
@@ -137,13 +139,24 @@ __all__ = [
     'PipelinePipelineDefinitionS3LocationArgs',
     'ProjectServiceCatalogProvisioningDetailsArgs',
     'ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs',
+    'SpaceOwnershipSettingsArgs',
     'SpaceSpaceSettingsArgs',
+    'SpaceSpaceSettingsCodeEditorAppSettingsArgs',
+    'SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs',
+    'SpaceSpaceSettingsCustomFileSystemArgs',
+    'SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs',
+    'SpaceSpaceSettingsJupyterLabAppSettingsArgs',
+    'SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs',
+    'SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs',
     'SpaceSpaceSettingsJupyterServerAppSettingsArgs',
     'SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs',
     'SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs',
     'SpaceSpaceSettingsKernelGatewayAppSettingsArgs',
     'SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs',
     'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs',
+    'SpaceSpaceSettingsSpaceStorageSettingsArgs',
+    'SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs',
+    'SpaceSpaceSharingSettingsArgs',
     'UserProfileUserSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs',
@@ -4248,6 +4261,7 @@ class EndpointConfigurationProductionVariantArgs:
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 routing_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgs']]]] = None,
                  serverless_config: Optional[pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs']] = None,
                  variant_name: Optional[pulumi.Input[str]] = None,
                  volume_size_in_gb: Optional[pulumi.Input[int]] = None):
@@ -4261,6 +4275,7 @@ class EndpointConfigurationProductionVariantArgs:
         :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param pulumi.Input[str] instance_type: The type of instance to start.
         :param pulumi.Input[int] model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgs']]] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
         :param pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs'] serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param pulumi.Input[str] variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[int] volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
@@ -4282,6 +4297,8 @@ class EndpointConfigurationProductionVariantArgs:
             pulumi.set(__self__, "instance_type", instance_type)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if routing_configs is not None:
+            pulumi.set(__self__, "routing_configs", routing_configs)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
         if variant_name is not None:
@@ -4398,6 +4415,18 @@ class EndpointConfigurationProductionVariantArgs:
         pulumi.set(self, "model_data_download_timeout_in_seconds", value)
 
     @property
+    @pulumi.getter(name="routingConfigs")
+    def routing_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgs']]]]:
+        """
+        Sets how the endpoint routes incoming traffic. See routing_config below.
+        """
+        return pulumi.get(self, "routing_configs")
+
+    @routing_configs.setter
+    def routing_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgs']]]]):
+        pulumi.set(self, "routing_configs", value)
+
+    @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional[pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs']]:
         """
@@ -4473,6 +4502,28 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
 
 
 @pulumi.input_type
+class EndpointConfigurationProductionVariantRoutingConfigArgs:
+    def __init__(__self__, *,
+                 routing_strategy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] routing_strategy: Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        pulumi.set(__self__, "routing_strategy", routing_strategy)
+
+    @property
+    @pulumi.getter(name="routingStrategy")
+    def routing_strategy(self) -> pulumi.Input[str]:
+        """
+        Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        return pulumi.get(self, "routing_strategy")
+
+    @routing_strategy.setter
+    def routing_strategy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "routing_strategy", value)
+
+
+@pulumi.input_type
 class EndpointConfigurationProductionVariantServerlessConfigArgs:
     def __init__(__self__, *,
                  max_concurrency: pulumi.Input[int],
@@ -4537,6 +4588,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 routing_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]]] = None,
                  serverless_config: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs']] = None,
                  variant_name: Optional[pulumi.Input[str]] = None,
                  volume_size_in_gb: Optional[pulumi.Input[int]] = None):
@@ -4550,6 +4602,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
         :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param pulumi.Input[str] instance_type: The type of instance to start.
         :param pulumi.Input[int] model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
         :param pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs'] serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param pulumi.Input[str] variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[int] volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
@@ -4571,6 +4624,8 @@ class EndpointConfigurationShadowProductionVariantArgs:
             pulumi.set(__self__, "instance_type", instance_type)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if routing_configs is not None:
+            pulumi.set(__self__, "routing_configs", routing_configs)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
         if variant_name is not None:
@@ -4687,6 +4742,18 @@ class EndpointConfigurationShadowProductionVariantArgs:
         pulumi.set(self, "model_data_download_timeout_in_seconds", value)
 
     @property
+    @pulumi.getter(name="routingConfigs")
+    def routing_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]]]:
+        """
+        Sets how the endpoint routes incoming traffic. See routing_config below.
+        """
+        return pulumi.get(self, "routing_configs")
+
+    @routing_configs.setter
+    def routing_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]]]):
+        pulumi.set(self, "routing_configs", value)
+
+    @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs']]:
         """
@@ -4758,6 +4825,28 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class EndpointConfigurationShadowProductionVariantRoutingConfigArgs:
+    def __init__(__self__, *,
+                 routing_strategy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] routing_strategy: Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        pulumi.set(__self__, "routing_strategy", routing_strategy)
+
+    @property
+    @pulumi.getter(name="routingStrategy")
+    def routing_strategy(self) -> pulumi.Input[str]:
+        """
+        Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        return pulumi.get(self, "routing_strategy")
+
+    @routing_strategy.setter
+    def routing_strategy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "routing_strategy", value)
 
 
 @pulumi.input_type
@@ -6861,18 +6950,107 @@ class ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs:
 
 
 @pulumi.input_type
+class SpaceOwnershipSettingsArgs:
+    def __init__(__self__, *,
+                 owner_user_profile_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] owner_user_profile_name: The user profile who is the owner of the private space.
+        """
+        pulumi.set(__self__, "owner_user_profile_name", owner_user_profile_name)
+
+    @property
+    @pulumi.getter(name="ownerUserProfileName")
+    def owner_user_profile_name(self) -> pulumi.Input[str]:
+        """
+        The user profile who is the owner of the private space.
+        """
+        return pulumi.get(self, "owner_user_profile_name")
+
+    @owner_user_profile_name.setter
+    def owner_user_profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "owner_user_profile_name", value)
+
+
+@pulumi.input_type
 class SpaceSpaceSettingsArgs:
     def __init__(__self__, *,
+                 app_type: Optional[pulumi.Input[str]] = None,
+                 code_editor_app_settings: Optional[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs']] = None,
+                 custom_file_systems: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]]] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs']] = None,
-                 kernel_gateway_app_settings: Optional[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs']] = None):
+                 kernel_gateway_app_settings: Optional[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs']] = None,
+                 space_storage_settings: Optional[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgs']] = None):
         """
+        :param pulumi.Input[str] app_type: The type of app created within the space.
+        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
         :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         """
+        if app_type is not None:
+            pulumi.set(__self__, "app_type", app_type)
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_systems is not None:
+            pulumi.set(__self__, "custom_file_systems", custom_file_systems)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+
+    @property
+    @pulumi.getter(name="appType")
+    def app_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of app created within the space.
+        """
+        return pulumi.get(self, "app_type")
+
+    @app_type.setter
+    def app_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_type", value)
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs']]:
+        """
+        The Code Editor application settings. See Code Editor App Settings below.
+        """
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @code_editor_app_settings.setter
+    def code_editor_app_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs']]):
+        pulumi.set(self, "code_editor_app_settings", value)
+
+    @property
+    @pulumi.getter(name="customFileSystems")
+    def custom_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]]]:
+        """
+        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        """
+        return pulumi.get(self, "custom_file_systems")
+
+    @custom_file_systems.setter
+    def custom_file_systems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]]]):
+        pulumi.set(self, "custom_file_systems", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs']]:
+        """
+        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -6897,6 +7075,315 @@ class SpaceSpaceSettingsArgs:
     @kernel_gateway_app_settings.setter
     def kernel_gateway_app_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs']]):
         pulumi.set(self, "kernel_gateway_app_settings", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgs']]:
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']):
+        """
+        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @lifecycle_config_arn.setter
+    def lifecycle_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @sagemaker_image_arn.setter
+    def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+    @sagemaker_image_version_arn.setter
+    def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_arn", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsCustomFileSystemArgs:
+    def __init__(__self__, *,
+                 efs_file_system: pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs']):
+        """
+        :param pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs'] efs_file_system: A custom file system in Amazon EFS. see EFS File System below.
+        """
+        pulumi.set(__self__, "efs_file_system", efs_file_system)
+
+    @property
+    @pulumi.getter(name="efsFileSystem")
+    def efs_file_system(self) -> pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs']:
+        """
+        A custom file system in Amazon EFS. see EFS File System below.
+        """
+        return pulumi.get(self, "efs_file_system")
+
+    @efs_file_system.setter
+    def efs_file_system(self, value: pulumi.Input['SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs']):
+        pulumi.set(self, "efs_file_system", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of your Amazon EFS file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'],
+                 code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]] = None):
+        """
+        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        """
+        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
+        """
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @code_repositories.setter
+    def code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]):
+        pulumi.set(self, "code_repositories", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_url: The URL of the Git repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the Git repository.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @lifecycle_config_arn.setter
+    def lifecycle_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @sagemaker_image_arn.setter
+    def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+    @sagemaker_image_version_arn.setter
+    def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_arn", value)
 
 
 @pulumi.input_type
@@ -7254,6 +7741,60 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_version_arn.setter
     def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_version_arn", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsSpaceStorageSettingsArgs:
+    def __init__(__self__, *,
+                 ebs_storage_settings: pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs']):
+        pulumi.set(__self__, "ebs_storage_settings", ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="ebsStorageSettings")
+    def ebs_storage_settings(self) -> pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs']:
+        return pulumi.get(self, "ebs_storage_settings")
+
+    @ebs_storage_settings.setter
+    def ebs_storage_settings(self, value: pulumi.Input['SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs']):
+        pulumi.set(self, "ebs_storage_settings", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs:
+    def __init__(__self__, *,
+                 ebs_volume_size_in_gb: pulumi.Input[int]):
+        pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="ebsVolumeSizeInGb")
+    def ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "ebs_volume_size_in_gb")
+
+    @ebs_volume_size_in_gb.setter
+    def ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "ebs_volume_size_in_gb", value)
+
+
+@pulumi.input_type
+class SpaceSpaceSharingSettingsArgs:
+    def __init__(__self__, *,
+                 sharing_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] sharing_type: Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+        """
+        pulumi.set(__self__, "sharing_type", sharing_type)
+
+    @property
+    @pulumi.getter(name="sharingType")
+    def sharing_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+        """
+        return pulumi.get(self, "sharing_type")
+
+    @sharing_type.setter
+    def sharing_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sharing_type", value)
 
 
 @pulumi.input_type

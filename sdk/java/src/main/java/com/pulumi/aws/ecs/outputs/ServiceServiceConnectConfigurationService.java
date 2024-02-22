@@ -4,6 +4,8 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceClientAlias;
+import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceTimeout;
+import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceTls;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -35,6 +37,16 @@ public final class ServiceServiceConnectConfigurationService {
      * 
      */
     private String portName;
+    /**
+     * @return Configuration timeouts for Service Connect
+     * 
+     */
+    private @Nullable ServiceServiceConnectConfigurationServiceTimeout timeout;
+    /**
+     * @return The configuration for enabling Transport Layer Security (TLS)
+     * 
+     */
+    private @Nullable ServiceServiceConnectConfigurationServiceTls tls;
 
     private ServiceServiceConnectConfigurationService() {}
     /**
@@ -65,6 +77,20 @@ public final class ServiceServiceConnectConfigurationService {
     public String portName() {
         return this.portName;
     }
+    /**
+     * @return Configuration timeouts for Service Connect
+     * 
+     */
+    public Optional<ServiceServiceConnectConfigurationServiceTimeout> timeout() {
+        return Optional.ofNullable(this.timeout);
+    }
+    /**
+     * @return The configuration for enabling Transport Layer Security (TLS)
+     * 
+     */
+    public Optional<ServiceServiceConnectConfigurationServiceTls> tls() {
+        return Optional.ofNullable(this.tls);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,6 +105,8 @@ public final class ServiceServiceConnectConfigurationService {
         private @Nullable String discoveryName;
         private @Nullable Integer ingressPortOverride;
         private String portName;
+        private @Nullable ServiceServiceConnectConfigurationServiceTimeout timeout;
+        private @Nullable ServiceServiceConnectConfigurationServiceTls tls;
         public Builder() {}
         public Builder(ServiceServiceConnectConfigurationService defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,6 +114,8 @@ public final class ServiceServiceConnectConfigurationService {
     	      this.discoveryName = defaults.discoveryName;
     	      this.ingressPortOverride = defaults.ingressPortOverride;
     	      this.portName = defaults.portName;
+    	      this.timeout = defaults.timeout;
+    	      this.tls = defaults.tls;
         }
 
         @CustomType.Setter
@@ -117,12 +147,26 @@ public final class ServiceServiceConnectConfigurationService {
             this.portName = portName;
             return this;
         }
+        @CustomType.Setter
+        public Builder timeout(@Nullable ServiceServiceConnectConfigurationServiceTimeout timeout) {
+
+            this.timeout = timeout;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tls(@Nullable ServiceServiceConnectConfigurationServiceTls tls) {
+
+            this.tls = tls;
+            return this;
+        }
         public ServiceServiceConnectConfigurationService build() {
             final var _resultValue = new ServiceServiceConnectConfigurationService();
             _resultValue.clientAlias = clientAlias;
             _resultValue.discoveryName = discoveryName;
             _resultValue.ingressPortOverride = ingressPortOverride;
             _resultValue.portName = portName;
+            _resultValue.timeout = timeout;
+            _resultValue.tls = tls;
             return _resultValue;
         }
     }

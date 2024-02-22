@@ -90,9 +90,11 @@ __all__ = [
     'EndpointConfigurationDataCaptureConfigCaptureOption',
     'EndpointConfigurationProductionVariant',
     'EndpointConfigurationProductionVariantCoreDumpConfig',
+    'EndpointConfigurationProductionVariantRoutingConfig',
     'EndpointConfigurationProductionVariantServerlessConfig',
     'EndpointConfigurationShadowProductionVariant',
     'EndpointConfigurationShadowProductionVariantCoreDumpConfig',
+    'EndpointConfigurationShadowProductionVariantRoutingConfig',
     'EndpointConfigurationShadowProductionVariantServerlessConfig',
     'EndpointDeploymentConfig',
     'EndpointDeploymentConfigAutoRollbackConfiguration',
@@ -138,13 +140,24 @@ __all__ = [
     'PipelinePipelineDefinitionS3Location',
     'ProjectServiceCatalogProvisioningDetails',
     'ProjectServiceCatalogProvisioningDetailsProvisioningParameter',
+    'SpaceOwnershipSettings',
     'SpaceSpaceSettings',
+    'SpaceSpaceSettingsCodeEditorAppSettings',
+    'SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec',
+    'SpaceSpaceSettingsCustomFileSystem',
+    'SpaceSpaceSettingsCustomFileSystemEfsFileSystem',
+    'SpaceSpaceSettingsJupyterLabAppSettings',
+    'SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository',
+    'SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec',
     'SpaceSpaceSettingsJupyterServerAppSettings',
     'SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository',
     'SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec',
     'SpaceSpaceSettingsKernelGatewayAppSettings',
     'SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage',
     'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec',
+    'SpaceSpaceSettingsSpaceStorageSettings',
+    'SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings',
+    'SpaceSpaceSharingSettings',
     'UserProfileUserSettings',
     'UserProfileUserSettingsCanvasAppSettings',
     'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings',
@@ -4849,6 +4862,8 @@ class EndpointConfigurationProductionVariant(dict):
             suggest = "instance_type"
         elif key == "modelDataDownloadTimeoutInSeconds":
             suggest = "model_data_download_timeout_in_seconds"
+        elif key == "routingConfigs":
+            suggest = "routing_configs"
         elif key == "serverlessConfig":
             suggest = "serverless_config"
         elif key == "variantName":
@@ -4877,6 +4892,7 @@ class EndpointConfigurationProductionVariant(dict):
                  initial_variant_weight: Optional[float] = None,
                  instance_type: Optional[str] = None,
                  model_data_download_timeout_in_seconds: Optional[int] = None,
+                 routing_configs: Optional[Sequence['outputs.EndpointConfigurationProductionVariantRoutingConfig']] = None,
                  serverless_config: Optional['outputs.EndpointConfigurationProductionVariantServerlessConfig'] = None,
                  variant_name: Optional[str] = None,
                  volume_size_in_gb: Optional[int] = None):
@@ -4890,6 +4906,7 @@ class EndpointConfigurationProductionVariant(dict):
         :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param str instance_type: The type of instance to start.
         :param int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        :param Sequence['EndpointConfigurationProductionVariantRoutingConfigArgs'] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
         :param 'EndpointConfigurationProductionVariantServerlessConfigArgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param str variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
@@ -4911,6 +4928,8 @@ class EndpointConfigurationProductionVariant(dict):
             pulumi.set(__self__, "instance_type", instance_type)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if routing_configs is not None:
+            pulumi.set(__self__, "routing_configs", routing_configs)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
         if variant_name is not None:
@@ -4991,6 +5010,14 @@ class EndpointConfigurationProductionVariant(dict):
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
 
     @property
+    @pulumi.getter(name="routingConfigs")
+    def routing_configs(self) -> Optional[Sequence['outputs.EndpointConfigurationProductionVariantRoutingConfig']]:
+        """
+        Sets how the endpoint routes incoming traffic. See routing_config below.
+        """
+        return pulumi.get(self, "routing_configs")
+
+    @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional['outputs.EndpointConfigurationProductionVariantServerlessConfig']:
         """
@@ -5062,6 +5089,41 @@ class EndpointConfigurationProductionVariantCoreDumpConfig(dict):
         The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class EndpointConfigurationProductionVariantRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routingStrategy":
+            suggest = "routing_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationProductionVariantRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigurationProductionVariantRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigurationProductionVariantRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 routing_strategy: str):
+        """
+        :param str routing_strategy: Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        pulumi.set(__self__, "routing_strategy", routing_strategy)
+
+    @property
+    @pulumi.getter(name="routingStrategy")
+    def routing_strategy(self) -> str:
+        """
+        Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        return pulumi.get(self, "routing_strategy")
 
 
 @pulumi.output_type
@@ -5149,6 +5211,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             suggest = "instance_type"
         elif key == "modelDataDownloadTimeoutInSeconds":
             suggest = "model_data_download_timeout_in_seconds"
+        elif key == "routingConfigs":
+            suggest = "routing_configs"
         elif key == "serverlessConfig":
             suggest = "serverless_config"
         elif key == "variantName":
@@ -5177,6 +5241,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
                  initial_variant_weight: Optional[float] = None,
                  instance_type: Optional[str] = None,
                  model_data_download_timeout_in_seconds: Optional[int] = None,
+                 routing_configs: Optional[Sequence['outputs.EndpointConfigurationShadowProductionVariantRoutingConfig']] = None,
                  serverless_config: Optional['outputs.EndpointConfigurationShadowProductionVariantServerlessConfig'] = None,
                  variant_name: Optional[str] = None,
                  volume_size_in_gb: Optional[int] = None):
@@ -5190,6 +5255,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
         :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param str instance_type: The type of instance to start.
         :param int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        :param Sequence['EndpointConfigurationShadowProductionVariantRoutingConfigArgs'] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
         :param 'EndpointConfigurationShadowProductionVariantServerlessConfigArgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param str variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
@@ -5211,6 +5277,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             pulumi.set(__self__, "instance_type", instance_type)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if routing_configs is not None:
+            pulumi.set(__self__, "routing_configs", routing_configs)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
         if variant_name is not None:
@@ -5291,6 +5359,14 @@ class EndpointConfigurationShadowProductionVariant(dict):
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
 
     @property
+    @pulumi.getter(name="routingConfigs")
+    def routing_configs(self) -> Optional[Sequence['outputs.EndpointConfigurationShadowProductionVariantRoutingConfig']]:
+        """
+        Sets how the endpoint routes incoming traffic. See routing_config below.
+        """
+        return pulumi.get(self, "routing_configs")
+
+    @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional['outputs.EndpointConfigurationShadowProductionVariantServerlessConfig']:
         """
@@ -5361,6 +5437,41 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfig(dict):
         The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class EndpointConfigurationShadowProductionVariantRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routingStrategy":
+            suggest = "routing_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationShadowProductionVariantRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigurationShadowProductionVariantRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigurationShadowProductionVariantRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 routing_strategy: str):
+        """
+        :param str routing_strategy: Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        pulumi.set(__self__, "routing_strategy", routing_strategy)
+
+    @property
+    @pulumi.getter(name="routingStrategy")
+    def routing_strategy(self) -> str:
+        """
+        Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+        """
+        return pulumi.get(self, "routing_strategy")
 
 
 @pulumi.output_type
@@ -7731,14 +7842,59 @@ class ProjectServiceCatalogProvisioningDetailsProvisioningParameter(dict):
 
 
 @pulumi.output_type
+class SpaceOwnershipSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ownerUserProfileName":
+            suggest = "owner_user_profile_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceOwnershipSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceOwnershipSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceOwnershipSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 owner_user_profile_name: str):
+        """
+        :param str owner_user_profile_name: The user profile who is the owner of the private space.
+        """
+        pulumi.set(__self__, "owner_user_profile_name", owner_user_profile_name)
+
+    @property
+    @pulumi.getter(name="ownerUserProfileName")
+    def owner_user_profile_name(self) -> str:
+        """
+        The user profile who is the owner of the private space.
+        """
+        return pulumi.get(self, "owner_user_profile_name")
+
+
+@pulumi.output_type
 class SpaceSpaceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "jupyterServerAppSettings":
+        if key == "appType":
+            suggest = "app_type"
+        elif key == "codeEditorAppSettings":
+            suggest = "code_editor_app_settings"
+        elif key == "customFileSystems":
+            suggest = "custom_file_systems"
+        elif key == "jupyterLabAppSettings":
+            suggest = "jupyter_lab_app_settings"
+        elif key == "jupyterServerAppSettings":
             suggest = "jupyter_server_app_settings"
         elif key == "kernelGatewayAppSettings":
             suggest = "kernel_gateway_app_settings"
+        elif key == "spaceStorageSettings":
+            suggest = "space_storage_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettings. Access the value via the '{suggest}' property getter instead.")
@@ -7752,16 +7908,67 @@ class SpaceSpaceSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_type: Optional[str] = None,
+                 code_editor_app_settings: Optional['outputs.SpaceSpaceSettingsCodeEditorAppSettings'] = None,
+                 custom_file_systems: Optional[Sequence['outputs.SpaceSpaceSettingsCustomFileSystem']] = None,
+                 jupyter_lab_app_settings: Optional['outputs.SpaceSpaceSettingsJupyterLabAppSettings'] = None,
                  jupyter_server_app_settings: Optional['outputs.SpaceSpaceSettingsJupyterServerAppSettings'] = None,
-                 kernel_gateway_app_settings: Optional['outputs.SpaceSpaceSettingsKernelGatewayAppSettings'] = None):
+                 kernel_gateway_app_settings: Optional['outputs.SpaceSpaceSettingsKernelGatewayAppSettings'] = None,
+                 space_storage_settings: Optional['outputs.SpaceSpaceSettingsSpaceStorageSettings'] = None):
         """
+        :param str app_type: The type of app created within the space.
+        :param 'SpaceSpaceSettingsCodeEditorAppSettingsArgs' code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
+        :param Sequence['SpaceSpaceSettingsCustomFileSystemArgs'] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        :param 'SpaceSpaceSettingsJupyterLabAppSettingsArgs' jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
         :param 'SpaceSpaceSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param 'SpaceSpaceSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         """
+        if app_type is not None:
+            pulumi.set(__self__, "app_type", app_type)
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_systems is not None:
+            pulumi.set(__self__, "custom_file_systems", custom_file_systems)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+
+    @property
+    @pulumi.getter(name="appType")
+    def app_type(self) -> Optional[str]:
+        """
+        The type of app created within the space.
+        """
+        return pulumi.get(self, "app_type")
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional['outputs.SpaceSpaceSettingsCodeEditorAppSettings']:
+        """
+        The Code Editor application settings. See Code Editor App Settings below.
+        """
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @property
+    @pulumi.getter(name="customFileSystems")
+    def custom_file_systems(self) -> Optional[Sequence['outputs.SpaceSpaceSettingsCustomFileSystem']]:
+        """
+        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        """
+        return pulumi.get(self, "custom_file_systems")
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional['outputs.SpaceSpaceSettingsJupyterLabAppSettings']:
+        """
+        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -7778,6 +7985,384 @@ class SpaceSpaceSettings(dict):
         The kernel gateway app settings. See Kernel Gateway App Settings below.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional['outputs.SpaceSpaceSettingsSpaceStorageSettings']:
+        return pulumi.get(self, "space_storage_settings")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsCodeEditorAppSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsCodeEditorAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_resource_spec: 'outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec'):
+        """
+        :param 'SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> 'outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec':
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
+        elif key == "sagemakerImageArn":
+            suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionAlias":
+            suggest = "sagemaker_image_version_alias"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_alias: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
+        """
+        :param str instance_type: The instance type.
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        The instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[str]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsCustomFileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "efsFileSystem":
+            suggest = "efs_file_system"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsCustomFileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsCustomFileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsCustomFileSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 efs_file_system: 'outputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystem'):
+        """
+        :param 'SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs' efs_file_system: A custom file system in Amazon EFS. see EFS File System below.
+        """
+        pulumi.set(__self__, "efs_file_system", efs_file_system)
+
+    @property
+    @pulumi.getter(name="efsFileSystem")
+    def efs_file_system(self) -> 'outputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystem':
+        """
+        A custom file system in Amazon EFS. see EFS File System below.
+        """
+        return pulumi.get(self, "efs_file_system")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsCustomFileSystemEfsFileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemId":
+            suggest = "file_system_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsCustomFileSystemEfsFileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsCustomFileSystemEfsFileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsCustomFileSystemEfsFileSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_id: str):
+        """
+        :param str file_system_id: The ID of your Amazon EFS file system.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        The ID of your Amazon EFS file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsJupyterLabAppSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+        elif key == "codeRepositories":
+            suggest = "code_repositories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsJupyterLabAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_resource_spec: 'outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec',
+                 code_repositories: Optional[Sequence['outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository']] = None):
+        """
+        :param 'SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        """
+        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> 'outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec':
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[Sequence['outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository']]:
+        """
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        """
+        return pulumi.get(self, "code_repositories")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryUrl":
+            suggest = "repository_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_url: str):
+        """
+        :param str repository_url: The URL of the Git repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> str:
+        """
+        The URL of the Git repository.
+        """
+        return pulumi.get(self, "repository_url")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
+        elif key == "sagemakerImageArn":
+            suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionAlias":
+            suggest = "sagemaker_image_version_alias"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_alias: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
+        """
+        :param str instance_type: The instance type.
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param str sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param str sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        The instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[str]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -8185,6 +8770,99 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_version_arn")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsSpaceStorageSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsStorageSettings":
+            suggest = "ebs_storage_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsSpaceStorageSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsSpaceStorageSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsSpaceStorageSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_storage_settings: 'outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings'):
+        pulumi.set(__self__, "ebs_storage_settings", ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="ebsStorageSettings")
+    def ebs_storage_settings(self) -> 'outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings':
+        return pulumi.get(self, "ebs_storage_settings")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsVolumeSizeInGb":
+            suggest = "ebs_volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_volume_size_in_gb: int):
+        pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="ebsVolumeSizeInGb")
+    def ebs_volume_size_in_gb(self) -> int:
+        return pulumi.get(self, "ebs_volume_size_in_gb")
+
+
+@pulumi.output_type
+class SpaceSpaceSharingSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sharingType":
+            suggest = "sharing_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSharingSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSharingSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSharingSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sharing_type: str):
+        """
+        :param str sharing_type: Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+        """
+        pulumi.set(__self__, "sharing_type", sharing_type)
+
+    @property
+    @pulumi.getter(name="sharingType")
+    def sharing_type(self) -> str:
+        """
+        Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+        """
+        return pulumi.get(self, "sharing_type")
 
 
 @pulumi.output_type
