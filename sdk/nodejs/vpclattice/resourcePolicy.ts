@@ -19,22 +19,22 @@ import * as utilities from "../utilities";
  * const exampleServiceNetwork = new aws.vpclattice.ServiceNetwork("exampleServiceNetwork", {});
  * const exampleResourcePolicy = new aws.vpclattice.ResourcePolicy("exampleResourcePolicy", {
  *     resourceArn: exampleServiceNetwork.arn,
- *     policy: pulumi.all([currentPartition, currentCallerIdentity, exampleServiceNetwork.arn]).apply(([currentPartition, currentCallerIdentity, arn]) => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Sid: "test-pol-principals-6",
  *             Effect: "Allow",
  *             Principal: {
- *                 AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
+ *                 AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
  *             },
  *             Action: [
  *                 "vpc-lattice:CreateServiceNetworkVpcAssociation",
  *                 "vpc-lattice:CreateServiceNetworkServiceAssociation",
  *                 "vpc-lattice:GetServiceNetwork",
  *             ],
- *             Resource: arn,
+ *             Resource: exampleServiceNetwork.arn,
  *         }],
- *     })),
+ *     }),
  * });
  * ```
  *
