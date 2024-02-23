@@ -177,7 +177,7 @@ jobs:
         dotnet: false
         haskell: true
         swap-storage: false
-        tool-cache: false
+        tool-cache: true
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Unit-test provider code
