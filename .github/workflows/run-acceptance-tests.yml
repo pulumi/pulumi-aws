@@ -163,6 +163,13 @@ jobs:
     name: prerequisites
     runs-on: ubuntu-latest
     steps:
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: easimon/maximize-build-space@master
+      with:
+        remove-android: true
+        remove-codeql: true
+        remove-docker-images: true
+        remove-haskell: true
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -195,15 +202,6 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/schema-tools
-    - name: Clear GitHub Actions Ubuntu runner disk space
-      uses: easimon/maximize-build-space@master
-      with:
-        remove-android: true
-        remove-codeql: true
-        remove-docker-images: true
-        remove-haskell: true
-    - name: Bring back make
-      run: make -v && sudo apt-get -y install make && make -v
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Unit-test provider code
