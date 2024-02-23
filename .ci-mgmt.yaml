@@ -47,13 +47,13 @@ actions:
         cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
   preBuild:
     - name: Clear GitHub Actions Ubuntu runner disk space
-      uses: jlumbroso/free-disk-space@main
+      uses: easimon/maximize-build-space@master
       with:
-        tool-cache: true
-        dotnet: false
-        android: true
-        haskell: true
-        swap-storage: false
+        remove-android: true
+        remove-haskell: true
+        remove-codeql: true
+        remove-docker-images: true
+
 extraTests:
   go_test_shim:
     name: Run test of provider shim

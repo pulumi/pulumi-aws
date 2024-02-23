@@ -233,13 +233,12 @@ jobs:
       with:
         repo: pulumi/schema-tools
     - name: Clear GitHub Actions Ubuntu runner disk space
-      uses: jlumbroso/free-disk-space@main
+      uses: easimon/maximize-build-space@master
       with:
-        android: true
-        dotnet: false
-        haskell: true
-        swap-storage: false
-        tool-cache: true
+        remove-android: true
+        remove-codeql: true
+        remove-docker-images: true
+        remove-haskell: true
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Unit-test provider code
