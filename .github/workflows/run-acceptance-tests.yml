@@ -545,6 +545,62 @@ jobs:
               language:
                   - nodejs
 
+  publish:
+      name: publish
+      needs:
+        - test
+        - license_check
+        - go_test_shim
+        - test_oidc
+      runs-on: ubuntu-latest
+      steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+          swap-storage: false
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          cache-dependency-path: |
+              sdk/go.sum
+          go-version: 1.21.x
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.11.0
+        with:
+          tag: v0.0.46
+          repo: pulumi/pulumictl
+      - name: Install Pulumi CLI
+        uses: pulumi/actions@v5
+        with:
+          pulumi-version: ^3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: us-east-2
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 7200
+          role-external-id: upload-pulumi-release
+          role-session-name: ${{ env.PROVIDER }}@githubActions
+          role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
+      - name: Set PreRelease Version
+        run: echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)" >> "$GITHUB_ENV"
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          args: -p 1 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
+            150m0s
+          version: latest
+
 name: run-acceptance-tests
 on:
   pull_request:
