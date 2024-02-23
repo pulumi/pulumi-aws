@@ -53,6 +53,8 @@ actions:
         remove-haskell: true
         remove-codeql: true
         remove-docker-images: true
+    - name: Bring back make
+      run: make -v && apt-get -y install make && make -v
 
 extraTests:
   go_test_shim:

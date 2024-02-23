@@ -177,6 +177,8 @@ jobs:
         remove-codeql: true
         remove-docker-images: true
         remove-haskell: true
+    - name: Bring back make
+      run: make -v && apt-get -y install make && make -v
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Unit-test provider code
