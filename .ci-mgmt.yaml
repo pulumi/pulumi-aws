@@ -54,7 +54,7 @@ actions:
         remove-codeql: true
         remove-docker-images: true
     - name: Bring back make
-      run: make -v && apt-get -y install make && make -v
+      run: make -v && sudo apt-get -y install make && make -v
 
 extraTests:
   go_test_shim:
