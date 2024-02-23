@@ -35,7 +35,7 @@ jobs:
   build_sdk:
     name: build_sdk
     needs: prerequisites
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -250,7 +250,7 @@ jobs:
       - license_check
       - go_test_shim
       - test_oidc
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
@@ -367,7 +367,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -523,7 +523,7 @@ jobs:
       permissions:
           contents: read
           id-token: write
-      runs-on: pulumi-ubuntu-8core
+      runs-on: ubuntu-latest
       steps:
           - name: Checkout Repo
             uses: actions/checkout@v4

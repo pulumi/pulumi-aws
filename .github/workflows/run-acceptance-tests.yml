@@ -43,7 +43,7 @@ jobs:
       github.event.pull_request.head.repo.full_name == github.repository
     name: build_sdk
     needs: prerequisites
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -299,7 +299,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -460,7 +460,7 @@ jobs:
       permissions:
           contents: read
           id-token: write
-      runs-on: pulumi-ubuntu-8core
+      runs-on: ubuntu-latest
       steps:
           - name: Checkout Repo
             uses: actions/checkout@v4
