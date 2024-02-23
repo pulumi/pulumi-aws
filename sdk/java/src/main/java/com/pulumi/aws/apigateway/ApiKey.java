@@ -238,7 +238,6 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "tagsAll",
                 "value"
             ))
             .build();

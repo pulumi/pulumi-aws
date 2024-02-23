@@ -88,10 +88,6 @@ func NewBuild(ctx *pulumi.Context,
 	if args.StorageLocation == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLocation'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Build
 	err := ctx.RegisterResource("aws:gamelift/build:Build", name, args, &resource, opts...)

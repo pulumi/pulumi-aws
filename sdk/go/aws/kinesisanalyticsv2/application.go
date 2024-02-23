@@ -348,10 +348,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ServiceExecutionRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRole'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:kinesisanalyticsv2/application:Application", name, args, &resource, opts...)

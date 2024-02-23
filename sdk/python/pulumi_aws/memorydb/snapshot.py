@@ -367,8 +367,6 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["cluster_configurations"] = None
             __props__.__dict__["source"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Snapshot, __self__).__init__(
             'aws:memorydb/snapshot:Snapshot',
             resource_name,

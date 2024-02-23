@@ -80,10 +80,6 @@ func NewScript(ctx *pulumi.Context,
 		args = &ScriptArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Script
 	err := ctx.RegisterResource("aws:gamelift/script:Script", name, args, &resource, opts...)

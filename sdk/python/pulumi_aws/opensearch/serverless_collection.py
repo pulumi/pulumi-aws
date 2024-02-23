@@ -442,8 +442,6 @@ class ServerlessCollection(pulumi.CustomResource):
             __props__.__dict__["dashboard_endpoint"] = None
             __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServerlessCollection, __self__).__init__(
             'aws:opensearch/serverlessCollection:ServerlessCollection',
             resource_name,

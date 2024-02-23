@@ -442,8 +442,6 @@ class Space(pulumi.CustomResource):
             __props__.__dict__["home_efs_file_system_uid"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Space, __self__).__init__(
             'aws:sagemaker/space:Space',
             resource_name,

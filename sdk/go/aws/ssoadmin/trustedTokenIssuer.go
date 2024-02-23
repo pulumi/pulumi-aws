@@ -63,10 +63,6 @@ func NewTrustedTokenIssuer(ctx *pulumi.Context,
 	if args.TrustedTokenIssuerType == nil {
 		return nil, errors.New("invalid value for required argument 'TrustedTokenIssuerType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustedTokenIssuer
 	err := ctx.RegisterResource("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer", name, args, &resource, opts...)

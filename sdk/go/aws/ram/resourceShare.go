@@ -77,10 +77,6 @@ func NewResourceShare(ctx *pulumi.Context,
 		args = &ResourceShareArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceShare
 	err := ctx.RegisterResource("aws:ram/resourceShare:ResourceShare", name, args, &resource, opts...)

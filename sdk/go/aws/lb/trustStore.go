@@ -105,10 +105,6 @@ func NewTrustStore(ctx *pulumi.Context,
 	if args.CaCertificatesBundleS3Key == nil {
 		return nil, errors.New("invalid value for required argument 'CaCertificatesBundleS3Key'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustStore
 	err := ctx.RegisterResource("aws:lb/trustStore:TrustStore", name, args, &resource, opts...)

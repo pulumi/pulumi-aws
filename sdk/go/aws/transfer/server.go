@@ -358,7 +358,6 @@ func NewServer(ctx *pulumi.Context,
 		"hostKey",
 		"postAuthenticationLoginBanner",
 		"preAuthenticationLoginBanner",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

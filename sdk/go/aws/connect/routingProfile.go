@@ -116,10 +116,6 @@ func NewRoutingProfile(ctx *pulumi.Context,
 	if args.MediaConcurrencies == nil {
 		return nil, errors.New("invalid value for required argument 'MediaConcurrencies'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingProfile
 	err := ctx.RegisterResource("aws:connect/routingProfile:RoutingProfile", name, args, &resource, opts...)

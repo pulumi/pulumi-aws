@@ -384,8 +384,6 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SpotFleetRequest.__pulumiType, name, resourceInputs, opts);
     }
 }

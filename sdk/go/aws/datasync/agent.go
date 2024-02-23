@@ -84,10 +84,6 @@ func NewAgent(ctx *pulumi.Context,
 		args = &AgentArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agent
 	err := ctx.RegisterResource("aws:datasync/agent:Agent", name, args, &resource, opts...)

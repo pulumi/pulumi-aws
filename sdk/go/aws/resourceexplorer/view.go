@@ -91,10 +91,6 @@ func NewView(ctx *pulumi.Context,
 		args = &ViewArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource View
 	err := ctx.RegisterResource("aws:resourceexplorer/view:View", name, args, &resource, opts...)

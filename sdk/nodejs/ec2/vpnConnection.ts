@@ -588,7 +588,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vgwTelemetries"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customerGatewayConfiguration", "tagsAll", "tunnel1PresharedKey", "tunnel2PresharedKey"] };
+        const secretOpts = { additionalSecretOutputs: ["customerGatewayConfiguration", "tunnel1PresharedKey", "tunnel2PresharedKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }

@@ -143,10 +143,6 @@ func NewDomainName(ctx *pulumi.Context,
 	if args.DomainNameConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'DomainNameConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainName
 	err := ctx.RegisterResource("aws:apigatewayv2/domainName:DomainName", name, args, &resource, opts...)

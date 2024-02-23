@@ -1169,8 +1169,6 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["website_endpoint"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucket:Bucket")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(BucketV2, __self__).__init__(
             'aws:s3/bucketV2:BucketV2',
             resource_name,

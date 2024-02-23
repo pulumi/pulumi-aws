@@ -313,7 +313,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["certificate_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificatePem", "certificateWallet", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificatePem", "certificateWallet"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:dms/certificate:Certificate',

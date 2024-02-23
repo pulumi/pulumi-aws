@@ -92,10 +92,6 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 	if args.EndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterEndpoint
 	err := ctx.RegisterResource("aws:neptune/clusterEndpoint:ClusterEndpoint", name, args, &resource, opts...)

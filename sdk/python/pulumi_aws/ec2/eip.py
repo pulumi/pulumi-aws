@@ -800,8 +800,6 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Eip, __self__).__init__(
             'aws:ec2/eip:Eip',
             resource_name,

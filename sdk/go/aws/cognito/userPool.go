@@ -197,10 +197,6 @@ func NewUserPool(ctx *pulumi.Context,
 		args = &UserPoolArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPool
 	err := ctx.RegisterResource("aws:cognito/userPool:UserPool", name, args, &resource, opts...)

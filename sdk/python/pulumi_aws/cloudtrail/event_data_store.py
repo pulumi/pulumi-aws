@@ -520,8 +520,6 @@ class EventDataStore(pulumi.CustomResource):
             __props__.__dict__["termination_protection_enabled"] = termination_protection_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventDataStore, __self__).__init__(
             'aws:cloudtrail/eventDataStore:EventDataStore',
             resource_name,

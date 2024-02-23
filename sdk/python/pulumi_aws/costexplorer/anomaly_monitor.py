@@ -381,8 +381,6 @@ class AnomalyMonitor(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AnomalyMonitor, __self__).__init__(
             'aws:costexplorer/anomalyMonitor:AnomalyMonitor',
             resource_name,

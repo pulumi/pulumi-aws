@@ -124,10 +124,6 @@ func NewStorageLensConfiguration(ctx *pulumi.Context,
 	if args.StorageLensConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLensConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageLensConfiguration
 	err := ctx.RegisterResource("aws:s3control/storageLensConfiguration:StorageLensConfiguration", name, args, &resource, opts...)

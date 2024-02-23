@@ -91,10 +91,6 @@ func NewInstanceConnectEndpoint(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceConnectEndpoint
 	err := ctx.RegisterResource("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", name, args, &resource, opts...)

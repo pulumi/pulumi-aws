@@ -978,7 +978,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_emails"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',

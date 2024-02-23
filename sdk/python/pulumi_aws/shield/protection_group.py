@@ -435,8 +435,6 @@ class ProtectionGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["protection_group_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ProtectionGroup, __self__).__init__(
             'aws:shield/protectionGroup:ProtectionGroup',
             resource_name,

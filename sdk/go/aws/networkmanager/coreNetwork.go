@@ -640,10 +640,6 @@ func NewCoreNetwork(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CoreNetwork
 	err := ctx.RegisterResource("aws:networkmanager/coreNetwork:CoreNetwork", name, args, &resource, opts...)

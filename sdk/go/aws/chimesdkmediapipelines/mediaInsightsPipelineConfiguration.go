@@ -433,10 +433,6 @@ func NewMediaInsightsPipelineConfiguration(ctx *pulumi.Context,
 	if args.ResourceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceAccessRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MediaInsightsPipelineConfiguration
 	err := ctx.RegisterResource("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration", name, args, &resource, opts...)

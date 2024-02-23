@@ -223,10 +223,6 @@ func NewContactsRotation(ctx *pulumi.Context,
 	if args.TimeZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZoneId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactsRotation
 	err := ctx.RegisterResource("aws:ssm/contactsRotation:ContactsRotation", name, args, &resource, opts...)

@@ -84,10 +84,6 @@ func NewDiscoverer(ctx *pulumi.Context,
 	if args.SourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Discoverer
 	err := ctx.RegisterResource("aws:schemas/discoverer:Discoverer", name, args, &resource, opts...)

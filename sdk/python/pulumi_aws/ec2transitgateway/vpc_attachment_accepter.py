@@ -413,8 +413,6 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_id"] = None
             __props__.__dict__["vpc_id"] = None
             __props__.__dict__["vpc_owner_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcAttachmentAccepter, __self__).__init__(
             'aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter',
             resource_name,

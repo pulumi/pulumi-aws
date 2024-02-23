@@ -91,10 +91,6 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:resourcegroups/group:Group", name, args, &resource, opts...)

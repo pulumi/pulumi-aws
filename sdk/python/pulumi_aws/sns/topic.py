@@ -1252,8 +1252,6 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["beginning_archive_time"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Topic, __self__).__init__(
             'aws:sns/topic:Topic',
             resource_name,

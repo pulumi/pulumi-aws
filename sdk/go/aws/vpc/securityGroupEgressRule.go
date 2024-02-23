@@ -106,10 +106,6 @@ func NewSecurityGroupEgressRule(ctx *pulumi.Context,
 	if args.SecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupEgressRule
 	err := ctx.RegisterResource("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", name, args, &resource, opts...)

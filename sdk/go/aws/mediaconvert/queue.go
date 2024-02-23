@@ -76,10 +76,6 @@ func NewQueue(ctx *pulumi.Context,
 		args = &QueueArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:mediaconvert/queue:Queue", name, args, &resource, opts...)

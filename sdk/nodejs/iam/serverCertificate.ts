@@ -221,7 +221,7 @@ export class ServerCertificate extends pulumi.CustomResource {
             resourceInputs["uploadDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["privateKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerCertificate.__pulumiType, name, resourceInputs, opts);
     }

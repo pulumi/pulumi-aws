@@ -78,10 +78,6 @@ func NewRevision(ctx *pulumi.Context,
 	if args.DataSetId == nil {
 		return nil, errors.New("invalid value for required argument 'DataSetId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Revision
 	err := ctx.RegisterResource("aws:dataexchange/revision:Revision", name, args, &resource, opts...)

@@ -170,8 +170,6 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["workgroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workgroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -120,7 +120,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["certificatePem", "certificateWallet", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["certificatePem", "certificateWallet"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

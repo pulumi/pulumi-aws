@@ -547,8 +547,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["default_version_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ProvisioningTemplate, __self__).__init__(
             'aws:iot/provisioningTemplate:ProvisioningTemplate',
             resource_name,

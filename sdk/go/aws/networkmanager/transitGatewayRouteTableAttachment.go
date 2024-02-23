@@ -98,10 +98,6 @@ func NewTransitGatewayRouteTableAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayRouteTableAttachment
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, args, &resource, opts...)

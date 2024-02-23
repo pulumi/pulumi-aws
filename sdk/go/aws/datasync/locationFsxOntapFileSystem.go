@@ -69,10 +69,6 @@ func NewLocationFsxOntapFileSystem(ctx *pulumi.Context,
 	if args.StorageVirtualMachineArn == nil {
 		return nil, errors.New("invalid value for required argument 'StorageVirtualMachineArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFsxOntapFileSystem
 	err := ctx.RegisterResource("aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem", name, args, &resource, opts...)

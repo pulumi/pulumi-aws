@@ -1092,7 +1092,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["host_key_fingerprint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'aws:transfer/server:Server',

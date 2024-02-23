@@ -86,10 +86,6 @@ func NewApp(ctx *pulumi.Context,
 		args = &AppArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws:pinpoint/app:App", name, args, &resource, opts...)

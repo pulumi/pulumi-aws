@@ -119,10 +119,6 @@ func NewProfile(ctx *pulumi.Context,
 	if args.RoleArns == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArns'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Profile
 	err := ctx.RegisterResource("aws:rolesanywhere/profile:Profile", name, args, &resource, opts...)

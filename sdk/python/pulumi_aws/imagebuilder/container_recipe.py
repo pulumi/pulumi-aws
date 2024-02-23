@@ -783,8 +783,6 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ContainerRecipe, __self__).__init__(
             'aws:imagebuilder/containerRecipe:ContainerRecipe',
             resource_name,

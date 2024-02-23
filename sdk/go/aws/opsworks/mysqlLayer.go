@@ -107,10 +107,6 @@ func NewMysqlLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MysqlLayer
 	err := ctx.RegisterResource("aws:opsworks/mysqlLayer:MysqlLayer", name, args, &resource, opts...)

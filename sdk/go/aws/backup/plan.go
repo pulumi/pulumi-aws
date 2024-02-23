@@ -97,10 +97,6 @@ func NewPlan(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Plan
 	err := ctx.RegisterResource("aws:backup/plan:Plan", name, args, &resource, opts...)

@@ -125,10 +125,6 @@ func NewKxUser(ctx *pulumi.Context,
 	if args.IamRole == nil {
 		return nil, errors.New("invalid value for required argument 'IamRole'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxUser
 	err := ctx.RegisterResource("aws:finspace/kxUser:KxUser", name, args, &resource, opts...)

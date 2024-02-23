@@ -260,10 +260,6 @@ func NewTarget(ctx *pulumi.Context,
 	if args.ServiceNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceNamespace'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Target
 	err := ctx.RegisterResource("aws:appautoscaling/target:Target", name, args, &resource, opts...)

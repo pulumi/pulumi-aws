@@ -122,10 +122,6 @@ func NewRepository(ctx *pulumi.Context,
 	if args.RepositoryName == nil {
 		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Repository
 	err := ctx.RegisterResource("aws:codecommit/repository:Repository", name, args, &resource, opts...)

@@ -118,10 +118,6 @@ func NewAnalyzer(ctx *pulumi.Context,
 	if args.AnalyzerName == nil {
 		return nil, errors.New("invalid value for required argument 'AnalyzerName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analyzer
 	err := ctx.RegisterResource("aws:accessanalyzer/analyzer:Analyzer", name, args, &resource, opts...)

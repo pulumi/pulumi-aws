@@ -136,10 +136,6 @@ func NewCodeRepository(ctx *pulumi.Context,
 	if args.GitConfig == nil {
 		return nil, errors.New("invalid value for required argument 'GitConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CodeRepository
 	err := ctx.RegisterResource("aws:sagemaker/codeRepository:CodeRepository", name, args, &resource, opts...)

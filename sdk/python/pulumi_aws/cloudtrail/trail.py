@@ -992,8 +992,6 @@ class Trail(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_region"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Trail, __self__).__init__(
             'aws:cloudtrail/trail:Trail',
             resource_name,

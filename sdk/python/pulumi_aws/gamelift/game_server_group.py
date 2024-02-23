@@ -750,8 +750,6 @@ class GameServerGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["auto_scaling_group_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GameServerGroup, __self__).__init__(
             'aws:gamelift/gameServerGroup:GameServerGroup',
             resource_name,

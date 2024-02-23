@@ -306,10 +306,6 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 	if args.TargetCapacity == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCapacity'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpotFleetRequest
 	err := ctx.RegisterResource("aws:ec2/spotFleetRequest:SpotFleetRequest", name, args, &resource, opts...)

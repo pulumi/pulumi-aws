@@ -137,10 +137,6 @@ func NewVpcEndpointService(ctx *pulumi.Context,
 	if args.AcceptanceRequired == nil {
 		return nil, errors.New("invalid value for required argument 'AcceptanceRequired'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointService
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointService:VpcEndpointService", name, args, &resource, opts...)

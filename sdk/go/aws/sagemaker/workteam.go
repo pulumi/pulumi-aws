@@ -141,10 +141,6 @@ func NewWorkteam(ctx *pulumi.Context,
 	if args.WorkteamName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkteamName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workteam
 	err := ctx.RegisterResource("aws:sagemaker/workteam:Workteam", name, args, &resource, opts...)

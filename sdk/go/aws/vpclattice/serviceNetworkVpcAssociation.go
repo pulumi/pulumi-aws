@@ -91,10 +91,6 @@ func NewServiceNetworkVpcAssociation(ctx *pulumi.Context,
 	if args.VpcIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'VpcIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetworkVpcAssociation
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation", name, args, &resource, opts...)

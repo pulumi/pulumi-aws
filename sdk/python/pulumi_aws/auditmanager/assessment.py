@@ -478,8 +478,6 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["roles_alls"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Assessment, __self__).__init__(
             'aws:auditmanager/assessment:Assessment',
             resource_name,

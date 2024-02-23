@@ -92,10 +92,6 @@ func NewResourceSet(ctx *pulumi.Context,
 	if args.Resources == nil {
 		return nil, errors.New("invalid value for required argument 'Resources'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceSet
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/resourceSet:ResourceSet", name, args, &resource, opts...)

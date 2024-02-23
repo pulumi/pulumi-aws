@@ -1000,8 +1000,6 @@ class Launch(pulumi.CustomResource):
             __props__.__dict__["status_reason"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Launch, __self__).__init__(
             'aws:evidently/launch:Launch',
             resource_name,

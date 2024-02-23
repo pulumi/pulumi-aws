@@ -100,10 +100,6 @@ func NewRepositoryAssociation(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryAssociation
 	err := ctx.RegisterResource("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", name, args, &resource, opts...)

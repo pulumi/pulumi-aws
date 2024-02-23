@@ -128,10 +128,6 @@ func NewTrustAnchor(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustAnchor
 	err := ctx.RegisterResource("aws:rolesanywhere/trustAnchor:TrustAnchor", name, args, &resource, opts...)

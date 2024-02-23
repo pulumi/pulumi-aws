@@ -110,10 +110,6 @@ func NewImagePipeline(ctx *pulumi.Context,
 	if args.InfrastructureConfigurationArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImagePipeline
 	err := ctx.RegisterResource("aws:imagebuilder/imagePipeline:ImagePipeline", name, args, &resource, opts...)

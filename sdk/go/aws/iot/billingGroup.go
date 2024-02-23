@@ -78,10 +78,6 @@ func NewBillingGroup(ctx *pulumi.Context,
 		args = &BillingGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BillingGroup
 	err := ctx.RegisterResource("aws:iot/billingGroup:BillingGroup", name, args, &resource, opts...)

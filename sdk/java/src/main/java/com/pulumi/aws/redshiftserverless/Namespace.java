@@ -267,8 +267,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "adminUserPassword",
-                "adminUsername",
-                "tagsAll"
+                "adminUsername"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

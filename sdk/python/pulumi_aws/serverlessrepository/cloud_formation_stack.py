@@ -386,8 +386,6 @@ class CloudFormationStack(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["outputs"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CloudFormationStack, __self__).__init__(
             'aws:serverlessrepository/cloudFormationStack:CloudFormationStack',
             resource_name,

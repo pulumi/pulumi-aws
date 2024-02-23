@@ -114,10 +114,6 @@ func NewImageBuilder(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageBuilder
 	err := ctx.RegisterResource("aws:appstream/imageBuilder:ImageBuilder", name, args, &resource, opts...)

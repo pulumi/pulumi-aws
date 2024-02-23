@@ -100,10 +100,6 @@ func NewWorkgroup(ctx *pulumi.Context,
 	if args.WorkgroupName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkgroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:redshiftserverless/workgroup:Workgroup", name, args, &resource, opts...)

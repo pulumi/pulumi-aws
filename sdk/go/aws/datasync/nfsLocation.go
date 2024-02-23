@@ -95,10 +95,6 @@ func NewNfsLocation(ctx *pulumi.Context,
 	if args.Subdirectory == nil {
 		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NfsLocation
 	err := ctx.RegisterResource("aws:datasync/nfsLocation:NfsLocation", name, args, &resource, opts...)

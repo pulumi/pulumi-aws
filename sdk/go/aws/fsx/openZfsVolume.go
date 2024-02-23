@@ -98,10 +98,6 @@ func NewOpenZfsVolume(ctx *pulumi.Context,
 	if args.ParentVolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentVolumeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsVolume
 	err := ctx.RegisterResource("aws:fsx/openZfsVolume:OpenZfsVolume", name, args, &resource, opts...)

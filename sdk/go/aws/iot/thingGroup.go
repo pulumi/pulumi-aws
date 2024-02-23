@@ -91,10 +91,6 @@ func NewThingGroup(ctx *pulumi.Context,
 		args = &ThingGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroup
 	err := ctx.RegisterResource("aws:iot/thingGroup:ThingGroup", name, args, &resource, opts...)

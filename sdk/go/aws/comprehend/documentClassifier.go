@@ -141,10 +141,6 @@ func NewDocumentClassifier(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentClassifier
 	err := ctx.RegisterResource("aws:comprehend/documentClassifier:DocumentClassifier", name, args, &resource, opts...)

@@ -148,10 +148,6 @@ func NewOntapVolume(ctx *pulumi.Context,
 	if args.StorageVirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageVirtualMachineId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OntapVolume
 	err := ctx.RegisterResource("aws:fsx/ontapVolume:OntapVolume", name, args, &resource, opts...)

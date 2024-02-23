@@ -1132,8 +1132,6 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/targetGroup:TargetGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TargetGroup, __self__).__init__(
             'aws:alb/targetGroup:TargetGroup',
             resource_name,

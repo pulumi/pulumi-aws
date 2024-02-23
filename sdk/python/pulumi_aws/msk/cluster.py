@@ -1065,8 +1065,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zookeeper_connect_string"] = None
             __props__.__dict__["zookeeper_connect_string_tls"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:msk/cluster:Cluster',
             resource_name,

@@ -104,10 +104,6 @@ func NewDistributionConfiguration(ctx *pulumi.Context,
 	if args.Distributions == nil {
 		return nil, errors.New("invalid value for required argument 'Distributions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DistributionConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, args, &resource, opts...)

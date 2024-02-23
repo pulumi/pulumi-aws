@@ -198,10 +198,6 @@ func NewStackSet(ctx *pulumi.Context,
 		args = &StackSetArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StackSet
 	err := ctx.RegisterResource("aws:cloudformation/stackSet:StackSet", name, args, &resource, opts...)

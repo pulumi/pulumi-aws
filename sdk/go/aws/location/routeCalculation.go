@@ -88,10 +88,6 @@ func NewRouteCalculation(ctx *pulumi.Context,
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteCalculation
 	err := ctx.RegisterResource("aws:location/routeCalculation:RouteCalculation", name, args, &resource, opts...)

@@ -321,7 +321,6 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "caCertificatePem",
-                "tagsAll",
                 "verificationCertificatePem"
             ))
             .build();

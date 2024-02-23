@@ -734,8 +734,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_domain"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["verified_access_instance_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Endpoint, __self__).__init__(
             'aws:verifiedaccess/endpoint:Endpoint',
             resource_name,

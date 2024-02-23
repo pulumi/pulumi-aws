@@ -363,8 +363,6 @@ class ContactList(pulumi.CustomResource):
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["last_updated_timestamp"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ContactList, __self__).__init__(
             'aws:sesv2/contactList:ContactList',
             resource_name,

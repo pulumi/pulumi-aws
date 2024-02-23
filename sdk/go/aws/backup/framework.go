@@ -167,10 +167,6 @@ func NewFramework(ctx *pulumi.Context,
 	if args.Controls == nil {
 		return nil, errors.New("invalid value for required argument 'Controls'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Framework
 	err := ctx.RegisterResource("aws:backup/framework:Framework", name, args, &resource, opts...)

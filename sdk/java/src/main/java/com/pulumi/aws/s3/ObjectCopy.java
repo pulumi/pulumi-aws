@@ -799,8 +799,7 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
                 "customerKey",
                 "kmsEncryptionContext",
                 "kmsKeyId",
-                "sourceCustomerKey",
-                "tagsAll"
+                "sourceCustomerKey"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -133,10 +133,6 @@ func NewDefaultRouteTable(ctx *pulumi.Context,
 	if args.DefaultRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultRouteTableId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultRouteTable
 	err := ctx.RegisterResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, args, &resource, opts...)

@@ -76,10 +76,6 @@ func NewHsmClientCertificate(ctx *pulumi.Context,
 	if args.HsmClientCertificateIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'HsmClientCertificateIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HsmClientCertificate
 	err := ctx.RegisterResource("aws:redshift/hsmClientCertificate:HsmClientCertificate", name, args, &resource, opts...)

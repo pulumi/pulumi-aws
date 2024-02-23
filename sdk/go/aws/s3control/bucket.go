@@ -86,10 +86,6 @@ func NewBucket(ctx *pulumi.Context,
 	if args.OutpostId == nil {
 		return nil, errors.New("invalid value for required argument 'OutpostId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws:s3control/bucket:Bucket", name, args, &resource, opts...)

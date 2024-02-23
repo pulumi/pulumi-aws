@@ -79,10 +79,6 @@ func NewCarrierGateway(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CarrierGateway
 	err := ctx.RegisterResource("aws:ec2/carrierGateway:CarrierGateway", name, args, &resource, opts...)

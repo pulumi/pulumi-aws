@@ -269,8 +269,6 @@ class ClientCertificate(pulumi.CustomResource):
             __props__.__dict__["expiration_date"] = None
             __props__.__dict__["pem_encoded_certificate"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClientCertificate, __self__).__init__(
             'aws:apigateway/clientCertificate:ClientCertificate',
             resource_name,

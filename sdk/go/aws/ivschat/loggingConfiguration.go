@@ -169,10 +169,6 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 		args = &LoggingConfigurationArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggingConfiguration
 	err := ctx.RegisterResource("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, args, &resource, opts...)

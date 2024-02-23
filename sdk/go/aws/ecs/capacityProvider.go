@@ -100,10 +100,6 @@ func NewCapacityProvider(ctx *pulumi.Context,
 	if args.AutoScalingGroupProvider == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityProvider
 	err := ctx.RegisterResource("aws:ecs/capacityProvider:CapacityProvider", name, args, &resource, opts...)

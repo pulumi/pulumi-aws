@@ -99,10 +99,6 @@ func NewVpcIpamScope(ctx *pulumi.Context,
 	if args.IpamId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamScope
 	err := ctx.RegisterResource("aws:ec2/vpcIpamScope:VpcIpamScope", name, args, &resource, opts...)

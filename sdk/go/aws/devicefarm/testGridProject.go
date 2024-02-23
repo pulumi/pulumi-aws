@@ -50,10 +50,6 @@ func NewTestGridProject(ctx *pulumi.Context,
 		args = &TestGridProjectArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TestGridProject
 	err := ctx.RegisterResource("aws:devicefarm/testGridProject:TestGridProject", name, args, &resource, opts...)

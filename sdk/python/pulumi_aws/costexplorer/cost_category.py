@@ -495,8 +495,6 @@ class CostCategory(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["effective_end"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CostCategory, __self__).__init__(
             'aws:costexplorer/costCategory:CostCategory',
             resource_name,

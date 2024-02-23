@@ -735,8 +735,6 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["operating_system"] = None
             __props__.__dict__["script_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Fleet, __self__).__init__(
             'aws:gamelift/fleet:Fleet',
             resource_name,

@@ -252,8 +252,6 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ProvisionedProduct.__pulumiType, name, resourceInputs, opts);
     }
 }

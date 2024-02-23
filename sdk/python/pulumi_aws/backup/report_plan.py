@@ -392,8 +392,6 @@ class ReportPlan(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReportPlan, __self__).__init__(
             'aws:backup/reportPlan:ReportPlan',
             resource_name,

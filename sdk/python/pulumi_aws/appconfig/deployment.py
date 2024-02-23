@@ -510,8 +510,6 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Deployment, __self__).__init__(
             'aws:appconfig/deployment:Deployment',
             resource_name,

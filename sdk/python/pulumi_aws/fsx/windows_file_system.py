@@ -1050,8 +1050,6 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__.__dict__["remote_administration_endpoint"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsFileSystem, __self__).__init__(
             'aws:fsx/windowsFileSystem:WindowsFileSystem',
             resource_name,

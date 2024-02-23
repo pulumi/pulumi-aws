@@ -177,10 +177,6 @@ func NewListenerRule(ctx *pulumi.Context,
 	if args.ServiceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerRule
 	err := ctx.RegisterResource("aws:vpclattice/listenerRule:ListenerRule", name, args, &resource, opts...)

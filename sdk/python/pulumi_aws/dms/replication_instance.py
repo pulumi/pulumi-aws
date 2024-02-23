@@ -894,8 +894,6 @@ class ReplicationInstance(pulumi.CustomResource):
             __props__.__dict__["replication_instance_private_ips"] = None
             __props__.__dict__["replication_instance_public_ips"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicationInstance, __self__).__init__(
             'aws:dms/replicationInstance:ReplicationInstance',
             resource_name,

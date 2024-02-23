@@ -171,10 +171,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.VerifiedAccessGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'VerifiedAccessGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:verifiedaccess/endpoint:Endpoint", name, args, &resource, opts...)

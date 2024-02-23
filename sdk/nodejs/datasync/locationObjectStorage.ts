@@ -165,7 +165,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["secretKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["secretKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocationObjectStorage.__pulumiType, name, resourceInputs, opts);
     }

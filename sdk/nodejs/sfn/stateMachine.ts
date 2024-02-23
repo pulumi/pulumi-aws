@@ -266,8 +266,6 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StateMachine.__pulumiType, name, resourceInputs, opts);
     }
 }

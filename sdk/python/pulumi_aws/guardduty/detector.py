@@ -351,8 +351,6 @@ class Detector(pulumi.CustomResource):
             __props__.__dict__["account_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Detector, __self__).__init__(
             'aws:guardduty/detector:Detector',
             resource_name,

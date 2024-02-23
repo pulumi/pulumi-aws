@@ -603,8 +603,6 @@ class ClassificationJob(pulumi.CustomResource):
             __props__.__dict__["job_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["user_paused_details"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClassificationJob, __self__).__init__(
             'aws:macie2/classificationJob:ClassificationJob',
             resource_name,

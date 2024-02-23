@@ -97,10 +97,6 @@ func NewEfsLocation(ctx *pulumi.Context,
 	if args.EfsFileSystemArn == nil {
 		return nil, errors.New("invalid value for required argument 'EfsFileSystemArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EfsLocation
 	err := ctx.RegisterResource("aws:datasync/efsLocation:EfsLocation", name, args, &resource, opts...)

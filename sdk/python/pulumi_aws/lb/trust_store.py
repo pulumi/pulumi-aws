@@ -407,8 +407,6 @@ class TrustStore(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["arn_suffix"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TrustStore, __self__).__init__(
             'aws:lb/trustStore:TrustStore',
             resource_name,

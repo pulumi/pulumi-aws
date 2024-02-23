@@ -115,10 +115,6 @@ func NewFleet(ctx *pulumi.Context,
 	if args.Ec2InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'Ec2InstanceType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:gamelift/fleet:Fleet", name, args, &resource, opts...)

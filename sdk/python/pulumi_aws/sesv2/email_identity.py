@@ -407,8 +407,6 @@ class EmailIdentity(pulumi.CustomResource):
             __props__.__dict__["identity_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["verified_for_sending_status"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EmailIdentity, __self__).__init__(
             'aws:sesv2/emailIdentity:EmailIdentity',
             resource_name,

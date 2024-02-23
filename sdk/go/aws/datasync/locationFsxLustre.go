@@ -88,10 +88,6 @@ func NewLocationFsxLustre(ctx *pulumi.Context,
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFsxLustre
 	err := ctx.RegisterResource("aws:datasync/locationFsxLustre:LocationFsxLustre", name, args, &resource, opts...)

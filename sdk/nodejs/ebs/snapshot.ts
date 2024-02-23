@@ -177,8 +177,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["volumeSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }

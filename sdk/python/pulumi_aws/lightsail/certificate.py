@@ -330,8 +330,6 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["domain_validation_options"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:lightsail/certificate:Certificate',
             resource_name,

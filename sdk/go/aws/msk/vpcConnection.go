@@ -109,10 +109,6 @@ func NewVpcConnection(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnection
 	err := ctx.RegisterResource("aws:msk/vpcConnection:VpcConnection", name, args, &resource, opts...)

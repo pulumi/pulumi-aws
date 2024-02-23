@@ -638,8 +638,7 @@ public class App extends com.pulumi.resources.CustomResource {
             .additionalSecretOutputs(List.of(
                 "accessToken",
                 "basicAuthCredentials",
-                "oauthToken",
-                "tagsAll"
+                "oauthToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

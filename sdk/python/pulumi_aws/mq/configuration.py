@@ -490,8 +490,6 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_revision"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Configuration, __self__).__init__(
             'aws:mq/configuration:Configuration',
             resource_name,

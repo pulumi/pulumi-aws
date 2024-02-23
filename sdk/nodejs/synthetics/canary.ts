@@ -247,8 +247,6 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["timelines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Canary.__pulumiType, name, resourceInputs, opts);
     }
 }

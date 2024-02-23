@@ -74,10 +74,6 @@ func NewResolverFirewallRuleGroup(ctx *pulumi.Context,
 		args = &ResolverFirewallRuleGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverFirewallRuleGroup
 	err := ctx.RegisterResource("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, args, &resource, opts...)

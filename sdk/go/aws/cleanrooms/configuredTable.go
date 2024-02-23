@@ -106,10 +106,6 @@ func NewConfiguredTable(ctx *pulumi.Context,
 	if args.TableReference == nil {
 		return nil, errors.New("invalid value for required argument 'TableReference'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfiguredTable
 	err := ctx.RegisterResource("aws:cleanrooms/configuredTable:ConfiguredTable", name, args, &resource, opts...)

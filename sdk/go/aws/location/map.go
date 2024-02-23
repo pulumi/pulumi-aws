@@ -90,10 +90,6 @@ func NewMap(ctx *pulumi.Context,
 	if args.MapName == nil {
 		return nil, errors.New("invalid value for required argument 'MapName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Map
 	err := ctx.RegisterResource("aws:location/map:Map", name, args, &resource, opts...)

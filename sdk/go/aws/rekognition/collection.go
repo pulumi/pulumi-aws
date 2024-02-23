@@ -82,10 +82,6 @@ func NewCollection(ctx *pulumi.Context,
 	if args.CollectionId == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collection
 	err := ctx.RegisterResource("aws:rekognition/collection:Collection", name, args, &resource, opts...)

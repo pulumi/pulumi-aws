@@ -93,10 +93,6 @@ func NewLb(ctx *pulumi.Context,
 	if args.InstancePort == nil {
 		return nil, errors.New("invalid value for required argument 'InstancePort'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Lb
 	err := ctx.RegisterResource("aws:lightsail/lb:Lb", name, args, &resource, opts...)

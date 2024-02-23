@@ -60,10 +60,6 @@ func NewStudioLifecycleConfig(ctx *pulumi.Context,
 	if args.StudioLifecycleConfigName == nil {
 		return nil, errors.New("invalid value for required argument 'StudioLifecycleConfigName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StudioLifecycleConfig
 	err := ctx.RegisterResource("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig", name, args, &resource, opts...)

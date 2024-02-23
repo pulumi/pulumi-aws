@@ -427,8 +427,6 @@ class KeyPair(pulumi.CustomResource):
             __props__.__dict__["fingerprint"] = None
             __props__.__dict__["private_key"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(KeyPair, __self__).__init__(
             'aws:lightsail/keyPair:KeyPair',
             resource_name,

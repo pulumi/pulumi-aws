@@ -446,8 +446,6 @@ class HoursOfOperation(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["hours_of_operation_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HoursOfOperation, __self__).__init__(
             'aws:connect/hoursOfOperation:HoursOfOperation',
             resource_name,

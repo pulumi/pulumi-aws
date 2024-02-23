@@ -97,10 +97,6 @@ func NewVpcIpamResourceDiscovery(ctx *pulumi.Context,
 	if args.OperatingRegions == nil {
 		return nil, errors.New("invalid value for required argument 'OperatingRegions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamResourceDiscovery
 	err := ctx.RegisterResource("aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery", name, args, &resource, opts...)

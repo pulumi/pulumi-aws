@@ -286,8 +286,6 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["writer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -87,10 +87,6 @@ func NewSchedulingPolicy(ctx *pulumi.Context,
 		args = &SchedulingPolicyArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SchedulingPolicy
 	err := ctx.RegisterResource("aws:batch/schedulingPolicy:SchedulingPolicy", name, args, &resource, opts...)

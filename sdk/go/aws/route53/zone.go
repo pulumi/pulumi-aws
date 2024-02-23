@@ -165,10 +165,6 @@ func NewZone(ctx *pulumi.Context,
 	if args.Comment == nil {
 		args.Comment = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Zone
 	err := ctx.RegisterResource("aws:route53/zone:Zone", name, args, &resource, opts...)

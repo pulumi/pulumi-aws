@@ -437,8 +437,6 @@ class TrustProvider(pulumi.CustomResource):
             __props__.__dict__["trust_provider_type"] = trust_provider_type
             __props__.__dict__["user_trust_provider_type"] = user_trust_provider_type
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TrustProvider, __self__).__init__(
             'aws:verifiedaccess/trustProvider:TrustProvider',
             resource_name,

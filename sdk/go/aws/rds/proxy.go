@@ -123,10 +123,6 @@ func NewProxy(ctx *pulumi.Context,
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Proxy
 	err := ctx.RegisterResource("aws:rds/proxy:Proxy", name, args, &resource, opts...)

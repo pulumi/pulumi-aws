@@ -129,10 +129,6 @@ func NewConnector(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connector
 	err := ctx.RegisterResource("aws:transfer/connector:Connector", name, args, &resource, opts...)

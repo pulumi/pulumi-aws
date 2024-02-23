@@ -100,10 +100,6 @@ func NewKxDatabase(ctx *pulumi.Context,
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxDatabase
 	err := ctx.RegisterResource("aws:finspace/kxDatabase:KxDatabase", name, args, &resource, opts...)

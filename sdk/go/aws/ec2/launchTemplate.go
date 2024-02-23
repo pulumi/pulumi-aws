@@ -237,10 +237,6 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		args = &LaunchTemplateArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchTemplate
 	err := ctx.RegisterResource("aws:ec2/launchTemplate:LaunchTemplate", name, args, &resource, opts...)

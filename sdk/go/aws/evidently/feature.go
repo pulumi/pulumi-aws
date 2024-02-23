@@ -231,10 +231,6 @@ func NewFeature(ctx *pulumi.Context,
 	if args.Variations == nil {
 		return nil, errors.New("invalid value for required argument 'Variations'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Feature
 	err := ctx.RegisterResource("aws:evidently/feature:Feature", name, args, &resource, opts...)

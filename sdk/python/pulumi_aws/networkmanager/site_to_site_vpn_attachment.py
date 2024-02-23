@@ -408,8 +408,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SiteToSiteVpnAttachment, __self__).__init__(
             'aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment',
             resource_name,

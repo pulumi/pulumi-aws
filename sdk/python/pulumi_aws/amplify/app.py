@@ -1088,7 +1088,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["production_branches"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "basicAuthCredentials", "oauthToken", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "basicAuthCredentials", "oauthToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(App, __self__).__init__(
             'aws:amplify/app:App',

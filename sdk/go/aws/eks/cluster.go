@@ -319,10 +319,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.VpcConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, args, &resource, opts...)

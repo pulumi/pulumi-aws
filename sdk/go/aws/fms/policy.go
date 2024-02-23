@@ -142,10 +142,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.SecurityServicePolicyData == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityServicePolicyData'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:fms/policy:Policy", name, args, &resource, opts...)

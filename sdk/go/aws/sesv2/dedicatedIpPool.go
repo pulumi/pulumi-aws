@@ -103,10 +103,6 @@ func NewDedicatedIpPool(ctx *pulumi.Context,
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DedicatedIpPool
 	err := ctx.RegisterResource("aws:sesv2/dedicatedIpPool:DedicatedIpPool", name, args, &resource, opts...)

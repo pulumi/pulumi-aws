@@ -134,10 +134,6 @@ func NewOpenZfsFileSystem(ctx *pulumi.Context,
 	if args.ThroughputCapacity == nil {
 		return nil, errors.New("invalid value for required argument 'ThroughputCapacity'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsFileSystem
 	err := ctx.RegisterResource("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, args, &resource, opts...)

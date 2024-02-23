@@ -508,8 +508,6 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["launch_count"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Project, __self__).__init__(
             'aws:evidently/project:Project',
             resource_name,

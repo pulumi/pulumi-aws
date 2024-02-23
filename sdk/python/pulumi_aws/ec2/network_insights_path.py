@@ -451,8 +451,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["destination_arn"] = None
             __props__.__dict__["source_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NetworkInsightsPath, __self__).__init__(
             'aws:ec2/networkInsightsPath:NetworkInsightsPath',
             resource_name,

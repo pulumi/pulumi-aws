@@ -75,10 +75,6 @@ func NewTheme(ctx *pulumi.Context,
 	if args.ThemeId == nil {
 		return nil, errors.New("invalid value for required argument 'ThemeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Theme
 	err := ctx.RegisterResource("aws:quicksight/theme:Theme", name, args, &resource, opts...)

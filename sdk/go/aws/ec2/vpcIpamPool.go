@@ -190,10 +190,6 @@ func NewVpcIpamPool(ctx *pulumi.Context,
 	if args.IpamScopeId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamScopeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamPool
 	err := ctx.RegisterResource("aws:ec2/vpcIpamPool:VpcIpamPool", name, args, &resource, opts...)

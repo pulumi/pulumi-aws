@@ -173,10 +173,6 @@ func NewEmailIdentity(ctx *pulumi.Context,
 	if args.EmailIdentity == nil {
 		return nil, errors.New("invalid value for required argument 'EmailIdentity'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIdentity
 	err := ctx.RegisterResource("aws:sesv2/emailIdentity:EmailIdentity", name, args, &resource, opts...)

@@ -449,10 +449,6 @@ func NewLaunch(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Launch
 	err := ctx.RegisterResource("aws:evidently/launch:Launch", name, args, &resource, opts...)

@@ -510,8 +510,6 @@ class UsagePlan(pulumi.CustomResource):
             __props__.__dict__["throttle_settings"] = throttle_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UsagePlan, __self__).__init__(
             'aws:apigateway/usagePlan:UsagePlan',
             resource_name,

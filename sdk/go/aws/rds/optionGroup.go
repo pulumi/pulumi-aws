@@ -130,10 +130,6 @@ func NewOptionGroup(ctx *pulumi.Context,
 	if args.OptionGroupDescription == nil {
 		args.OptionGroupDescription = pulumi.StringPtr("Managed by Pulumi")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OptionGroup
 	err := ctx.RegisterResource("aws:rds/optionGroup:OptionGroup", name, args, &resource, opts...)

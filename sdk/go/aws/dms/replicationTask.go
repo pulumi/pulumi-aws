@@ -126,10 +126,6 @@ func NewReplicationTask(ctx *pulumi.Context,
 	if args.TargetEndpointArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetEndpointArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationTask
 	err := ctx.RegisterResource("aws:dms/replicationTask:ReplicationTask", name, args, &resource, opts...)

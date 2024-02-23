@@ -99,10 +99,6 @@ func NewStream(ctx *pulumi.Context,
 		args = &StreamArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stream
 	err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, args, &resource, opts...)

@@ -331,10 +331,6 @@ func NewAnomalySubscription(ctx *pulumi.Context,
 	if args.Subscribers == nil {
 		return nil, errors.New("invalid value for required argument 'Subscribers'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalySubscription
 	err := ctx.RegisterResource("aws:costexplorer/anomalySubscription:AnomalySubscription", name, args, &resource, opts...)

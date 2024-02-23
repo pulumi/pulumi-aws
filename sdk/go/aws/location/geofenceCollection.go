@@ -82,10 +82,6 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 	if args.CollectionName == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeofenceCollection
 	err := ctx.RegisterResource("aws:location/geofenceCollection:GeofenceCollection", name, args, &resource, opts...)

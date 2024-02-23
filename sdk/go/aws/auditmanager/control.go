@@ -90,10 +90,6 @@ func NewControl(ctx *pulumi.Context,
 		args = &ControlArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Control
 	err := ctx.RegisterResource("aws:auditmanager/control:Control", name, args, &resource, opts...)

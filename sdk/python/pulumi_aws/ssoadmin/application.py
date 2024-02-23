@@ -459,8 +459,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["application_account"] = None
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Application, __self__).__init__(
             'aws:ssoadmin/application:Application',
             resource_name,

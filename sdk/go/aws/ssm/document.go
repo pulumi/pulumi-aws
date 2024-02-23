@@ -190,10 +190,6 @@ func NewDocument(ctx *pulumi.Context,
 	if args.DocumentType == nil {
 		return nil, errors.New("invalid value for required argument 'DocumentType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Document
 	err := ctx.RegisterResource("aws:ssm/document:Document", name, args, &resource, opts...)

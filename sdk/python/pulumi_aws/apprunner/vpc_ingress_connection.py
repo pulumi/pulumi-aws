@@ -344,8 +344,6 @@ class VpcIngressConnection(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcIngressConnection, __self__).__init__(
             'aws:apprunner/vpcIngressConnection:VpcIngressConnection',
             resource_name,

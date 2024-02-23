@@ -89,10 +89,6 @@ func NewDomainConfiguration(ctx *pulumi.Context,
 		args = &DomainConfigurationArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainConfiguration
 	err := ctx.RegisterResource("aws:iot/domainConfiguration:DomainConfiguration", name, args, &resource, opts...)

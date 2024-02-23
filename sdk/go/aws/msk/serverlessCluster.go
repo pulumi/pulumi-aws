@@ -59,10 +59,6 @@ func NewServerlessCluster(ctx *pulumi.Context,
 	if args.VpcConfigs == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfigs'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerlessCluster
 	err := ctx.RegisterResource("aws:msk/serverlessCluster:ServerlessCluster", name, args, &resource, opts...)

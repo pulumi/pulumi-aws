@@ -223,10 +223,6 @@ func NewTopic(ctx *pulumi.Context,
 		args = &TopicArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Topic
 	err := ctx.RegisterResource("aws:sns/topic:Topic", name, args, &resource, opts...)

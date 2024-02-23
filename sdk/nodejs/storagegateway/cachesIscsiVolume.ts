@@ -227,8 +227,6 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CachesIscsiVolume.__pulumiType, name, resourceInputs, opts);
     }
 }

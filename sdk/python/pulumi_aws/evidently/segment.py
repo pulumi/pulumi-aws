@@ -429,8 +429,6 @@ class Segment(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["launch_count"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Segment, __self__).__init__(
             'aws:evidently/segment:Segment',
             resource_name,

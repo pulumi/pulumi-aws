@@ -274,8 +274,6 @@ class OrganizationalUnit(pulumi.CustomResource):
             __props__.__dict__["accounts"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OrganizationalUnit, __self__).__init__(
             'aws:organizations/organizationalUnit:OrganizationalUnit',
             resource_name,

@@ -84,10 +84,6 @@ func NewTapePool(ctx *pulumi.Context,
 	if args.StorageClass == nil {
 		return nil, errors.New("invalid value for required argument 'StorageClass'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TapePool
 	err := ctx.RegisterResource("aws:storagegateway/tapePool:TapePool", name, args, &resource, opts...)

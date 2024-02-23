@@ -147,10 +147,6 @@ func NewContactFlowModule(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactFlowModule
 	err := ctx.RegisterResource("aws:connect/contactFlowModule:ContactFlowModule", name, args, &resource, opts...)

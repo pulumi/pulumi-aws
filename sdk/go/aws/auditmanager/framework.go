@@ -89,10 +89,6 @@ func NewFramework(ctx *pulumi.Context,
 		args = &FrameworkArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Framework
 	err := ctx.RegisterResource("aws:auditmanager/framework:Framework", name, args, &resource, opts...)

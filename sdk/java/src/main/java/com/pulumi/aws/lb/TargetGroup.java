@@ -628,9 +628,6 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:elasticloadbalancingv2/targetGroup:TargetGroup").build())
             ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

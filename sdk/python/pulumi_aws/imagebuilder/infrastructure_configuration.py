@@ -701,8 +701,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["date_created"] = None
             __props__.__dict__["date_updated"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(InfrastructureConfiguration, __self__).__init__(
             'aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration',
             resource_name,

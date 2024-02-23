@@ -78,10 +78,6 @@ func NewTrafficMirrorFilter(ctx *pulumi.Context,
 		args = &TrafficMirrorFilterArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorFilter
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, args, &resource, opts...)

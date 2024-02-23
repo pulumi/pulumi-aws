@@ -986,8 +986,6 @@ class TopicRule(pulumi.CustomResource):
             __props__.__dict__["timestreams"] = timestreams
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TopicRule, __self__).__init__(
             'aws:iot/topicRule:TopicRule',
             resource_name,

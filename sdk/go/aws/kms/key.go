@@ -106,10 +106,6 @@ func NewKey(ctx *pulumi.Context,
 		args = &KeyArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Key
 	err := ctx.RegisterResource("aws:kms/key:Key", name, args, &resource, opts...)

@@ -118,7 +118,6 @@ func NewCertificate(ctx *pulumi.Context,
 		"certificate",
 		"certificateChain",
 		"privateKey",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

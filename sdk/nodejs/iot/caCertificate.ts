@@ -189,7 +189,7 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["validities"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["caCertificatePem", "tagsAll", "verificationCertificatePem"] };
+        const secretOpts = { additionalSecretOutputs: ["caCertificatePem", "verificationCertificatePem"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(CaCertificate.__pulumiType, name, resourceInputs, opts);
     }

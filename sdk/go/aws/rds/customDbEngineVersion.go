@@ -241,10 +241,6 @@ func NewCustomDbEngineVersion(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDbEngineVersion
 	err := ctx.RegisterResource("aws:rds/customDbEngineVersion:CustomDbEngineVersion", name, args, &resource, opts...)

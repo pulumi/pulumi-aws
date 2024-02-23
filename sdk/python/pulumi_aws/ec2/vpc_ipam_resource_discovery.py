@@ -328,8 +328,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcIpamResourceDiscovery, __self__).__init__(
             'aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery',
             resource_name,

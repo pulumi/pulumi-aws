@@ -574,8 +574,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MaintenanceWindow, __self__).__init__(
             'aws:ssm/maintenanceWindow:MaintenanceWindow',
             resource_name,

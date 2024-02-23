@@ -398,8 +398,6 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["ingest_endpoint"] = None
             __props__.__dict__["playback_url"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Channel, __self__).__init__(
             'aws:ivs/channel:Channel',
             resource_name,

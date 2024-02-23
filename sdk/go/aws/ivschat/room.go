@@ -127,10 +127,6 @@ func NewRoom(ctx *pulumi.Context,
 		args = &RoomArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Room
 	err := ctx.RegisterResource("aws:ivschat/room:Room", name, args, &resource, opts...)

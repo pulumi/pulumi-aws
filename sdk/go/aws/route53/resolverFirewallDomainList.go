@@ -72,10 +72,6 @@ func NewResolverFirewallDomainList(ctx *pulumi.Context,
 		args = &ResolverFirewallDomainListArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverFirewallDomainList
 	err := ctx.RegisterResource("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList", name, args, &resource, opts...)

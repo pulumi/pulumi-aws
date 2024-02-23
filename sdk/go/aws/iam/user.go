@@ -114,10 +114,6 @@ func NewUser(ctx *pulumi.Context,
 		args = &UserArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws:iam/user:User", name, args, &resource, opts...)

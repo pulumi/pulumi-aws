@@ -96,10 +96,6 @@ func NewVpcConnector(ctx *pulumi.Context,
 	if args.VpcConnectorName == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConnectorName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnector
 	err := ctx.RegisterResource("aws:apprunner/vpcConnector:VpcConnector", name, args, &resource, opts...)

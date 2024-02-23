@@ -337,8 +337,6 @@ class VirtualMfaDevice(pulumi.CustomResource):
             __props__.__dict__["qr_code_png"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["user_name"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VirtualMfaDevice, __self__).__init__(
             'aws:iam/virtualMfaDevice:VirtualMfaDevice',
             resource_name,

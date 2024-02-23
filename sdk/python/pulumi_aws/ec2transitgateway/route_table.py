@@ -253,8 +253,6 @@ class RouteTable(pulumi.CustomResource):
             __props__.__dict__["default_association_route_table"] = None
             __props__.__dict__["default_propagation_route_table"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RouteTable, __self__).__init__(
             'aws:ec2transitgateway/routeTable:RouteTable',
             resource_name,

@@ -84,10 +84,6 @@ func NewInputSecurityGroup(ctx *pulumi.Context,
 	if args.WhitelistRules == nil {
 		return nil, errors.New("invalid value for required argument 'WhitelistRules'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InputSecurityGroup
 	err := ctx.RegisterResource("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, args, &resource, opts...)

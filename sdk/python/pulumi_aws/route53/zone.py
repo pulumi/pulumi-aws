@@ -495,8 +495,6 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["primary_name_server"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zone_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Zone, __self__).__init__(
             'aws:route53/zone:Zone',
             resource_name,

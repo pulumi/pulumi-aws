@@ -672,8 +672,6 @@ class StoredIscsiVolume(pulumi.CustomResource):
             __props__.__dict__["volume_size_in_bytes"] = None
             __props__.__dict__["volume_status"] = None
             __props__.__dict__["volume_type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StoredIscsiVolume, __self__).__init__(
             'aws:storagegateway/storedIscsiVolume:StoredIscsiVolume',
             resource_name,

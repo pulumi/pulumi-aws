@@ -81,10 +81,6 @@ func NewAcl(ctx *pulumi.Context,
 		args = &AclArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Acl
 	err := ctx.RegisterResource("aws:memorydb/acl:Acl", name, args, &resource, opts...)

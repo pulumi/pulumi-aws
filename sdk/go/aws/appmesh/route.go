@@ -255,10 +255,6 @@ func NewRoute(ctx *pulumi.Context,
 	if args.VirtualRouterName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualRouterName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:appmesh/route:Route", name, args, &resource, opts...)

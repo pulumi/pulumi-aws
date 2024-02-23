@@ -228,10 +228,6 @@ func NewStage(ctx *pulumi.Context,
 	if args.StageName == nil {
 		return nil, errors.New("invalid value for required argument 'StageName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stage
 	err := ctx.RegisterResource("aws:apigateway/stage:Stage", name, args, &resource, opts...)

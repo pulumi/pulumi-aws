@@ -83,10 +83,6 @@ func NewSecret(ctx *pulumi.Context,
 		args = &SecretArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Secret
 	err := ctx.RegisterResource("aws:secretsmanager/secret:Secret", name, args, &resource, opts...)

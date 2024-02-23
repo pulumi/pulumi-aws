@@ -154,10 +154,6 @@ func NewEventDataStore(ctx *pulumi.Context,
 		args = &EventDataStoreArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventDataStore
 	err := ctx.RegisterResource("aws:cloudtrail/eventDataStore:EventDataStore", name, args, &resource, opts...)

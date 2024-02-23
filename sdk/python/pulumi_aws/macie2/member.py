@@ -491,8 +491,6 @@ class Member(pulumi.CustomResource):
             __props__.__dict__["relationship_status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Member, __self__).__init__(
             'aws:macie2/member:Member',
             resource_name,

@@ -92,10 +92,6 @@ func NewTransitGatewayPeering(ctx *pulumi.Context,
 	if args.TransitGatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayPeering
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering", name, args, &resource, opts...)

@@ -130,10 +130,6 @@ func NewIdentityPool(ctx *pulumi.Context,
 	if args.IdentityPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityPoolName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPool
 	err := ctx.RegisterResource("aws:cognito/identityPool:IdentityPool", name, args, &resource, opts...)

@@ -359,8 +359,6 @@ class Connect(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transport_attachment_id'")
             __props__.__dict__["transport_attachment_id"] = transport_attachment_id
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connect, __self__).__init__(
             'aws:ec2transitgateway/connect:Connect',
             resource_name,

@@ -189,10 +189,6 @@ func NewChannel(ctx *pulumi.Context,
 	if args.InputSpecification == nil {
 		return nil, errors.New("invalid value for required argument 'InputSpecification'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws:medialive/channel:Channel", name, args, &resource, opts...)

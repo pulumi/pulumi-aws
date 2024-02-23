@@ -136,8 +136,6 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocationFsxOntapFileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }

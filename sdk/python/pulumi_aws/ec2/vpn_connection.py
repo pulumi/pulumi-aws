@@ -2496,7 +2496,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel2_cgw_inside_address"] = None
             __props__.__dict__["tunnel2_vgw_inside_address"] = None
             __props__.__dict__["vgw_telemetries"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerGatewayConfiguration", "tagsAll", "tunnel1PresharedKey", "tunnel2PresharedKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerGatewayConfiguration", "tunnel1PresharedKey", "tunnel2PresharedKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpnConnection, __self__).__init__(
             'aws:ec2/vpnConnection:VpnConnection',

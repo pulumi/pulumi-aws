@@ -87,10 +87,6 @@ func NewSnapshotCopyGrant(ctx *pulumi.Context,
 	if args.SnapshotCopyGrantName == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotCopyGrantName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotCopyGrant
 	err := ctx.RegisterResource("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, args, &resource, opts...)

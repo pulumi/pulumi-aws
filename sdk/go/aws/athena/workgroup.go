@@ -90,10 +90,6 @@ func NewWorkgroup(ctx *pulumi.Context,
 		args = &WorkgroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:athena/workgroup:Workgroup", name, args, &resource, opts...)

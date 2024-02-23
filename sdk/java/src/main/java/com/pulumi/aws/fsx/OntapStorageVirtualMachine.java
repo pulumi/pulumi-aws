@@ -293,8 +293,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "svmAdminPassword",
-                "tagsAll"
+                "svmAdminPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -124,10 +124,6 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 	if args.StopConditions == nil {
 		return nil, errors.New("invalid value for required argument 'StopConditions'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExperimentTemplate
 	err := ctx.RegisterResource("aws:fis/experimentTemplate:ExperimentTemplate", name, args, &resource, opts...)

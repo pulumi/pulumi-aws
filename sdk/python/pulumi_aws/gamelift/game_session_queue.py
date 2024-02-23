@@ -430,8 +430,6 @@ class GameSessionQueue(pulumi.CustomResource):
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GameSessionQueue, __self__).__init__(
             'aws:gamelift/gameSessionQueue:GameSessionQueue',
             resource_name,

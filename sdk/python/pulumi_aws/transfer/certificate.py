@@ -423,7 +423,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_id"] = None
             __props__.__dict__["inactive_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificate", "certificateChain", "privateKey", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificate", "certificateChain", "privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:transfer/certificate:Certificate',

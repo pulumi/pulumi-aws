@@ -549,8 +549,6 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = None
             __props__.__dict__["public_ip"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NatGateway, __self__).__init__(
             'aws:ec2/natGateway:NatGateway',
             resource_name,

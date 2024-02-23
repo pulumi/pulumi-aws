@@ -174,8 +174,6 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["versionCreatedDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Schema.__pulumiType, name, resourceInputs, opts);
     }
 }

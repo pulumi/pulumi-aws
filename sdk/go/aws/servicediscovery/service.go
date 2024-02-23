@@ -155,10 +155,6 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:servicediscovery/service:Service", name, args, &resource, opts...)

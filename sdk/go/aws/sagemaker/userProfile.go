@@ -89,10 +89,6 @@ func NewUserProfile(ctx *pulumi.Context,
 	if args.UserProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'UserProfileName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserProfile
 	err := ctx.RegisterResource("aws:sagemaker/userProfile:UserProfile", name, args, &resource, opts...)

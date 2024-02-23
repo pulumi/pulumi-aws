@@ -348,10 +348,6 @@ func NewMetricAlarm(ctx *pulumi.Context,
 	if args.EvaluationPeriods == nil {
 		return nil, errors.New("invalid value for required argument 'EvaluationPeriods'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricAlarm
 	err := ctx.RegisterResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, args, &resource, opts...)

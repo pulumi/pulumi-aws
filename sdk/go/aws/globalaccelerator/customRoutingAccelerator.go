@@ -93,10 +93,6 @@ func NewCustomRoutingAccelerator(ctx *pulumi.Context,
 		args = &CustomRoutingAcceleratorArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomRoutingAccelerator
 	err := ctx.RegisterResource("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator", name, args, &resource, opts...)

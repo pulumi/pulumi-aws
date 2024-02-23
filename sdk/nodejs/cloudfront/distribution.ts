@@ -509,8 +509,6 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["trustedSigners"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Distribution.__pulumiType, name, resourceInputs, opts);
     }
 }

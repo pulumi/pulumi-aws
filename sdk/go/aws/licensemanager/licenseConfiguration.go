@@ -108,10 +108,6 @@ func NewLicenseConfiguration(ctx *pulumi.Context,
 	if args.LicenseCountingType == nil {
 		return nil, errors.New("invalid value for required argument 'LicenseCountingType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseConfiguration
 	err := ctx.RegisterResource("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, args, &resource, opts...)

@@ -114,10 +114,6 @@ func NewFeatureGroup(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FeatureGroup
 	err := ctx.RegisterResource("aws:sagemaker/featureGroup:FeatureGroup", name, args, &resource, opts...)

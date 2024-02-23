@@ -730,8 +730,6 @@ class RegisteredDomain(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_date"] = None
             __props__.__dict__["whois_server"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RegisteredDomain, __self__).__init__(
             'aws:route53domains/registeredDomain:RegisteredDomain',
             resource_name,

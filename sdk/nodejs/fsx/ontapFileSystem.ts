@@ -245,7 +245,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["fsxAdminPassword", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["fsxAdminPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(OntapFileSystem.__pulumiType, name, resourceInputs, opts);
     }

@@ -339,8 +339,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["github_account_name"] = None
             __props__.__dict__["linked_to_github"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Application, __self__).__init__(
             'aws:codedeploy/application:Application',
             resource_name,

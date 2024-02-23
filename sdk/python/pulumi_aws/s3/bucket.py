@@ -1518,8 +1518,6 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["bucket_regional_domain_name"] = None
             __props__.__dict__["region"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Bucket, __self__).__init__(
             'aws:s3/bucket:Bucket',
             resource_name,

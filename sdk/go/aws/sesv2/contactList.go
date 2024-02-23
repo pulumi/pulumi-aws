@@ -116,10 +116,6 @@ func NewContactList(ctx *pulumi.Context,
 	if args.ContactListName == nil {
 		return nil, errors.New("invalid value for required argument 'ContactListName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactList
 	err := ctx.RegisterResource("aws:sesv2/contactList:ContactList", name, args, &resource, opts...)

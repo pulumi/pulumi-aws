@@ -123,10 +123,6 @@ func NewInfrastructureConfiguration(ctx *pulumi.Context,
 	if args.InstanceProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceProfileName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InfrastructureConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration", name, args, &resource, opts...)

@@ -156,8 +156,6 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocationAzureBlob.__pulumiType, name, resourceInputs, opts);
     }
 }

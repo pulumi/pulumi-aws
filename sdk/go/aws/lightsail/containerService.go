@@ -223,10 +223,6 @@ func NewContainerService(ctx *pulumi.Context,
 	if args.Scale == nil {
 		return nil, errors.New("invalid value for required argument 'Scale'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerService
 	err := ctx.RegisterResource("aws:lightsail/containerService:ContainerService", name, args, &resource, opts...)

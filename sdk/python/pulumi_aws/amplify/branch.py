@@ -970,7 +970,7 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["destination_branch"] = None
             __props__.__dict__["source_branch"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["basicAuthCredentials", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["basicAuthCredentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Branch, __self__).__init__(
             'aws:amplify/branch:Branch',

@@ -129,10 +129,6 @@ func NewThreatIntelSet(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThreatIntelSet
 	err := ctx.RegisterResource("aws:guardduty/threatIntelSet:ThreatIntelSet", name, args, &resource, opts...)

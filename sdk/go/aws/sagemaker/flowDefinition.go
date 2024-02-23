@@ -212,10 +212,6 @@ func NewFlowDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowDefinition
 	err := ctx.RegisterResource("aws:sagemaker/flowDefinition:FlowDefinition", name, args, &resource, opts...)

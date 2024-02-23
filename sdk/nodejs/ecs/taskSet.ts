@@ -217,8 +217,6 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["taskSetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TaskSet.__pulumiType, name, resourceInputs, opts);
     }
 }

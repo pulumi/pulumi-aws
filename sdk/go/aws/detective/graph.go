@@ -70,10 +70,6 @@ func NewGraph(ctx *pulumi.Context,
 		args = &GraphArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Graph
 	err := ctx.RegisterResource("aws:detective/graph:Graph", name, args, &resource, opts...)

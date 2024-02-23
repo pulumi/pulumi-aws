@@ -505,8 +505,6 @@ class ReplicaKey(pulumi.CustomResource):
             __props__.__dict__["key_spec"] = None
             __props__.__dict__["key_usage"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicaKey, __self__).__init__(
             'aws:kms/replicaKey:ReplicaKey',
             resource_name,

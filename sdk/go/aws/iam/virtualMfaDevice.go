@@ -92,10 +92,6 @@ func NewVirtualMfaDevice(ctx *pulumi.Context,
 	if args.VirtualMfaDeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMfaDeviceName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualMfaDevice
 	err := ctx.RegisterResource("aws:iam/virtualMfaDevice:VirtualMfaDevice", name, args, &resource, opts...)

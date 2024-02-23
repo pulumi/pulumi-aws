@@ -141,10 +141,6 @@ func NewPodIdentityAssociation(ctx *pulumi.Context,
 	if args.ServiceAccount == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceAccount'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PodIdentityAssociation
 	err := ctx.RegisterResource("aws:eks/podIdentityAssociation:PodIdentityAssociation", name, args, &resource, opts...)

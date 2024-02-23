@@ -236,8 +236,6 @@ class HsmClientCertificate(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["hsm_client_certificate_public_key"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HsmClientCertificate, __self__).__init__(
             'aws:redshift/hsmClientCertificate:HsmClientCertificate',
             resource_name,

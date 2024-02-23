@@ -82,10 +82,6 @@ func NewConnectAttachment(ctx *pulumi.Context,
 	if args.TransportAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectAttachment
 	err := ctx.RegisterResource("aws:networkmanager/connectAttachment:ConnectAttachment", name, args, &resource, opts...)
