@@ -6261,20 +6261,6 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			prov.Resources[key].PreCheckCallback = applyTags
 		}
 
-		// Compose fixupTagsAll with any existing callback.
-		if callback := prov.Resources[key].TransformOutputs; callback != nil {
-			prov.Resources[key].TransformOutputs = func(ctx context.Context, m resource.PropertyMap,
-			) (resource.PropertyMap, error) {
-				outputs, err := callback(ctx, m)
-				if err != nil {
-					return outputs, err
-				}
-				return fixupTagsAll(ctx, m)
-			}
-		} else {
-			prov.Resources[key].TransformOutputs = fixupTagsAll
-		}
-
 		if prov.Resources[key].GetFields() == nil {
 			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
 		}
