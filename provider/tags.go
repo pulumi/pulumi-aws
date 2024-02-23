@@ -125,3 +125,36 @@ func mergeTags(
 		return resource.NewNullProperty(), nil
 	}
 }
+
+func fixupTagsAll(ctx context.Context, m resource.PropertyMap) (resource.PropertyMap, error) {
+	tagsAll, ok := m["tagsAll"]
+	if !ok {
+		return m, nil
+	}
+
+	if tagsAll.IsComputed() {
+		return m, nil
+	}
+
+	if tagsAll.IsOutput() {
+		o := tagsAll.OutputValue()
+		if !o.Known {
+			return m, nil
+		}
+		tagsAll = o.Element
+	}
+
+	if tagsAll.IsSecret() {
+		tagsAll = tagsAll.SecretValue().Element
+	}
+
+	if !tagsAll.IsObject() {
+		return m, nil
+	}
+
+	if len(tagsAll.ObjectValue()) > 0 {
+		tagsAll = resource.MakeSecret(tagsAll)
+	}
+	m["tagsAll"] = tagsAll
+	return m, nil
+}

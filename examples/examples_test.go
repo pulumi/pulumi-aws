@@ -414,10 +414,7 @@ func TestRegressUnknownTags(t *testing.T) {
 		"revokeRulesOnDelete": true,
 		"vpcId": "vpc-4b82e033",
 		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
-                "tagsAll": {
-                    "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-                    "value": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
-                }
+                "tagsAll": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
               }
             }
           }
@@ -587,7 +584,7 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
 }
 
 func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
-  replay(t, `
+	replay(t, `
   [{
     "method": "/pulumirpc.ResourceProvider/Check",
     "request": {

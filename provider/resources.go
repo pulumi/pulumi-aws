@@ -6261,6 +6261,20 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			prov.Resources[key].PreCheckCallback = applyTags
 		}
 
+		// Compose fixupTagsAll with any existing callback.
+		if callback := prov.Resources[key].TransformOutputs; callback != nil {
+			prov.Resources[key].TransformOutputs = func(ctx context.Context, m resource.PropertyMap,
+			) (resource.PropertyMap, error) {
+				outputs, err := callback(ctx, m)
+				if err != nil {
+					return outputs, err
+				}
+				return fixupTagsAll(ctx, m)
+			}
+		} else {
+			prov.Resources[key].TransformOutputs = fixupTagsAll
+		}
+
 		if prov.Resources[key].GetFields() == nil {
 			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
 		}
@@ -6270,17 +6284,11 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			fields["tags_all"] = &tfbridge.SchemaInfo{}
 		}
 
-		fields["tags_all"].Secret = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-
 		// Upstream provider is edited to unmark tags_all as computed internally so that
 		// Pulumi provider internals can set it, but the user should not be able to set it.
 		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-
+		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
 		fields["tags_all"].MarkAsOptional = tfbridge.False()
-
-		contract.Assertf(prov.Resources[key].TransformOutputs == nil,
-			"prov.Resources[key].TransformOutputs==nil")
 
 		return true
 	})
