@@ -2,23 +2,20 @@
 
 linters:
   enable:
-  - deadcode
   - errcheck
+  - gci
   - goconst
   - gofmt
-  - golint
   - gosec
   - govet
   - ineffassign
-  - interfacer
   - lll
   - megacheck
   - misspell
   - nakedret
-  - structcheck
+  - revive
   - unconvert
-  - varcheck
-  - gci
+  - unused
   enable-all: false
 run:
   skip-files:
