@@ -64,39 +64,34 @@ namespace Pulumi.Aws.Amplify
     ///     var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplifyAppMasterEventRule", new()
     ///     {
     ///         Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {aws_amplify_app.App.Id} Branch: {branchName}"),
-    ///         EventPattern = Output.Tuple(example.Id, master.BranchName).Apply(values =&gt;
+    ///         EventPattern = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var id = values.Item1;
-    ///             var branchName = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["detail"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["detail"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["appId"] = new[]
     ///                 {
-    ///                     ["appId"] = new[]
-    ///                     {
-    ///                         id,
-    ///                     },
-    ///                     ["branchName"] = new[]
-    ///                     {
-    ///                         branchName,
-    ///                     },
-    ///                     ["jobStatus"] = new[]
-    ///                     {
-    ///                         "SUCCEED",
-    ///                         "FAILED",
-    ///                         "STARTED",
-    ///                     },
+    ///                     example.Id,
     ///                 },
-    ///                 ["detail-type"] = new[]
+    ///                 ["branchName"] = new[]
     ///                 {
-    ///                     "Amplify Deployment Status Change",
+    ///                     master.BranchName,
     ///                 },
-    ///                 ["source"] = new[]
+    ///                 ["jobStatus"] = new[]
     ///                 {
-    ///                     "aws.amplify",
+    ///                     "SUCCEED",
+    ///                     "FAILED",
+    ///                     "STARTED",
     ///                 },
-    ///             });
-    ///         }),
+    ///             },
+    ///             ["detail-type"] = new[]
+    ///             {
+    ///                 "Amplify Deployment Status Change",
+    ///             },
+    ///             ["source"] = new[]
+    ///             {
+    ///                 "aws.amplify",
+    ///             },
+    ///         })),
     ///     });
     /// 
     ///     var amplifyAppMasterTopic = new Aws.Sns.Topic("amplifyAppMasterTopic");
