@@ -36,6 +36,7 @@ actions:
       with:
         tool-cache: false
         swap-storage: false
+        dotnet: ${{ matrix.language != 'dotnet' }}
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -100,6 +101,12 @@ extraTests:
       id-token: write
     runs-on: ubuntu-latest
     steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        swap-storage: false
+        dotnet: ${{ matrix.language != 'dotnet' }}
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
