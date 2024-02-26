@@ -235,7 +235,7 @@ jobs:
     - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
-        dotnet: false
+        dotnet: ${{ matrix.language != 'dotnet' }}
         swap-storage: false
         tool-cache: false
     - name: Build tfgen & provider binaries
