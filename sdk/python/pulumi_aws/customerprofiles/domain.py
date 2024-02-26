@@ -347,7 +347,7 @@ class Domain(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
-            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Sid": "Customer Profiles S3 policy",
@@ -358,14 +358,14 @@ class Domain(pulumi.CustomResource):
                         "s3:ListBucket",
                     ],
                     "Resource": [
-                        example_bucket_v2_arn,
-                        f"{example_bucket_v2_arn1}/*",
+                        example_bucket_v2.arn,
+                        example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                     ],
                     "Principal": {
                         "Service": "profile.amazonaws.com",
                     },
                 }],
-            })))
+            }))
         test = aws.customerprofiles.Domain("test",
             domain_name=example,
             dead_letter_queue_url=example_queue.id,
@@ -436,7 +436,7 @@ class Domain(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
-            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Sid": "Customer Profiles S3 policy",
@@ -447,14 +447,14 @@ class Domain(pulumi.CustomResource):
                         "s3:ListBucket",
                     ],
                     "Resource": [
-                        example_bucket_v2_arn,
-                        f"{example_bucket_v2_arn1}/*",
+                        example_bucket_v2.arn,
+                        example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                     ],
                     "Principal": {
                         "Service": "profile.amazonaws.com",
                     },
                 }],
-            })))
+            }))
         test = aws.customerprofiles.Domain("test",
             domain_name=example,
             dead_letter_queue_url=example_queue.id,
