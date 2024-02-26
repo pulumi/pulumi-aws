@@ -49,10 +49,11 @@ actions:
     - name: Clear GitHub Actions Ubuntu runner disk space
       uses: easimon/maximize-build-space@master
       with:
+        root-reserve-mb: 3072
         remove-android: true
-        remove-haskell: true
         remove-codeql: true
         remove-docker-images: true
+        remove-haskell: true
 
 extraTests:
   go_test_shim:
