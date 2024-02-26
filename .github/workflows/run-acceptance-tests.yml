@@ -163,15 +163,12 @@ jobs:
     name: prerequisites
     runs-on: ubuntu-latest
     steps:
-    - name: Clear GitHub Actions Ubuntu runner disk space
-      uses: easimon/maximize-build-space@master
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
       with:
-        root-reserve-mb: 8192
-        temp-reserve-mb: 1024
-        remove-android: true
-        remove-codeql: true
-        remove-docker-images: true
-        remove-haskell: true
+        tool-cache: false
+        swap-storage: false
+        dotnet: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
