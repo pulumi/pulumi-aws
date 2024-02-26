@@ -232,15 +232,12 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/schema-tools
-    - name: Clear GitHub Actions Ubuntu runner disk space
-      uses: easimon/maximize-build-space@master
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
       with:
-        root-reserve-mb: 8192
-        temp-reserve-mb: 1024
-        remove-android: true
-        remove-codeql: true
-        remove-docker-images: true
-        remove-haskell: true
+        dotnet: false
+        swap-storage: false
+        tool-cache: false
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Unit-test provider code

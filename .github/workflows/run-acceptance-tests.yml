@@ -163,12 +163,6 @@ jobs:
     name: prerequisites
     runs-on: ubuntu-latest
     steps:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        tool-cache: false
-        swap-storage: false
-        dotnet: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -201,6 +195,12 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
         repo: pulumi/schema-tools
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        dotnet: false
+        swap-storage: false
+        tool-cache: false
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Unit-test provider code
@@ -288,6 +288,7 @@ jobs:
       run: exit 1
     - name: Workflow is a success
       run: echo "🎉🎈🎉🎈🎉"
+
   test:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
@@ -309,6 +310,12 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
         ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
+    - name: Checkout p/examples
+      if: matrix.testTarget == 'pulumiExamples'
+      uses: actions/checkout@v4
+      with:
+        repository: pulumi/examples
+        path: p-examples
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
@@ -397,15 +404,20 @@ jobs:
       run: |
         cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Run tests
+      if: matrix.testTarget == 'local'
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
-        matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - if: failure() && github.event_name == 'push'
+        matrix.language }} -skip TestPulumiExamples -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - if: failure() && github.event_name == 'push' && matrix.testTarget == 'local'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
       with:
         author_name: Failure in running ${{ matrix.language }} tests
         fields: repo,commit,author,action
         status: ${{ job.status }}
+    - name: Run pulumi/examples tests
+      if: matrix.testTarget == 'pulumiExamples'
+      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
+        matrix.language }} -run TestPulumiExamples -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     strategy:
       fail-fast: false
       matrix:
@@ -415,6 +427,7 @@ jobs:
         - dotnet
         - go
         - java
+        testTarget: [local]
   license_check:
     name: License Check
     uses: ./.github/workflows/license.yml
