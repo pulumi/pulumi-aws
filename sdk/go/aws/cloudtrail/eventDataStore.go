@@ -69,6 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// ... other configuration ...
 //			_, err = cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
 //				AdvancedEventSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorArray{
 //					&cloudtrail.EventDataStoreAdvancedEventSelectorArgs{

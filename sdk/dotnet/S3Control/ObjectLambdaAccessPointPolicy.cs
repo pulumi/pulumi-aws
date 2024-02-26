@@ -57,7 +57,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     ///     var exampleObjectLambdaAccessPointPolicy = new Aws.S3Control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", new()
     ///     {
-    ///         Policy = exampleObjectLambdaAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2008-10-17",
     ///             ["Statement"] = new[]
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.S3Control
     ///                     {
     ///                         ["AWS"] = data.Aws_caller_identity.Current.Account_id,
     ///                     },
-    ///                     ["Resource"] = arn,
+    ///                     ["Resource"] = exampleObjectLambdaAccessPoint.Arn,
     ///                 },
     ///             },
     ///         })),

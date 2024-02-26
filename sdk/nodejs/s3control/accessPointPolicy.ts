@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("exampleAccessPointPolicy", {
  *     accessPointArn: exampleAccessPoint.arn,
- *     policy: exampleAccessPoint.arn.apply(arn => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2008-10-17",
  *         Statement: [{
  *             Effect: "Allow",
@@ -35,9 +35,9 @@ import * as utilities from "../utilities";
  *             Principal: {
  *                 AWS: "*",
  *             },
- *             Resource: `${arn}/object/*`,
+ *             Resource: pulumi.interpolate`${exampleAccessPoint.arn}/object/*`,
  *         }],
- *     })),
+ *     }),
  * });
  * ```
  *
