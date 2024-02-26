@@ -31,6 +31,11 @@ team: ecosystem
 goBuildParallelism: 2
 actions:
   preTest:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:

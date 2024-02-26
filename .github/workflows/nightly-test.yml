@@ -314,6 +314,11 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.5.0
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        swap-storage: false
+        tool-cache: false
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
