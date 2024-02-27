@@ -28,6 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new host with instance type of c5.18xlarge with Auto Placement
+//			// and Host Recovery enabled.
 //			_, err := ec2.NewDedicatedHost(ctx, "test", &ec2.DedicatedHostArgs{
 //				AutoPlacement:    pulumi.String("on"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
