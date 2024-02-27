@@ -309,9 +309,9 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 			}
 		  },
 		  "diffs":[
-			"tagsAll",
-			"tags"
-		  ]
+			"tags",
+			"tagsAll"
+			]
 	    }
 	  }
 	]`
