@@ -212,7 +212,7 @@ namespace Pulumi.Aws.WafRegional
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; ComputeSHA1(JsonSerializer.Serialize(body))) },
     ///         },
     ///     });
     /// 

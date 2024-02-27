@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
  *     bucket: exampleBucketV2.id,
- *     policy: pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Sid: "Customer Profiles S3 policy",
@@ -55,14 +55,14 @@ import * as utilities from "../utilities";
  *                 "s3:ListBucket",
  *             ],
  *             Resource: [
- *                 exampleBucketV2Arn,
- *                 `${exampleBucketV2Arn1}/*`,
+ *                 exampleBucketV2.arn,
+ *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
  *             ],
  *             Principal: {
  *                 Service: "profile.amazonaws.com",
  *             },
  *         }],
- *     })),
+ *     }),
  * });
  * const test = new aws.customerprofiles.Domain("test", {
  *     domainName: example,

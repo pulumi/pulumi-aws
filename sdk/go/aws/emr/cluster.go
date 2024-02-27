@@ -307,6 +307,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration ...
 //			_, err := emr.NewCluster(ctx, "example", &emr.ClusterArgs{
 //				Steps: emr.ClusterStepArray{
 //					&emr.ClusterStepArgs{
@@ -346,12 +347,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// This configuration is for illustrative purposes and highlights
+//			// only relevant configurations for working with this functionality.
+//			// Map public IP on launch must be enabled for public (Internet accessible) subnets
+//			// ... other configuration ...
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			// ... other configuration ...
 //			_, err = emr.NewCluster(ctx, "exampleCluster", &emr.ClusterArgs{
 //				ReleaseLabel:          pulumi.String("emr-5.24.1"),
 //				TerminationProtection: pulumi.Bool(true),
