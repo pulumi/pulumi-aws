@@ -36,7 +36,11 @@ actions:
       with:
         tool-cache: false
         swap-storage: false
-        dotnet: ${{ matrix.language != 'dotnet' }}
+    - name: Setup DotNet
+      if: ${{ matrix.language == 'dotnet' }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
