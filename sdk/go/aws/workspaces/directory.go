@@ -262,10 +262,6 @@ func NewDirectory(ctx *pulumi.Context,
 	if args.DirectoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DirectoryId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Directory
 	err := ctx.RegisterResource("aws:workspaces/directory:Directory", name, args, &resource, opts...)

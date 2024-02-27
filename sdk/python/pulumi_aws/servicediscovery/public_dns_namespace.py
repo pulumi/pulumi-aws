@@ -271,8 +271,6 @@ class PublicDnsNamespace(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["hosted_zone"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PublicDnsNamespace, __self__).__init__(
             'aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace',
             resource_name,

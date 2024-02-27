@@ -359,8 +359,6 @@ class ServiceLinkedRole(pulumi.CustomResource):
             __props__.__dict__["path"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["unique_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceLinkedRole, __self__).__init__(
             'aws:iam/serviceLinkedRole:ServiceLinkedRole',
             resource_name,

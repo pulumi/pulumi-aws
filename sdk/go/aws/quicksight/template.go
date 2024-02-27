@@ -106,10 +106,6 @@ func NewTemplate(ctx *pulumi.Context,
 	if args.VersionDescription == nil {
 		return nil, errors.New("invalid value for required argument 'VersionDescription'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Template
 	err := ctx.RegisterResource("aws:quicksight/template:Template", name, args, &resource, opts...)

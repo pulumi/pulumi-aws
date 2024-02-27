@@ -849,8 +849,6 @@ class DevEndpoint(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = None
             __props__.__dict__["yarn_endpoint_address"] = None
             __props__.__dict__["zeppelin_remote_spark_interpreter_port"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DevEndpoint, __self__).__init__(
             'aws:glue/devEndpoint:DevEndpoint',
             resource_name,

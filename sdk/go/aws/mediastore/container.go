@@ -70,10 +70,6 @@ func NewContainer(ctx *pulumi.Context,
 		args = &ContainerArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Container
 	err := ctx.RegisterResource("aws:mediastore/container:Container", name, args, &resource, opts...)

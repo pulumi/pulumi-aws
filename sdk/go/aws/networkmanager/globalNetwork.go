@@ -70,10 +70,6 @@ func NewGlobalNetwork(ctx *pulumi.Context,
 		args = &GlobalNetworkArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalNetwork
 	err := ctx.RegisterResource("aws:networkmanager/globalNetwork:GlobalNetwork", name, args, &resource, opts...)

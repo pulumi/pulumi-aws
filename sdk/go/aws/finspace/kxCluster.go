@@ -113,10 +113,6 @@ func NewKxCluster(ctx *pulumi.Context,
 	if args.VpcConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxCluster
 	err := ctx.RegisterResource("aws:finspace/kxCluster:KxCluster", name, args, &resource, opts...)

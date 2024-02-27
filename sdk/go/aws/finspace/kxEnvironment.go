@@ -221,10 +221,6 @@ func NewKxEnvironment(ctx *pulumi.Context,
 	if args.KmsKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'KmsKeyId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxEnvironment
 	err := ctx.RegisterResource("aws:finspace/kxEnvironment:KxEnvironment", name, args, &resource, opts...)

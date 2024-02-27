@@ -366,7 +366,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"customerGatewayConfiguration",
-		"tagsAll",
 		"tunnel1PresharedKey",
 		"tunnel2PresharedKey",
 	})

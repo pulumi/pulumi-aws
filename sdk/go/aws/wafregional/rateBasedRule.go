@@ -110,10 +110,6 @@ func NewRateBasedRule(ctx *pulumi.Context,
 	if args.RateLimit == nil {
 		return nil, errors.New("invalid value for required argument 'RateLimit'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RateBasedRule
 	err := ctx.RegisterResource("aws:wafregional/rateBasedRule:RateBasedRule", name, args, &resource, opts...)

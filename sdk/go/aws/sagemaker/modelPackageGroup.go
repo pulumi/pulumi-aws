@@ -77,10 +77,6 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 	if args.ModelPackageGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelPackageGroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackageGroup
 	err := ctx.RegisterResource("aws:sagemaker/modelPackageGroup:ModelPackageGroup", name, args, &resource, opts...)

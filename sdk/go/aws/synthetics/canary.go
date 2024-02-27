@@ -137,10 +137,6 @@ func NewCanary(ctx *pulumi.Context,
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Canary
 	err := ctx.RegisterResource("aws:synthetics/canary:Canary", name, args, &resource, opts...)

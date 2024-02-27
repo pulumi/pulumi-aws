@@ -133,10 +133,6 @@ func NewCollaboration(ctx *pulumi.Context,
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collaboration
 	err := ctx.RegisterResource("aws:cleanrooms/collaboration:Collaboration", name, args, &resource, opts...)

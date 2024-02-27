@@ -963,8 +963,6 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["writer"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClusterInstance, __self__).__init__(
             'aws:neptune/clusterInstance:ClusterInstance',
             resource_name,

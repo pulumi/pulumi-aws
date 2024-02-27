@@ -90,10 +90,6 @@ func NewEventIntegration(ctx *pulumi.Context,
 	if args.EventbridgeBus == nil {
 		return nil, errors.New("invalid value for required argument 'EventbridgeBus'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventIntegration
 	err := ctx.RegisterResource("aws:appconfig/eventIntegration:EventIntegration", name, args, &resource, opts...)

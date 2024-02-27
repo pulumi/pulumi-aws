@@ -492,8 +492,6 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["edge_location"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ConnectPeer, __self__).__init__(
             'aws:networkmanager/connectPeer:ConnectPeer',
             resource_name,

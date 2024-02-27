@@ -480,8 +480,6 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["registry_name"] = None
             __props__.__dict__["schema_checkpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Schema, __self__).__init__(
             'aws:glue/schema:Schema',
             resource_name,

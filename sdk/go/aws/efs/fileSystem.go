@@ -133,10 +133,6 @@ func NewFileSystem(ctx *pulumi.Context,
 		args = &FileSystemArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystem
 	err := ctx.RegisterResource("aws:efs/fileSystem:FileSystem", name, args, &resource, opts...)

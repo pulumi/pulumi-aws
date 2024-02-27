@@ -88,10 +88,6 @@ func NewSamlProvider(ctx *pulumi.Context,
 	if args.SamlMetadataDocument == nil {
 		return nil, errors.New("invalid value for required argument 'SamlMetadataDocument'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamlProvider
 	err := ctx.RegisterResource("aws:iam/samlProvider:SamlProvider", name, args, &resource, opts...)

@@ -185,10 +185,6 @@ func NewTopicRule(ctx *pulumi.Context,
 	if args.SqlVersion == nil {
 		return nil, errors.New("invalid value for required argument 'SqlVersion'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicRule
 	err := ctx.RegisterResource("aws:iot/topicRule:TopicRule", name, args, &resource, opts...)

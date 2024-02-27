@@ -112,10 +112,6 @@ func NewGatewayRoute(ctx *pulumi.Context,
 	if args.VirtualGatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualGatewayName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayRoute
 	err := ctx.RegisterResource("aws:appmesh/gatewayRoute:GatewayRoute", name, args, &resource, opts...)

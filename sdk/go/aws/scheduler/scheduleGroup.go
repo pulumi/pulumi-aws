@@ -80,10 +80,6 @@ func NewScheduleGroup(ctx *pulumi.Context,
 		args = &ScheduleGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduleGroup
 	err := ctx.RegisterResource("aws:scheduler/scheduleGroup:ScheduleGroup", name, args, &resource, opts...)

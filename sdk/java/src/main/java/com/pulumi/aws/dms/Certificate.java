@@ -189,8 +189,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "certificatePem",
-                "certificateWallet",
-                "tagsAll"
+                "certificateWallet"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

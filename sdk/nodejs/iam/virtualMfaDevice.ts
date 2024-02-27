@@ -136,8 +136,6 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualMfaDevice.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -114,10 +114,6 @@ func NewSnapshotCopy(ctx *pulumi.Context,
 	if args.SourceSnapshotId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceSnapshotId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotCopy
 	err := ctx.RegisterResource("aws:ebs/snapshotCopy:SnapshotCopy", name, args, &resource, opts...)

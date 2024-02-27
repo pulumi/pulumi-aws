@@ -94,10 +94,6 @@ func NewAutoScalingConfigurationVersion(ctx *pulumi.Context,
 	if args.AutoScalingConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingConfigurationName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingConfigurationVersion
 	err := ctx.RegisterResource("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, args, &resource, opts...)

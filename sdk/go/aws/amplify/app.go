@@ -319,7 +319,6 @@ func NewApp(ctx *pulumi.Context,
 		"accessToken",
 		"basicAuthCredentials",
 		"oauthToken",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

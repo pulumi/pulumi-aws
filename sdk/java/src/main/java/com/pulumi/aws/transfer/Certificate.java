@@ -253,8 +253,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
             .additionalSecretOutputs(List.of(
                 "certificate",
                 "certificateChain",
-                "privateKey",
-                "tagsAll"
+                "privateKey"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

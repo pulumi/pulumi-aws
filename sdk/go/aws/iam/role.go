@@ -379,10 +379,6 @@ func NewRole(ctx *pulumi.Context,
 	if args.AssumeRolePolicy == nil {
 		return nil, errors.New("invalid value for required argument 'AssumeRolePolicy'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Role
 	err := ctx.RegisterResource("aws:iam/role:Role", name, args, &resource, opts...)

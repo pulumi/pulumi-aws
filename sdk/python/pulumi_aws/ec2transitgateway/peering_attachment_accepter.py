@@ -276,8 +276,6 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PeeringAttachmentAccepter, __self__).__init__(
             'aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter',
             resource_name,

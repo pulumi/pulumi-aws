@@ -191,7 +191,6 @@ func NewObjectCopy(ctx *pulumi.Context,
 		"kmsEncryptionContext",
 		"kmsKeyId",
 		"sourceCustomerKey",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

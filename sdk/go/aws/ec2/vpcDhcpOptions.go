@@ -132,10 +132,6 @@ func NewVpcDhcpOptions(ctx *pulumi.Context,
 		args = &VpcDhcpOptionsArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcDhcpOptions
 	err := ctx.RegisterResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, args, &resource, opts...)

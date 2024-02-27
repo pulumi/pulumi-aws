@@ -2294,8 +2294,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["public_ip"] = None
             __props__.__dict__["spot_instance_request_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(
             'aws:ec2/instance:Instance',
             resource_name,

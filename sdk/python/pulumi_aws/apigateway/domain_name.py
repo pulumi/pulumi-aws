@@ -848,7 +848,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["regional_zone_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificatePrivateKey", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificatePrivateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DomainName, __self__).__init__(
             'aws:apigateway/domainName:DomainName',

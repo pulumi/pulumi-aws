@@ -94,10 +94,6 @@ func NewConnect(ctx *pulumi.Context,
 	if args.TransportAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connect
 	err := ctx.RegisterResource("aws:ec2transitgateway/connect:Connect", name, args, &resource, opts...)

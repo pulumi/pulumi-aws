@@ -119,10 +119,6 @@ func NewHaproxyLayer(ctx *pulumi.Context,
 	if args.StatsPassword == nil {
 		return nil, errors.New("invalid value for required argument 'StatsPassword'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HaproxyLayer
 	err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, args, &resource, opts...)

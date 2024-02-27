@@ -149,10 +149,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		args = &WorkspaceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws:amp/workspace:Workspace", name, args, &resource, opts...)

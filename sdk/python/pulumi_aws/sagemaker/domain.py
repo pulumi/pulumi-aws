@@ -784,8 +784,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Domain, __self__).__init__(
             'aws:sagemaker/domain:Domain',
             resource_name,

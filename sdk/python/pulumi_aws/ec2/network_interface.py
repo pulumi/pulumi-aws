@@ -980,8 +980,6 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["private_dns_name"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NetworkInterface, __self__).__init__(
             'aws:ec2/networkInterface:NetworkInterface',
             resource_name,

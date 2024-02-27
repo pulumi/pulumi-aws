@@ -65,10 +65,6 @@ func NewReplicator(ctx *pulumi.Context,
 	if args.ServiceExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Replicator
 	err := ctx.RegisterResource("aws:msk/replicator:Replicator", name, args, &resource, opts...)

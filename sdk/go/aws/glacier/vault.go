@@ -121,10 +121,6 @@ func NewVault(ctx *pulumi.Context,
 		args = &VaultArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vault
 	err := ctx.RegisterResource("aws:glacier/vault:Vault", name, args, &resource, opts...)

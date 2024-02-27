@@ -74,10 +74,6 @@ func NewFirewall(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Firewall
 	err := ctx.RegisterResource("aws:networkfirewall/firewall:Firewall", name, args, &resource, opts...)

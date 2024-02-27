@@ -669,8 +669,7 @@ public class Server extends com.pulumi.resources.CustomResource {
             .additionalSecretOutputs(List.of(
                 "hostKey",
                 "postAuthenticationLoginBanner",
-                "preAuthenticationLoginBanner",
-                "tagsAll"
+                "preAuthenticationLoginBanner"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -90,10 +90,6 @@ func NewVideoStream(ctx *pulumi.Context,
 		args = &VideoStreamArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VideoStream
 	err := ctx.RegisterResource("aws:kinesis/videoStream:VideoStream", name, args, &resource, opts...)

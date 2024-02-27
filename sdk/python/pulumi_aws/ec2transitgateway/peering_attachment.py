@@ -350,8 +350,6 @@ class PeeringAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PeeringAttachment, __self__).__init__(
             'aws:ec2transitgateway/peeringAttachment:PeeringAttachment',
             resource_name,

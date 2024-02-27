@@ -82,10 +82,6 @@ func NewLedger(ctx *pulumi.Context,
 	if args.PermissionsMode == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionsMode'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ledger
 	err := ctx.RegisterResource("aws:qldb/ledger:Ledger", name, args, &resource, opts...)

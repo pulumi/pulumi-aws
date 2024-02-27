@@ -87,10 +87,6 @@ func NewSdkvoiceSipMediaApplication(ctx *pulumi.Context,
 	if args.Endpoints == nil {
 		return nil, errors.New("invalid value for required argument 'Endpoints'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceSipMediaApplication
 	err := ctx.RegisterResource("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication", name, args, &resource, opts...)

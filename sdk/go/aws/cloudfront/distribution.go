@@ -412,10 +412,6 @@ func NewDistribution(ctx *pulumi.Context,
 	if args.ViewerCertificate == nil {
 		return nil, errors.New("invalid value for required argument 'ViewerCertificate'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Distribution
 	err := ctx.RegisterResource("aws:cloudfront/distribution:Distribution", name, args, &resource, opts...)

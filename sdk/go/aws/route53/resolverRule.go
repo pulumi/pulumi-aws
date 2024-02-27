@@ -129,10 +129,6 @@ func NewResolverRule(ctx *pulumi.Context,
 	if args.RuleType == nil {
 		return nil, errors.New("invalid value for required argument 'RuleType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverRule
 	err := ctx.RegisterResource("aws:route53/resolverRule:ResolverRule", name, args, &resource, opts...)

@@ -515,7 +515,7 @@ class CaCertificate(pulumi.CustomResource):
             __props__.__dict__["generation_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["validities"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["caCertificatePem", "tagsAll", "verificationCertificatePem"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["caCertificatePem", "verificationCertificatePem"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CaCertificate, __self__).__init__(
             'aws:iot/caCertificate:CaCertificate',

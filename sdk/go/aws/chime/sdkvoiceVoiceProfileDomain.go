@@ -90,10 +90,6 @@ func NewSdkvoiceVoiceProfileDomain(ctx *pulumi.Context,
 	if args.ServerSideEncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ServerSideEncryptionConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceVoiceProfileDomain
 	err := ctx.RegisterResource("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, args, &resource, opts...)

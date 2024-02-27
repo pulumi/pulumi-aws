@@ -139,8 +139,6 @@ export class VpcConnector extends pulumi.CustomResource {
             resourceInputs["vpcConnectorRevision"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcConnector.__pulumiType, name, resourceInputs, opts);
     }
 }

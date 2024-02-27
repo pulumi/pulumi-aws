@@ -86,10 +86,6 @@ func NewServiceLinkedRole(ctx *pulumi.Context,
 	if args.AwsServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'AwsServiceName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceLinkedRole
 	err := ctx.RegisterResource("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, args, &resource, opts...)

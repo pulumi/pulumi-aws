@@ -97,10 +97,6 @@ func NewDetector(ctx *pulumi.Context,
 		args = &DetectorArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Detector
 	err := ctx.RegisterResource("aws:guardduty/detector:Detector", name, args, &resource, opts...)

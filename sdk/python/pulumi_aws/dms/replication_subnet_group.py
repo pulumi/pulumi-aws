@@ -404,8 +404,6 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             __props__.__dict__["replication_subnet_group_arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicationSubnetGroup, __self__).__init__(
             'aws:dms/replicationSubnetGroup:ReplicationSubnetGroup',
             resource_name,

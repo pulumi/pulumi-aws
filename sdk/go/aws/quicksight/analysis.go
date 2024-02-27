@@ -109,10 +109,6 @@ func NewAnalysis(ctx *pulumi.Context,
 	if args.AnalysisId == nil {
 		return nil, errors.New("invalid value for required argument 'AnalysisId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analysis
 	err := ctx.RegisterResource("aws:quicksight/analysis:Analysis", name, args, &resource, opts...)

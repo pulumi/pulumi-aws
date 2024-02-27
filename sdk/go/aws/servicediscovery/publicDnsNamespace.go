@@ -74,10 +74,6 @@ func NewPublicDnsNamespace(ctx *pulumi.Context,
 		args = &PublicDnsNamespaceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublicDnsNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args, &resource, opts...)

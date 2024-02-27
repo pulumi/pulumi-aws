@@ -93,10 +93,6 @@ func NewSpace(ctx *pulumi.Context,
 	if args.SpaceName == nil {
 		return nil, errors.New("invalid value for required argument 'SpaceName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Space
 	err := ctx.RegisterResource("aws:sagemaker/space:Space", name, args, &resource, opts...)

@@ -130,10 +130,6 @@ func NewAnomalyMonitor(ctx *pulumi.Context,
 	if args.MonitorType == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalyMonitor
 	err := ctx.RegisterResource("aws:costexplorer/anomalyMonitor:AnomalyMonitor", name, args, &resource, opts...)

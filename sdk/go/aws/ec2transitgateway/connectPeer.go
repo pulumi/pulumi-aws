@@ -103,10 +103,6 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.TransitGatewayAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayAttachmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws:ec2transitgateway/connectPeer:ConnectPeer", name, args, &resource, opts...)

@@ -251,10 +251,6 @@ func NewGameServerGroup(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GameServerGroup
 	err := ctx.RegisterResource("aws:gamelift/gameServerGroup:GameServerGroup", name, args, &resource, opts...)

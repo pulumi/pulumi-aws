@@ -362,8 +362,6 @@ class VpcIpam(pulumi.CustomResource):
             __props__.__dict__["public_default_scope_id"] = None
             __props__.__dict__["scope_count"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcIpam, __self__).__init__(
             'aws:ec2/vpcIpam:VpcIpam',
             resource_name,

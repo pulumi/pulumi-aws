@@ -132,10 +132,6 @@ func NewOpenZfsSnapshot(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsSnapshot
 	err := ctx.RegisterResource("aws:fsx/openZfsSnapshot:OpenZfsSnapshot", name, args, &resource, opts...)

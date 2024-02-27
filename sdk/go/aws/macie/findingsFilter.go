@@ -104,10 +104,6 @@ func NewFindingsFilter(ctx *pulumi.Context,
 	if args.FindingCriteria == nil {
 		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FindingsFilter
 	err := ctx.RegisterResource("aws:macie/findingsFilter:FindingsFilter", name, args, &resource, opts...)

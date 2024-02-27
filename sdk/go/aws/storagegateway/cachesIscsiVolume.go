@@ -177,10 +177,6 @@ func NewCachesIscsiVolume(ctx *pulumi.Context,
 	if args.VolumeSizeInBytes == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeSizeInBytes'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CachesIscsiVolume
 	err := ctx.RegisterResource("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, args, &resource, opts...)

@@ -120,10 +120,6 @@ func NewHoursOfOperation(ctx *pulumi.Context,
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HoursOfOperation
 	err := ctx.RegisterResource("aws:connect/hoursOfOperation:HoursOfOperation", name, args, &resource, opts...)

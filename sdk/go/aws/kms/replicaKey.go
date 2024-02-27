@@ -113,10 +113,6 @@ func NewReplicaKey(ctx *pulumi.Context,
 	if args.PrimaryKeyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryKeyArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicaKey
 	err := ctx.RegisterResource("aws:kms/replicaKey:ReplicaKey", name, args, &resource, opts...)

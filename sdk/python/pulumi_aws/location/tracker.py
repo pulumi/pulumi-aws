@@ -371,8 +371,6 @@ class Tracker(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["tracker_arn"] = None
             __props__.__dict__["update_time"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Tracker, __self__).__init__(
             'aws:location/tracker:Tracker',
             resource_name,

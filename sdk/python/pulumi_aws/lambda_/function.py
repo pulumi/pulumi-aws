@@ -1834,8 +1834,6 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["source_code_size"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Function, __self__).__init__(
             'aws:lambda/function:Function',
             resource_name,

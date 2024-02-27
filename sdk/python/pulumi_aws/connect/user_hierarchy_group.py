@@ -401,8 +401,6 @@ class UserHierarchyGroup(pulumi.CustomResource):
             __props__.__dict__["hierarchy_paths"] = None
             __props__.__dict__["level_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UserHierarchyGroup, __self__).__init__(
             'aws:connect/userHierarchyGroup:UserHierarchyGroup',
             resource_name,

@@ -227,10 +227,6 @@ func NewCertificateAuthority(ctx *pulumi.Context,
 	if args.CertificateAuthorityConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateAuthorityConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertificateAuthority
 	err := ctx.RegisterResource("aws:acmpca/certificateAuthority:CertificateAuthority", name, args, &resource, opts...)

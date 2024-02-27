@@ -179,10 +179,6 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.TargetPipeline == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPipeline'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Webhook
 	err := ctx.RegisterResource("aws:codepipeline/webhook:Webhook", name, args, &resource, opts...)

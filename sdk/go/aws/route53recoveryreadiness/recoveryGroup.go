@@ -78,10 +78,6 @@ func NewRecoveryGroup(ctx *pulumi.Context,
 	if args.RecoveryGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'RecoveryGroupName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecoveryGroup
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", name, args, &resource, opts...)

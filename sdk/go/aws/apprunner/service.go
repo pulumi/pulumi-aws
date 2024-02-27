@@ -219,10 +219,6 @@ func NewService(ctx *pulumi.Context,
 	if args.SourceConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'SourceConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:apprunner/service:Service", name, args, &resource, opts...)

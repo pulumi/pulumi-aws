@@ -162,8 +162,6 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["uris"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GraphQLApi.__pulumiType, name, resourceInputs, opts);
     }
 }

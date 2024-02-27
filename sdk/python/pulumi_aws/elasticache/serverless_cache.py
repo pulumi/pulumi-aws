@@ -822,8 +822,6 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["reader_endpoints"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServerlessCache, __self__).__init__(
             'aws:elasticache/serverlessCache:ServerlessCache',
             resource_name,

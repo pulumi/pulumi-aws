@@ -102,10 +102,6 @@ func NewLocationAzureBlob(ctx *pulumi.Context,
 	if args.ContainerUrl == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerUrl'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationAzureBlob
 	err := ctx.RegisterResource("aws:datasync/locationAzureBlob:LocationAzureBlob", name, args, &resource, opts...)

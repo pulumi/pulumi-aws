@@ -105,10 +105,6 @@ func NewProtection(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Protection
 	err := ctx.RegisterResource("aws:shield/protection:Protection", name, args, &resource, opts...)

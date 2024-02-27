@@ -103,10 +103,6 @@ func NewAgreement(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agreement
 	err := ctx.RegisterResource("aws:transfer/agreement:Agreement", name, args, &resource, opts...)

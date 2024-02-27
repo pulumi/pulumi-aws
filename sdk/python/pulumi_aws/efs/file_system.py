@@ -651,8 +651,6 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["size_in_bytes"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FileSystem, __self__).__init__(
             'aws:efs/fileSystem:FileSystem',
             resource_name,

@@ -75,10 +75,6 @@ func NewServiceNetwork(ctx *pulumi.Context,
 		args = &ServiceNetworkArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetwork
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetwork:ServiceNetwork", name, args, &resource, opts...)

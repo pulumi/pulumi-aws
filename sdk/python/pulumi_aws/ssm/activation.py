@@ -431,8 +431,6 @@ class Activation(pulumi.CustomResource):
             __props__.__dict__["expired"] = None
             __props__.__dict__["registration_count"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Activation, __self__).__init__(
             'aws:ssm/activation:Activation',
             resource_name,

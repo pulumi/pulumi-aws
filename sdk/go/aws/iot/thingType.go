@@ -72,10 +72,6 @@ func NewThingType(ctx *pulumi.Context,
 		args = &ThingTypeArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingType
 	err := ctx.RegisterResource("aws:iot/thingType:ThingType", name, args, &resource, opts...)

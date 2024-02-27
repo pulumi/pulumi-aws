@@ -305,10 +305,6 @@ func NewMetricStream(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricStream
 	err := ctx.RegisterResource("aws:cloudwatch/metricStream:MetricStream", name, args, &resource, opts...)

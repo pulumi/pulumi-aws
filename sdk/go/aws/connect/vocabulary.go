@@ -101,10 +101,6 @@ func NewVocabulary(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vocabulary
 	err := ctx.RegisterResource("aws:connect/vocabulary:Vocabulary", name, args, &resource, opts...)

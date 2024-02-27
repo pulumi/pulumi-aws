@@ -54,10 +54,6 @@ func NewScraper(ctx *pulumi.Context,
 	if args.ScrapeConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ScrapeConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Scraper
 	err := ctx.RegisterResource("aws:amp/scraper:Scraper", name, args, &resource, opts...)

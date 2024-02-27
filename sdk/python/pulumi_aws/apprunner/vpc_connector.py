@@ -345,8 +345,6 @@ class VpcConnector(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_connector_revision"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcConnector, __self__).__init__(
             'aws:apprunner/vpcConnector:VpcConnector',
             resource_name,

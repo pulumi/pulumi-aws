@@ -83,10 +83,6 @@ func NewVoiceConnector(ctx *pulumi.Context,
 	if args.RequireEncryption == nil {
 		return nil, errors.New("invalid value for required argument 'RequireEncryption'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnector
 	err := ctx.RegisterResource("aws:chime/voiceConnector:VoiceConnector", name, args, &resource, opts...)

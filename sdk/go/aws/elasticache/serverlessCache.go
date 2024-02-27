@@ -190,10 +190,6 @@ func NewServerlessCache(ctx *pulumi.Context,
 	if args.Engine == nil {
 		return nil, errors.New("invalid value for required argument 'Engine'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerlessCache
 	err := ctx.RegisterResource("aws:elasticache/serverlessCache:ServerlessCache", name, args, &resource, opts...)

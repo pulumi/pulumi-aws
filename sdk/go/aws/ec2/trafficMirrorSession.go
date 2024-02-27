@@ -119,10 +119,6 @@ func NewTrafficMirrorSession(ctx *pulumi.Context,
 	if args.TrafficMirrorTargetId == nil {
 		return nil, errors.New("invalid value for required argument 'TrafficMirrorTargetId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorSession
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, args, &resource, opts...)

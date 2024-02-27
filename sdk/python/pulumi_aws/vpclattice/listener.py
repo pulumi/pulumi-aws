@@ -596,8 +596,6 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["listener_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Listener, __self__).__init__(
             'aws:vpclattice/listener:Listener',
             resource_name,

@@ -68,10 +68,6 @@ func NewActivity(ctx *pulumi.Context,
 		args = &ActivityArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activity
 	err := ctx.RegisterResource("aws:sfn/activity:Activity", name, args, &resource, opts...)

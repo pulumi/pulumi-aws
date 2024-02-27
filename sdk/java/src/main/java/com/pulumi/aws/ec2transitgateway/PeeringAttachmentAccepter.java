@@ -192,9 +192,6 @@ public class PeeringAttachmentAccepter extends com.pulumi.resources.CustomResour
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter").build())
             ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

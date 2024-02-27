@@ -835,8 +835,6 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FlowLog, __self__).__init__(
             'aws:ec2/flowLog:FlowLog',
             resource_name,

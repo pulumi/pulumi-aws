@@ -335,8 +335,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["workflow_execution_retention_period_in_days"] = workflow_execution_retention_period_in_days
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Domain, __self__).__init__(
             'aws:swf/domain:Domain',
             resource_name,

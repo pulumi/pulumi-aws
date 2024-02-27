@@ -135,10 +135,6 @@ func NewProvisionedProduct(ctx *pulumi.Context,
 		args = &ProvisionedProductArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisionedProduct
 	err := ctx.RegisterResource("aws:servicecatalog/provisionedProduct:ProvisionedProduct", name, args, &resource, opts...)

@@ -104,10 +104,6 @@ func NewRule(ctx *pulumi.Context,
 	if args.RetentionPeriod == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionPeriod'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws:rbin/rule:Rule", name, args, &resource, opts...)

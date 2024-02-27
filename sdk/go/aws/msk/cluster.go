@@ -340,10 +340,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.NumberOfBrokerNodes == nil {
 		return nil, errors.New("invalid value for required argument 'NumberOfBrokerNodes'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:msk/cluster:Cluster", name, args, &resource, opts...)

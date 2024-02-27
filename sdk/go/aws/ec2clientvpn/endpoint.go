@@ -129,10 +129,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.ServerCertificateArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServerCertificateArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:ec2clientvpn/endpoint:Endpoint", name, args, &resource, opts...)

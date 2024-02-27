@@ -201,10 +201,6 @@ func NewMLTransform(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MLTransform
 	err := ctx.RegisterResource("aws:glue/mLTransform:MLTransform", name, args, &resource, opts...)

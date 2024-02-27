@@ -1202,8 +1202,6 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["estimated_number_of_users"] = None
             __props__.__dict__["last_modified_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UserPool, __self__).__init__(
             'aws:cognito/userPool:UserPool',
             resource_name,

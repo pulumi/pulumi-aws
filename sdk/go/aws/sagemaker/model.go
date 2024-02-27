@@ -129,10 +129,6 @@ func NewModel(ctx *pulumi.Context,
 	if args.ExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws:sagemaker/model:Model", name, args, &resource, opts...)

@@ -88,10 +88,6 @@ func NewPeeringAttachmentAccepter(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PeeringAttachmentAccepter
 	err := ctx.RegisterResource("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter", name, args, &resource, opts...)

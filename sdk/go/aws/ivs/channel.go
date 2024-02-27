@@ -81,10 +81,6 @@ func NewChannel(ctx *pulumi.Context,
 		args = &ChannelArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws:ivs/channel:Channel", name, args, &resource, opts...)

@@ -104,10 +104,6 @@ func NewCloudFormationStack(ctx *pulumi.Context,
 	if args.Capabilities == nil {
 		return nil, errors.New("invalid value for required argument 'Capabilities'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationStack
 	err := ctx.RegisterResource("aws:serverlessrepository/cloudFormationStack:CloudFormationStack", name, args, &resource, opts...)

@@ -108,10 +108,6 @@ func NewMesh(ctx *pulumi.Context,
 		args = &MeshArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mesh
 	err := ctx.RegisterResource("aws:appmesh/mesh:Mesh", name, args, &resource, opts...)

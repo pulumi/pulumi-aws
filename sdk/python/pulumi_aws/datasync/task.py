@@ -558,8 +558,6 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["task_report_config"] = task_report_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Task, __self__).__init__(
             'aws:datasync/task:Task',
             resource_name,

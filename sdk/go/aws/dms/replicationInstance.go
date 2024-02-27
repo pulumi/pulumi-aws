@@ -202,10 +202,6 @@ func NewReplicationInstance(ctx *pulumi.Context,
 	if args.ReplicationInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationInstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("aws:dms/replicationInstance:ReplicationInstance", name, args, &resource, opts...)

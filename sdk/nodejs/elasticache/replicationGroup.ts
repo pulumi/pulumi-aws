@@ -522,7 +522,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["authToken", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["authToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }

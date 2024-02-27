@@ -331,7 +331,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validationEmails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["privateKey", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

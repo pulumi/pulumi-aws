@@ -86,10 +86,6 @@ func NewIdentityProviderConfig(ctx *pulumi.Context,
 	if args.Oidc == nil {
 		return nil, errors.New("invalid value for required argument 'Oidc'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProviderConfig
 	err := ctx.RegisterResource("aws:eks/identityProviderConfig:IdentityProviderConfig", name, args, &resource, opts...)

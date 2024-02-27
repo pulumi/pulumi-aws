@@ -72,10 +72,6 @@ func NewKeyspace(ctx *pulumi.Context,
 		args = &KeyspaceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Keyspace
 	err := ctx.RegisterResource("aws:keyspaces/keyspace:Keyspace", name, args, &resource, opts...)

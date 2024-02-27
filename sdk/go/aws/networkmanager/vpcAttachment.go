@@ -109,10 +109,6 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpcArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws:networkmanager/vpcAttachment:VpcAttachment", name, args, &resource, opts...)

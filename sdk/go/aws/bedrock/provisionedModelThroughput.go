@@ -90,10 +90,6 @@ func NewProvisionedModelThroughput(ctx *pulumi.Context,
 	if args.ProvisionedModelName == nil {
 		return nil, errors.New("invalid value for required argument 'ProvisionedModelName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisionedModelThroughput
 	err := ctx.RegisterResource("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput", name, args, &resource, opts...)

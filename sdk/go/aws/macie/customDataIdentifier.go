@@ -97,10 +97,6 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 		args = &CustomDataIdentifierArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDataIdentifier
 	err := ctx.RegisterResource("aws:macie/customDataIdentifier:CustomDataIdentifier", name, args, &resource, opts...)

@@ -113,10 +113,6 @@ func NewGangliaLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GangliaLayer
 	err := ctx.RegisterResource("aws:opsworks/gangliaLayer:GangliaLayer", name, args, &resource, opts...)

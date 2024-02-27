@@ -102,10 +102,6 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:dms/eventSubscription:EventSubscription", name, args, &resource, opts...)

@@ -74,10 +74,6 @@ func NewRegistry(ctx *pulumi.Context,
 		args = &RegistryArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Registry
 	err := ctx.RegisterResource("aws:schemas/registry:Registry", name, args, &resource, opts...)

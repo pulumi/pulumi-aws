@@ -103,10 +103,6 @@ func NewConfigurationSet(ctx *pulumi.Context,
 	if args.ConfigurationSetName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigurationSetName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("aws:sesv2/configurationSet:ConfigurationSet", name, args, &resource, opts...)

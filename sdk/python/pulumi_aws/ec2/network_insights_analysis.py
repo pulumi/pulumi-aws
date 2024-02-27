@@ -464,8 +464,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["status_message"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["warning_message"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis',
             resource_name,

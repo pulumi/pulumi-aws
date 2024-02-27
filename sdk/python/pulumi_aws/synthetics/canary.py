@@ -899,8 +899,6 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["timelines"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Canary, __self__).__init__(
             'aws:synthetics/canary:Canary',
             resource_name,

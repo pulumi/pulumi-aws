@@ -170,10 +170,6 @@ func NewDataQualityRuleset(ctx *pulumi.Context,
 	if args.Ruleset == nil {
 		return nil, errors.New("invalid value for required argument 'Ruleset'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataQualityRuleset
 	err := ctx.RegisterResource("aws:glue/dataQualityRuleset:DataQualityRuleset", name, args, &resource, opts...)

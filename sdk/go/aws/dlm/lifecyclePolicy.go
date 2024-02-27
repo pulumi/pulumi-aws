@@ -133,10 +133,6 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args.PolicyDetails == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDetails'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)

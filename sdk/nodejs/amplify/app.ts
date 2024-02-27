@@ -327,7 +327,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["accessToken", "basicAuthCredentials", "oauthToken", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "basicAuthCredentials", "oauthToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(App.__pulumiType, name, resourceInputs, opts);
     }

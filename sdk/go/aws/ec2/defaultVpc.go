@@ -100,10 +100,6 @@ func NewDefaultVpc(ctx *pulumi.Context,
 		args = &DefaultVpcArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultVpc
 	err := ctx.RegisterResource("aws:ec2/defaultVpc:DefaultVpc", name, args, &resource, opts...)

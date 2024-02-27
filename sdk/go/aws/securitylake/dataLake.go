@@ -135,10 +135,6 @@ func NewDataLake(ctx *pulumi.Context,
 	if args.MetaStoreManagerRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'MetaStoreManagerRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataLake
 	err := ctx.RegisterResource("aws:securitylake/dataLake:DataLake", name, args, &resource, opts...)

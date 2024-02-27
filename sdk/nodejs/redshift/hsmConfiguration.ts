@@ -151,7 +151,7 @@ export class HsmConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["hsmPartitionPassword", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["hsmPartitionPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(HsmConfiguration.__pulumiType, name, resourceInputs, opts);
     }

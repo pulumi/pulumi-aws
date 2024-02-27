@@ -82,10 +82,6 @@ func NewAlias(ctx *pulumi.Context,
 	if args.RoutingStrategy == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingStrategy'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws:gamelift/alias:Alias", name, args, &resource, opts...)

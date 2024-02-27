@@ -98,10 +98,6 @@ func NewNetworkInsightsPath(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsPath
 	err := ctx.RegisterResource("aws:ec2/networkInsightsPath:NetworkInsightsPath", name, args, &resource, opts...)

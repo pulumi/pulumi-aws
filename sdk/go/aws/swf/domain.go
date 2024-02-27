@@ -83,10 +83,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.WorkflowExecutionRetentionPeriodInDays == nil {
 		return nil, errors.New("invalid value for required argument 'WorkflowExecutionRetentionPeriodInDays'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:swf/domain:Domain", name, args, &resource, opts...)

@@ -410,8 +410,6 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["clone_url_ssh"] = None
             __props__.__dict__["repository_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Repository, __self__).__init__(
             'aws:codecommit/repository:Repository',
             resource_name,

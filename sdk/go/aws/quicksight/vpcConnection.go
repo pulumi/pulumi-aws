@@ -162,10 +162,6 @@ func NewVpcConnection(ctx *pulumi.Context,
 	if args.VpcConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConnectionId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnection
 	err := ctx.RegisterResource("aws:quicksight/vpcConnection:VpcConnection", name, args, &resource, opts...)

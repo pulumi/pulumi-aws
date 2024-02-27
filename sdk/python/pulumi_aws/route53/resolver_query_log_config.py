@@ -310,8 +310,6 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResolverQueryLogConfig, __self__).__init__(
             'aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig',
             resource_name,

@@ -710,8 +710,6 @@ class CustomModel(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["training_metrics"] = None
             __props__.__dict__["validation_metrics"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CustomModel, __self__).__init__(
             'aws:bedrock/customModel:CustomModel',
             resource_name,

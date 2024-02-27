@@ -181,8 +181,6 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcPeeringConnectionAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }

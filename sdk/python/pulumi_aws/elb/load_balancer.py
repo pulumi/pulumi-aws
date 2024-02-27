@@ -967,8 +967,6 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["zone_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancer:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LoadBalancer, __self__).__init__(
             'aws:elb/loadBalancer:LoadBalancer',
             resource_name,

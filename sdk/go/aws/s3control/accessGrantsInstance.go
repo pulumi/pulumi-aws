@@ -100,10 +100,6 @@ func NewAccessGrantsInstance(ctx *pulumi.Context,
 		args = &AccessGrantsInstanceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessGrantsInstance
 	err := ctx.RegisterResource("aws:s3control/accessGrantsInstance:AccessGrantsInstance", name, args, &resource, opts...)

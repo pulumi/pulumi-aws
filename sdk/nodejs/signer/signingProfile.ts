@@ -165,8 +165,6 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["versionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SigningProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

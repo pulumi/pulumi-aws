@@ -98,10 +98,6 @@ func NewDataIntegration(ctx *pulumi.Context,
 	if args.SourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'SourceUri'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataIntegration
 	err := ctx.RegisterResource("aws:appintegrations/dataIntegration:DataIntegration", name, args, &resource, opts...)

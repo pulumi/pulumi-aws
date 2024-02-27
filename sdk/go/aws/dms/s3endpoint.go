@@ -270,10 +270,6 @@ func NewS3Endpoint(ctx *pulumi.Context,
 	if args.ServiceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceAccessRoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource S3Endpoint
 	err := ctx.RegisterResource("aws:dms/s3Endpoint:S3Endpoint", name, args, &resource, opts...)

@@ -904,7 +904,7 @@ class OntapFileSystem(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["fsxAdminPassword", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["fsxAdminPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OntapFileSystem, __self__).__init__(
             'aws:fsx/ontapFileSystem:OntapFileSystem',

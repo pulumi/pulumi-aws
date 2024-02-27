@@ -104,10 +104,6 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 	if args.LocationUri == nil {
 		return nil, errors.New("invalid value for required argument 'LocationUri'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationProfile
 	err := ctx.RegisterResource("aws:appconfig/configurationProfile:ConfigurationProfile", name, args, &resource, opts...)

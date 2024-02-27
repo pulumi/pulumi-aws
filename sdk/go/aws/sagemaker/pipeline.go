@@ -111,10 +111,6 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.PipelineName == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:sagemaker/pipeline:Pipeline", name, args, &resource, opts...)

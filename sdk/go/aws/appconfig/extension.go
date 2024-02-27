@@ -127,10 +127,6 @@ func NewExtension(ctx *pulumi.Context,
 	if args.ActionPoints == nil {
 		return nil, errors.New("invalid value for required argument 'ActionPoints'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Extension
 	err := ctx.RegisterResource("aws:appconfig/extension:Extension", name, args, &resource, opts...)

@@ -81,10 +81,6 @@ func NewGroup(ctx *pulumi.Context,
 	if args.VerifiedaccessInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'VerifiedaccessInstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:verifiedaccess/group:Group", name, args, &resource, opts...)

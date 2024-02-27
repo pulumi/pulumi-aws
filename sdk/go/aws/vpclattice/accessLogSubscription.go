@@ -80,10 +80,6 @@ func NewAccessLogSubscription(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessLogSubscription
 	err := ctx.RegisterResource("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, args, &resource, opts...)

@@ -102,10 +102,6 @@ func NewClusterSnapshot(ctx *pulumi.Context,
 	if args.DbClusterSnapshotIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DbClusterSnapshotIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSnapshot
 	err := ctx.RegisterResource("aws:rds/clusterSnapshot:ClusterSnapshot", name, args, &resource, opts...)

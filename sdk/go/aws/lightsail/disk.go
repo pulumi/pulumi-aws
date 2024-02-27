@@ -101,10 +101,6 @@ func NewDisk(ctx *pulumi.Context,
 	if args.SizeInGb == nil {
 		return nil, errors.New("invalid value for required argument 'SizeInGb'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Disk
 	err := ctx.RegisterResource("aws:lightsail/disk:Disk", name, args, &resource, opts...)

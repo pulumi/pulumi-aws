@@ -51,10 +51,6 @@ func NewMatchmakingRuleSet(ctx *pulumi.Context,
 	if args.RuleSetBody == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetBody'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MatchmakingRuleSet
 	err := ctx.RegisterResource("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet", name, args, &resource, opts...)

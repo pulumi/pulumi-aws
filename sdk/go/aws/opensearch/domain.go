@@ -532,10 +532,6 @@ func NewDomain(ctx *pulumi.Context,
 		args = &DomainArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:opensearch/domain:Domain", name, args, &resource, opts...)

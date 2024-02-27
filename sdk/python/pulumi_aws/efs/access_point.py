@@ -323,8 +323,6 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["file_system_arn"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AccessPoint, __self__).__init__(
             'aws:efs/accessPoint:AccessPoint',
             resource_name,

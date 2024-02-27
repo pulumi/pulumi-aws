@@ -102,10 +102,6 @@ func NewQuerySuggestionsBlockList(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QuerySuggestionsBlockList
 	err := ctx.RegisterResource("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList", name, args, &resource, opts...)

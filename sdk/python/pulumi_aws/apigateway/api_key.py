@@ -406,7 +406,7 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["created_date"] = None
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll", "value"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiKey, __self__).__init__(
             'aws:apigateway/apiKey:ApiKey',

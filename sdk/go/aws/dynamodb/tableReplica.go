@@ -121,10 +121,6 @@ func NewTableReplica(ctx *pulumi.Context,
 	if args.GlobalTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalTableArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TableReplica
 	err := ctx.RegisterResource("aws:dynamodb/tableReplica:TableReplica", name, args, &resource, opts...)

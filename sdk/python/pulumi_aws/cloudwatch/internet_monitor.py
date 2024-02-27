@@ -447,8 +447,6 @@ class InternetMonitor(pulumi.CustomResource):
             __props__.__dict__["traffic_percentage_to_monitor"] = traffic_percentage_to_monitor
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(InternetMonitor, __self__).__init__(
             'aws:cloudwatch/internetMonitor:InternetMonitor',
             resource_name,

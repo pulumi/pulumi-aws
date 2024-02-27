@@ -175,10 +175,6 @@ func NewFaq(ctx *pulumi.Context,
 	if args.S3Path == nil {
 		return nil, errors.New("invalid value for required argument 'S3Path'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Faq
 	err := ctx.RegisterResource("aws:kendra/faq:Faq", name, args, &resource, opts...)

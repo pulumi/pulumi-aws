@@ -736,8 +736,6 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Addon, __self__).__init__(
             'aws:eks/addon:Addon',
             resource_name,

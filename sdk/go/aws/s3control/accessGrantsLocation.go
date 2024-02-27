@@ -93,10 +93,6 @@ func NewAccessGrantsLocation(ctx *pulumi.Context,
 	if args.LocationScope == nil {
 		return nil, errors.New("invalid value for required argument 'LocationScope'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessGrantsLocation
 	err := ctx.RegisterResource("aws:s3control/accessGrantsLocation:AccessGrantsLocation", name, args, &resource, opts...)

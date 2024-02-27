@@ -199,10 +199,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.Application == nil {
 		return nil, errors.New("invalid value for required argument 'Application'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws:elasticbeanstalk/environment:Environment", name, args, &resource, opts...)

@@ -1087,8 +1087,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["engine_patch_version"] = None
             __props__.__dict__["shards"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:memorydb/cluster:Cluster',
             resource_name,

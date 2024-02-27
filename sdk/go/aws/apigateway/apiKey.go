@@ -89,7 +89,6 @@ func NewApiKey(ctx *pulumi.Context,
 		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
 		"value",
 	})
 	opts = append(opts, secrets)

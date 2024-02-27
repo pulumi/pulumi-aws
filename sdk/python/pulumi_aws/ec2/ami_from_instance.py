@@ -803,8 +803,6 @@ class AmiFromInstance(pulumi.CustomResource):
             __props__.__dict__["tpm_support"] = None
             __props__.__dict__["usage_operation"] = None
             __props__.__dict__["virtualization_type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AmiFromInstance, __self__).__init__(
             'aws:ec2/amiFromInstance:AmiFromInstance',
             resource_name,

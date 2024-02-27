@@ -134,10 +134,6 @@ func NewTask(ctx *pulumi.Context,
 	if args.SourceLocationArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceLocationArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Task
 	err := ctx.RegisterResource("aws:datasync/task:Task", name, args, &resource, opts...)

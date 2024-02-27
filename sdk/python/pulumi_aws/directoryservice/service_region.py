@@ -298,8 +298,6 @@ class ServiceRegion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceRegion, __self__).__init__(
             'aws:directoryservice/serviceRegion:ServiceRegion',
             resource_name,

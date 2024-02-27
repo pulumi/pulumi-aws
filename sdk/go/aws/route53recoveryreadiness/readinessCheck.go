@@ -82,10 +82,6 @@ func NewReadinessCheck(ctx *pulumi.Context,
 	if args.ResourceSetName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceSetName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReadinessCheck
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck", name, args, &resource, opts...)

@@ -95,10 +95,6 @@ func NewVocabularyFilter(ctx *pulumi.Context,
 	if args.VocabularyFilterName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyFilterName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VocabularyFilter
 	err := ctx.RegisterResource("aws:transcribe/vocabularyFilter:VocabularyFilter", name, args, &resource, opts...)

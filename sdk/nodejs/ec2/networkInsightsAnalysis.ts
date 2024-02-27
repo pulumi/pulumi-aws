@@ -175,8 +175,6 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["warningMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NetworkInsightsAnalysis.__pulumiType, name, resourceInputs, opts);
     }
 }

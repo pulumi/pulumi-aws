@@ -59,10 +59,6 @@ func NewServiceRegion(ctx *pulumi.Context,
 	if args.VpcSettings == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSettings'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceRegion
 	err := ctx.RegisterResource("aws:directoryservice/serviceRegion:ServiceRegion", name, args, &resource, opts...)

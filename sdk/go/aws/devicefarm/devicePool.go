@@ -93,10 +93,6 @@ func NewDevicePool(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DevicePool
 	err := ctx.RegisterResource("aws:devicefarm/devicePool:DevicePool", name, args, &resource, opts...)

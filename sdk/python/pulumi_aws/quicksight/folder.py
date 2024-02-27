@@ -530,8 +530,6 @@ class Folder(pulumi.CustomResource):
             __props__.__dict__["folder_paths"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Folder, __self__).__init__(
             'aws:quicksight/folder:Folder',
             resource_name,

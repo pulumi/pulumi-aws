@@ -174,10 +174,6 @@ func NewRestApi(ctx *pulumi.Context,
 		args = &RestApiArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RestApi
 	err := ctx.RegisterResource("aws:apigateway/restApi:RestApi", name, args, &resource, opts...)

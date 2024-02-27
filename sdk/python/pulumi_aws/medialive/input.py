@@ -609,8 +609,6 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["input_partner_ids"] = None
             __props__.__dict__["input_source_type"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Input, __self__).__init__(
             'aws:medialive/input:Input',
             resource_name,

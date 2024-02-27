@@ -91,10 +91,6 @@ func NewTrustProvider(ctx *pulumi.Context,
 	if args.TrustProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'TrustProviderType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustProvider
 	err := ctx.RegisterResource("aws:verifiedaccess/trustProvider:TrustProvider", name, args, &resource, opts...)

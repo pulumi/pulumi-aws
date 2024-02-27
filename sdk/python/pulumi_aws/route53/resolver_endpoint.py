@@ -481,8 +481,6 @@ class ResolverEndpoint(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["host_vpc_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ResolverEndpoint, __self__).__init__(
             'aws:route53/resolverEndpoint:ResolverEndpoint',
             resource_name,

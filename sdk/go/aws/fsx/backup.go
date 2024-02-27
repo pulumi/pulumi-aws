@@ -199,10 +199,6 @@ func NewBackup(ctx *pulumi.Context,
 		args = &BackupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Backup
 	err := ctx.RegisterResource("aws:fsx/backup:Backup", name, args, &resource, opts...)

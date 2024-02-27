@@ -788,8 +788,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["self_service_portal_url"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Endpoint, __self__).__init__(
             'aws:ec2clientvpn/endpoint:Endpoint',
             resource_name,

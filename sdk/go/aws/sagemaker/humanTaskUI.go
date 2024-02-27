@@ -92,10 +92,6 @@ func NewHumanTaskUI(ctx *pulumi.Context,
 	if args.UiTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'UiTemplate'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HumanTaskUI
 	err := ctx.RegisterResource("aws:sagemaker/humanTaskUI:HumanTaskUI", name, args, &resource, opts...)

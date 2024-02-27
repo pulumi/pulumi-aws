@@ -87,10 +87,6 @@ func NewRecordingConfiguration(ctx *pulumi.Context,
 	if args.DestinationConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationConfiguration'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecordingConfiguration
 	err := ctx.RegisterResource("aws:ivs/recordingConfiguration:RecordingConfiguration", name, args, &resource, opts...)

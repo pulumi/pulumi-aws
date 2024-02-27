@@ -611,7 +611,7 @@ class ElasticCluster(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminUserPassword", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminUserPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ElasticCluster, __self__).__init__(
             'aws:docdb/elasticCluster:ElasticCluster',

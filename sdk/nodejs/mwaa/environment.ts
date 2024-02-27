@@ -350,7 +350,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["webserverUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["airflowConfigurationOptions", "tagsAll"] };
+        const secretOpts = { additionalSecretOutputs: ["airflowConfigurationOptions"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }

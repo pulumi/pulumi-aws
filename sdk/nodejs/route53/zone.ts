@@ -179,8 +179,6 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["zoneId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Zone.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -102,10 +102,6 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	if args.ProjectArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkProfile
 	err := ctx.RegisterResource("aws:devicefarm/networkProfile:NetworkProfile", name, args, &resource, opts...)

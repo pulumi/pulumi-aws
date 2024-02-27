@@ -299,8 +299,6 @@ class AccessGrantsInstance(pulumi.CustomResource):
             __props__.__dict__["access_grants_instance_id"] = None
             __props__.__dict__["identity_center_application_arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AccessGrantsInstance, __self__).__init__(
             'aws:s3control/accessGrantsInstance:AccessGrantsInstance',
             resource_name,

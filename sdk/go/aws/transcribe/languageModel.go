@@ -172,10 +172,6 @@ func NewLanguageModel(ctx *pulumi.Context,
 	if args.ModelName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LanguageModel
 	err := ctx.RegisterResource("aws:transcribe/languageModel:LanguageModel", name, args, &resource, opts...)

@@ -1709,7 +1709,7 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["source_version_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ObjectCopy, __self__).__init__(
             'aws:s3/objectCopy:ObjectCopy',

@@ -100,10 +100,6 @@ func NewReportPlan(ctx *pulumi.Context,
 	if args.ReportSetting == nil {
 		return nil, errors.New("invalid value for required argument 'ReportSetting'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportPlan
 	err := ctx.RegisterResource("aws:backup/reportPlan:ReportPlan", name, args, &resource, opts...)

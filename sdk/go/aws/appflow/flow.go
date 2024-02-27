@@ -227,10 +227,6 @@ func NewFlow(ctx *pulumi.Context,
 	if args.TriggerConfig == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flow
 	err := ctx.RegisterResource("aws:appflow/flow:Flow", name, args, &resource, opts...)

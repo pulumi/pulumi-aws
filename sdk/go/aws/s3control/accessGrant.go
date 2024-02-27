@@ -115,10 +115,6 @@ func NewAccessGrant(ctx *pulumi.Context,
 	if args.Permission == nil {
 		return nil, errors.New("invalid value for required argument 'Permission'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessGrant
 	err := ctx.RegisterResource("aws:s3control/accessGrant:AccessGrant", name, args, &resource, opts...)

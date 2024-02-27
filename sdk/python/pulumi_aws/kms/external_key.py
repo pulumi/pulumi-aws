@@ -523,7 +523,7 @@ class ExternalKey(pulumi.CustomResource):
             __props__.__dict__["key_state"] = None
             __props__.__dict__["key_usage"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExternalKey, __self__).__init__(
             'aws:kms/externalKey:ExternalKey',

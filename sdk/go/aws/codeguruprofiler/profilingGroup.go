@@ -80,10 +80,6 @@ func NewProfilingGroup(ctx *pulumi.Context,
 		args = &ProfilingGroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProfilingGroup
 	err := ctx.RegisterResource("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, args, &resource, opts...)

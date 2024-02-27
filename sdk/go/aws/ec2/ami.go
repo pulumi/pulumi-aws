@@ -143,10 +143,6 @@ func NewAmi(ctx *pulumi.Context,
 		args = &AmiArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ami
 	err := ctx.RegisterResource("aws:ec2/ami:Ami", name, args, &resource, opts...)

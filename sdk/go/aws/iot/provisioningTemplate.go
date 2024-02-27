@@ -183,10 +183,6 @@ func NewProvisioningTemplate(ctx *pulumi.Context,
 	if args.TemplateBody == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateBody'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisioningTemplate
 	err := ctx.RegisterResource("aws:iot/provisioningTemplate:ProvisioningTemplate", name, args, &resource, opts...)

@@ -418,8 +418,6 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["latest"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AutoScalingConfigurationVersion, __self__).__init__(
             'aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion',
             resource_name,

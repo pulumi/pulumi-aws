@@ -588,9 +588,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:elasticloadbalancingv2/loadBalancer:LoadBalancer").build())
             ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

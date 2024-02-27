@@ -6270,17 +6270,11 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			fields["tags_all"] = &tfbridge.SchemaInfo{}
 		}
 
-		fields["tags_all"].Secret = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-
 		// Upstream provider is edited to unmark tags_all as computed internally so that
 		// Pulumi provider internals can set it, but the user should not be able to set it.
 		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-
+		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
 		fields["tags_all"].MarkAsOptional = tfbridge.False()
-
-		contract.Assertf(prov.Resources[key].TransformOutputs == nil,
-			"prov.Resources[key].TransformOutputs==nil")
 
 		return true
 	})

@@ -227,8 +227,6 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["whoisServer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RegisteredDomain.__pulumiType, name, resourceInputs, opts);
     }
 }

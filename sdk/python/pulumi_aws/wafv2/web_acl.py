@@ -577,8 +577,6 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["capacity"] = None
             __props__.__dict__["lock_token"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WebAcl, __self__).__init__(
             'aws:wafv2/webAcl:WebAcl',
             resource_name,

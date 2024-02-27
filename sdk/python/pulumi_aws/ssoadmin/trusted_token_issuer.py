@@ -362,8 +362,6 @@ class TrustedTokenIssuer(pulumi.CustomResource):
             __props__.__dict__["trusted_token_issuer_type"] = trusted_token_issuer_type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TrustedTokenIssuer, __self__).__init__(
             'aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer',
             resource_name,

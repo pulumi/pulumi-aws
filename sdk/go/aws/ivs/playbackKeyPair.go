@@ -91,10 +91,6 @@ func NewPlaybackKeyPair(ctx *pulumi.Context,
 	if args.PublicKey == nil {
 		return nil, errors.New("invalid value for required argument 'PublicKey'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaybackKeyPair
 	err := ctx.RegisterResource("aws:ivs/playbackKeyPair:PlaybackKeyPair", name, args, &resource, opts...)

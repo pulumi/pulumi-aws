@@ -1139,7 +1139,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["secondary_availability_zone"] = None
             __props__.__dict__["support_code"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Database, __self__).__init__(
             'aws:lightsail/database:Database',

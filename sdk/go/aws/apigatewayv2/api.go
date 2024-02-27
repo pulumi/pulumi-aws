@@ -140,10 +140,6 @@ func NewApi(ctx *pulumi.Context,
 	if args.ProtocolType == nil {
 		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Api
 	err := ctx.RegisterResource("aws:apigatewayv2/api:Api", name, args, &resource, opts...)

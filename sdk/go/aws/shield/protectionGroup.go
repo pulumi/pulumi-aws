@@ -181,10 +181,6 @@ func NewProtectionGroup(ctx *pulumi.Context,
 	if args.ProtectionGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ProtectionGroupId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProtectionGroup
 	err := ctx.RegisterResource("aws:shield/protectionGroup:ProtectionGroup", name, args, &resource, opts...)

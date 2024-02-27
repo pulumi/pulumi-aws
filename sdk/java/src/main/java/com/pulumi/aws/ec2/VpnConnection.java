@@ -1255,7 +1255,6 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "customerGatewayConfiguration",
-                "tagsAll",
                 "tunnel1PresharedKey",
                 "tunnel2PresharedKey"
             ))

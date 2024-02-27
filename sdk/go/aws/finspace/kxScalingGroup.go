@@ -101,10 +101,6 @@ func NewKxScalingGroup(ctx *pulumi.Context,
 	if args.HostType == nil {
 		return nil, errors.New("invalid value for required argument 'HostType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxScalingGroup
 	err := ctx.RegisterResource("aws:finspace/kxScalingGroup:KxScalingGroup", name, args, &resource, opts...)

@@ -101,10 +101,6 @@ func NewV2modelsBot(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource V2modelsBot
 	err := ctx.RegisterResource("aws:lex/v2modelsBot:V2modelsBot", name, args, &resource, opts...)

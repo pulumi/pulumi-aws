@@ -1346,8 +1346,6 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["badge_url"] = None
             __props__.__dict__["public_project_alias"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Project, __self__).__init__(
             'aws:codebuild/project:Project',
             resource_name,

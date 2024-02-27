@@ -305,8 +305,6 @@ class IpGroup(pulumi.CustomResource):
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IpGroup, __self__).__init__(
             'aws:workspaces/ipGroup:IpGroup',
             resource_name,

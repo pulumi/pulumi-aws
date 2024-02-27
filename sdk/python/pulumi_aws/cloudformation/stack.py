@@ -693,8 +693,6 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["timeout_in_minutes"] = timeout_in_minutes
             __props__.__dict__["outputs"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stack, __self__).__init__(
             'aws:cloudformation/stack:Stack',
             resource_name,

@@ -380,8 +380,6 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
             __props__.__dict__["fsx_filesystem_arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LocationFsxOntapFileSystem, __self__).__init__(
             'aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem',
             resource_name,

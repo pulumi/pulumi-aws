@@ -88,10 +88,6 @@ func NewObservabilityConfiguration(ctx *pulumi.Context,
 	if args.ObservabilityConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'ObservabilityConfigurationName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObservabilityConfiguration
 	err := ctx.RegisterResource("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, args, &resource, opts...)

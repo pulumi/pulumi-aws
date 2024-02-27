@@ -158,10 +158,6 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 	if args.CustomEndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'CustomEndpointType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterEndpoint
 	err := ctx.RegisterResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, args, &resource, opts...)

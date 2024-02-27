@@ -90,10 +90,6 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	if args.IndexName == nil {
 		return nil, errors.New("invalid value for required argument 'IndexName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaceIndex
 	err := ctx.RegisterResource("aws:location/placeIndex:PlaceIndex", name, args, &resource, opts...)

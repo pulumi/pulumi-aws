@@ -283,8 +283,6 @@ class Collection(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["face_model_version"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Collection, __self__).__init__(
             'aws:rekognition/collection:Collection',
             resource_name,

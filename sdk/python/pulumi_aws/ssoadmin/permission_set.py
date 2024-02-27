@@ -366,8 +366,6 @@ class PermissionSet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PermissionSet, __self__).__init__(
             'aws:ssoadmin/permissionSet:PermissionSet',
             resource_name,

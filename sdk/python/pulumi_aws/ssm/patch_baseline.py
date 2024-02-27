@@ -903,8 +903,6 @@ class PatchBaseline(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["json"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PatchBaseline, __self__).__init__(
             'aws:ssm/patchBaseline:PatchBaseline',
             resource_name,

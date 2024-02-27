@@ -155,7 +155,6 @@ func NewCaCertificate(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"caCertificatePem",
-		"tagsAll",
 		"verificationCertificatePem",
 	})
 	opts = append(opts, secrets)

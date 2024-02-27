@@ -131,10 +131,6 @@ func NewStack(ctx *pulumi.Context,
 		args = &StackArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
 	err := ctx.RegisterResource("aws:cloudformation/stack:Stack", name, args, &resource, opts...)

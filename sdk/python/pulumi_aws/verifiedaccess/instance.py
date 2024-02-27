@@ -316,8 +316,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["verified_access_trust_providers"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(
             'aws:verifiedaccess/instance:Instance',
             resource_name,

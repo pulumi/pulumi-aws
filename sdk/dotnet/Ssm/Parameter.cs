@@ -195,7 +195,6 @@ namespace Pulumi.Aws.Ssm
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
-                    "tagsAll",
                     "value",
                 },
             };
@@ -391,11 +390,7 @@ namespace Pulumi.Aws.Ssm
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

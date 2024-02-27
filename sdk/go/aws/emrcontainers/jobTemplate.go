@@ -87,10 +87,6 @@ func NewJobTemplate(ctx *pulumi.Context,
 	if args.JobTemplateData == nil {
 		return nil, errors.New("invalid value for required argument 'JobTemplateData'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobTemplate
 	err := ctx.RegisterResource("aws:emrcontainers/jobTemplate:JobTemplate", name, args, &resource, opts...)
