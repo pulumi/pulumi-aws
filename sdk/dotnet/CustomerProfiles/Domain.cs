@@ -80,38 +80,33 @@ namespace Pulumi.Aws.CustomerProfiles
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         Policy = Output.Tuple(exampleBucketV2.Arn, exampleBucketV2.Arn).Apply(values =&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var exampleBucketV2Arn = values.Item1;
-    ///             var exampleBucketV2Arn1 = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "Customer Profiles S3 policy",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         ["Sid"] = "Customer Profiles S3 policy",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "s3:GetObject",
-    ///                             "s3:PutObject",
-    ///                             "s3:ListBucket",
-    ///                         },
-    ///                         ["Resource"] = new[]
-    ///                         {
-    ///                             exampleBucketV2Arn,
-    ///                             $"{exampleBucketV2Arn1}/*",
-    ///                         },
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Service"] = "profile.amazonaws.com",
-    ///                         },
+    ///                         "s3:GetObject",
+    ///                         "s3:PutObject",
+    ///                         "s3:ListBucket",
+    ///                     },
+    ///                     ["Resource"] = new[]
+    ///                     {
+    ///                         exampleBucketV2.Arn,
+    ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
+    ///                     },
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "profile.amazonaws.com",
     ///                     },
     ///                 },
-    ///             });
-    ///         }),
+    ///             },
+    ///         })),
     ///     });
     /// 
     ///     var test = new Aws.CustomerProfiles.Domain("test", new()
