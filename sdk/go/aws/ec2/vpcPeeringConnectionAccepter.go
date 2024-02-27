@@ -58,6 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Requester's side of the connection.
 //			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peerVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
 //				VpcId:       main.ID(),
 //				PeerVpcId:   peerVpc.ID(),
@@ -71,6 +72,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Accepter's side of the connection.
 //			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peerVpcPeeringConnectionAccepter", &ec2.VpcPeeringConnectionAccepterArgs{
 //				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
 //				AutoAccept:             pulumi.Bool(true),

@@ -68,10 +68,10 @@ namespace Pulumi.Aws.Scheduler
     ///         {
     ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
     ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Input = exampleQueue.Url.Apply(url =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             Input = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["MessageBody"] = "Greetings, programs!",
-    ///                 ["QueueUrl"] = url,
+    ///                 ["QueueUrl"] = exampleQueue.Url,
     ///             })),
     ///         },
     ///     });
