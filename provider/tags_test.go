@@ -308,10 +308,7 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 			  "kind": "UPDATE"
 			}
 		  },
-		  "diffs":[
-			"tags",
-			"tagsAll"
-			]
+		  "diffs": ["*", "*"]
 	    }
 	  }
 	]`
